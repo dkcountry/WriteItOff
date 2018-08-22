@@ -9,8 +9,8 @@ module.exports = {
     devServer: { 
         inline: true, 
         contentBase: './dist', 
-        port: 3001, 
-        proxy: { "/**": { target: 'http://localhost:3001', secure: false }  },
+        port: 5000, 
+        proxy: { "/**": { target: 'http://localhost:5000', secure: false }  },
         historyApiFallback: true
      },
   module: {
