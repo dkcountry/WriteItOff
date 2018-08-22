@@ -4,10 +4,10 @@
   "description": "mvp",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack-dev-server --mode development --open",
+    "start": "webpack-dev-server --port 3000 --mode development --open",
     "build": "webpack --mode production"
   },
+  "proxy": "http://localhost:5000",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/dkcountry/WriteItOff.git"
