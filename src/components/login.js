@@ -37,14 +37,13 @@ class LoginPage extends React.Component {
     }
     
     handleSubmit(event) {
-        var data = new FormData();
-        data.append("email", this.state.email);
-        data.append("password", this.state.password)
-        console.log(data.get('email'))
-        console.log(data.get('password'))
         fetch('/signin', {
             method: "POST",
-            body: data
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({
+                email: this.state.email,
+                password: this.state.password
+              })
         }).then(results => {
             return results.json();
         }).then(data => {
