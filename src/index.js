@@ -1,6 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import LoginPage from "./components/login"
+import SignupPage from "./components/signup"
+import RouteHandler from "./main";
+import { BrowserRouter } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom'
+
+
 
 class App extends React.Component {
     constructor(props) {
@@ -27,12 +33,17 @@ class App extends React.Component {
         this.setState({ firstname: loginInfo.firstname });
         this.setState({ lastname: loginInfo.lastname });
     }
+    
 
     render() {
         if (this.state.isLoggedin === false) {
             return (
                 <div>
-                    <LoginPage loginCallback={this.loginCallback}/>
+                    {/* <LoginPage loginCallback={this.loginCallback}/> */}
+                    <Switch>
+                        <Route exact path='/' render={(props) => <LoginPage {...props} loginCallback={this.loginCallback}/>}/>
+                        <Route exact path='/signup' render={(props) => <SignupPage {...props} loginCallback={this.loginCallback}/>}/>
+                    </Switch>
                 </div>
             )}
         else {
@@ -45,4 +56,4 @@ class App extends React.Component {
     }
 }
 
-ReactDOM.render(<App />, document.getElementById("index"));
+ReactDOM.render(<BrowserRouter><App /></BrowserRouter>, document.getElementById("index"));

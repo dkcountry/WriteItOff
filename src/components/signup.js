@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from 'react-router-dom'
 
 
 const style = {
@@ -21,10 +20,12 @@ const btnStyle = {
     "backgroundColor": "#445c82"
 }
 
-class LoginPage extends React.Component {
+class SignupPage extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            firstname: '',
+            lastname: '',
             email: '', 
             password: ''
         };
@@ -38,10 +39,13 @@ class LoginPage extends React.Component {
     }
     
     handleSubmit(event) {
-        fetch('/signin', {
+        console.log(this.state)
+        fetch('/signup', {
             method: "POST",
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({
+                firstname: this.state.firstname,
+                lastname: this.state.lastname,
                 email: this.state.email,
                 password: this.state.password
               })
@@ -59,11 +63,21 @@ class LoginPage extends React.Component {
         <div>
             <nav style={navStyle} className="navbar navbar-dark bg-dark">
                 <div className="container">
-                <p  style={style} className="navbar-brand">Write It Off</p>
+                <p  style={style} className="navbar-brand">Sign Up</p>
                 </div>
             </nav>
-
+            
             <form style={formStyle} onSubmit={this.handleSubmit}>
+                <div className="form-group">
+                    <label htmlFor="exampleInputFirstName">First Name</label>
+                    <input onChange={this.handleChange} name="firstname" type="text" className="form-control" id="exampleInputFirstName" placeholder="Enter first name"/>
+                    {/* <small id="emailHelp" className="form-text text-muted">We'll never share your email with anyone else.</small> */}
+                </div>
+                <div className="form-group">
+                    <label htmlFor="exampleInputLastName">Last Name</label>
+                    <input onChange={this.handleChange} name="lastname" type="text" className="form-control" id="exampleInputLastName" placeholder="Enter last name"/>
+                    {/* <small id="emailHelp" className="form-text text-muted">We'll never share your email with anyone else.</small> */}
+                </div>
                 <div className="form-group">
                     <label htmlFor="exampleInputEmail1">Email address</label>
                     <input onChange={this.handleChange} name="email" type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email"/>
@@ -74,21 +88,10 @@ class LoginPage extends React.Component {
                     <input onChange={this.handleChange} name="password" type="password" className="form-control" id="exampleInputPassword1" placeholder="Password"/>
                 </div>
                 <button style={btnStyle} type="submit" className="btn btn-primary">Submit</button> 
-
-                <span style={{"paddingLeft": "10px"}}>
-                <Link to="/signup">
-                <button style={btnStyle} className="btn btn-primary">
-                    <div >
-                        Sign Up! 
-                    </div>
-                </button>
-                </Link>
-                </span>
             </form>
-
         </div>
     )}
 }
 
 
-export default LoginPage;
+export default SignupPage;
