@@ -2,7 +2,6 @@ import React from "react";
 import ReactDOM from "react-dom";
 import LoginPage from "./components/login"
 import SignupPage from "./components/signup"
-import RouteHandler from "./main";
 import { BrowserRouter } from 'react-router-dom';
 import { Switch, Route } from 'react-router-dom'
 import PlaidFace from "./components/plaidface"
