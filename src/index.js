@@ -5,7 +5,7 @@ import SignupPage from "./components/signup"
 import RouteHandler from "./main";
 import { BrowserRouter } from 'react-router-dom';
 import { Switch, Route } from 'react-router-dom'
-
+import PlaidFace from "./components/plaidface"
 
 
 class App extends React.Component {
@@ -39,6 +39,7 @@ class App extends React.Component {
         if (this.state.isLoggedin === false) {
             return (
                 <div>
+                    {/* <PlaidFace /> */}
                     {/* <LoginPage loginCallback={this.loginCallback}/> */}
                     <Switch>
                         <Route exact path='/' render={(props) => <LoginPage {...props} loginCallback={this.loginCallback}/>}/>
@@ -50,7 +51,8 @@ class App extends React.Component {
             return (
                 <div>
                     <hr></hr>
-                    Welcome, {this.state.firstname}
+                    <div> </div>Welcome, {this.state.firstname} <div/>
+                    <PlaidFace />
                 </div>
         )}
     }
