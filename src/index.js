@@ -16,7 +16,7 @@ class App extends React.Component {
     }
 
     componentDidMount() {
-        this.loginCallback({isLoggedin: "d", email: "dk", userToken: 'dkdkd'})
+        this.loginCallback({isLoggedin: false, email: "dk", userToken: 'dkdkd'})
 
     }
 
@@ -29,15 +29,19 @@ class App extends React.Component {
     }
 
     render() {
-        return (
-            <div>
-            <LoginPage loginCallback={this.loginCallback}/>
-            <div>
-                <hr></hr>
-                {this.state.lastname}
-            </div>
-            </div>
-        );
+        if (this.state.isLoggedin === false) {
+            return (
+                <div>
+                    <LoginPage loginCallback={this.loginCallback}/>
+                </div>
+            )}
+        else {
+            return (
+                <div>
+                    <hr></hr>
+                    Welcome, {this.state.firstname}
+                </div>
+        )}
     }
 }
 

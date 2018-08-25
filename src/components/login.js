@@ -48,6 +48,7 @@ class LoginPage extends React.Component {
             return results.json();
         }).then(data => {
             console.log(data)
+            console.log(data.isLoggedIn)
             this.props.loginCallback(data)
         });
         event.preventDefault();
