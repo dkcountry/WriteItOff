@@ -3,10 +3,7 @@ import PlaidLink from 'react-plaid-link';
 import React from "react";
 
 
-const PLAID_CLIENT_ID = "5b6cf13a82440e00123aa8ae";
-const PLAID_SECRET = "e1bb4fd2ba0f28bd3ffadde0804978";
 const PLAID_PUBLIC_KEY = "36bd55c50f7421ae5ef190a4fa03fd";
-const PLAID_ENV = "sandbox";
 
 
 const formStyle = {
@@ -17,21 +14,29 @@ const formStyle = {
 
 class PlaidFace extends React.Component {
     constructor(props) {
-      super(props);
+        super(props);
   
-    //   this.state = {
-    //     items: getItems(),
-    //     balance: 0,
-    //     loading: false,
-    //     error: null,
-    //   };
-  
-    // this.client = new plaid.Client(
-    //     PLAID_CLIENT_ID,
-    //     PLAID_SECRET,
-    //     PLAID_PUBLIC_KEY,
-    //     plaid.environments.sandbox
-    //   );
+        this.handleOnSuccess = this.handleOnSuccess.bind(this)
+    }
+
+    handleOnSuccess(publicToken, metadata) {
+        console.log(publicToken);
+        this.getAccessToken(publicToken);
+    }
+
+    getAccessToken(publicToken) {
+        fetch('/get_access_token', {
+            method: "POST",
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({
+                public_token: publicToken
+              })
+        }).then(results => {
+            return results.json();
+        }).then(data => {
+            this.props.plaidCallback(data)
+        });
+        event.preventDefault();
     }
 
     render() {
@@ -43,7 +48,7 @@ class PlaidFace extends React.Component {
                     env="sandbox"
                     apiVersion={'v2'}
                     clientName="Spend Tracker"
-                    onSuccess={() => (console.log('success'))}
+                    onSuccess={this.handleOnSuccess}
                 >
                         Open Link and connect your bank!
                 </PlaidLink>
