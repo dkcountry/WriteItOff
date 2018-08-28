@@ -17,7 +17,7 @@ class App extends React.Component {
             firstname: null,
             lastname: null,
             accessTokens: [],
-            items: []
+            items: [],
         };    
         this.loginCallback = this.loginCallback.bind(this);
         this.plaidCallback = this.plaidCallback.bind(this);
@@ -40,7 +40,6 @@ class App extends React.Component {
         this.setState({ accessTokens: [...this.state.accessTokens, plaidInfo.accessToken] })
         this.setState({ items: [...this.state.items, plaidInfo.itemId] })
     }
-    
 
     render() {
         const viewItems = [];
@@ -78,7 +77,7 @@ class App extends React.Component {
                     <div>{viewItems}</div>
                     <div>{viewTokens}</div>
 
-                    <PlaidFace plaidCallback={this.plaidCallback}/>
+                    <PlaidFace plaidCallback={this.plaidCallback} email={this.state.email}/>
                 </div>
         )}
     }

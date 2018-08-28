@@ -15,12 +15,29 @@ const formStyle = {
 class PlaidFace extends React.Component {
     constructor(props) {
         super(props);
-  
+        this.state = {
+            institutionName: null,
+            institutionId: null,
+            accountId: null,
+            accountType: null,
+            accountSubType: null
+        }
+
+        this.metadataCallback = this.metadataCallback.bind(this);
         this.handleOnSuccess = this.handleOnSuccess.bind(this)
+    }
+
+    metadataCallback(metadata) {
+        this.setState({ institutionName: metadata.institution.name });
+        this.setState({ institutionId: metadata.institution.institution_id });
+        this.setState({ accountId: metadata.accounts.id });
+        this.setState({ accountType: metadata.accounts.type });
+        this.setState({ accountSubType: metadata.accounts.subtype });
     }
 
     handleOnSuccess(publicToken, metadata) {
         console.log(publicToken);
+        this.metadataCallback(metadata);
         this.getAccessToken(publicToken);
     }
 
@@ -29,7 +46,13 @@ class PlaidFace extends React.Component {
             method: "POST",
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({
-                public_token: publicToken
+                public_token: publicToken,
+                email: this.props.email,
+                institution_name: this.state.institutionName,
+                institution_id: this.state.institutionId,
+                account_id: this.state.accountId,
+                account_type: this.state.accountType,
+                account_subtype: this.state.accountSubType
               })
         }).then(results => {
             return results.json();
