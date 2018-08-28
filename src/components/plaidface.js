@@ -47,7 +47,7 @@ class PlaidFace extends React.Component {
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({
                 public_token: publicToken,
-                email: this.props.email,
+                phone: this.props.phone,
                 institution_name: this.state.institutionName,
                 institution_id: this.state.institutionId,
                 account_id: this.state.accountId,

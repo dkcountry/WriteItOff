@@ -27,6 +27,7 @@ class SignupPage extends React.Component {
             firstname: '',
             lastname: '',
             email: '', 
+            phone: '',
             password: ''
         };
         this.handleChange = this.handleChange.bind(this);
@@ -47,6 +48,7 @@ class SignupPage extends React.Component {
                 firstname: this.state.firstname,
                 lastname: this.state.lastname,
                 email: this.state.email,
+                phone: this.state.phone,
                 password: this.state.password
               })
         }).then(results => {
@@ -71,17 +73,18 @@ class SignupPage extends React.Component {
                 <div className="form-group">
                     <label htmlFor="exampleInputFirstName">First Name</label>
                     <input onChange={this.handleChange} name="firstname" type="text" className="form-control" id="exampleInputFirstName" placeholder="Enter first name"/>
-                    {/* <small id="emailHelp" className="form-text text-muted">We'll never share your email with anyone else.</small> */}
                 </div>
                 <div className="form-group">
                     <label htmlFor="exampleInputLastName">Last Name</label>
                     <input onChange={this.handleChange} name="lastname" type="text" className="form-control" id="exampleInputLastName" placeholder="Enter last name"/>
-                    {/* <small id="emailHelp" className="form-text text-muted">We'll never share your email with anyone else.</small> */}
+                </div>
+                <div className="form-group">
+                    <label htmlFor="exampleInputPhone">Phone Number</label>
+                    <input onChange={this.handleChange} name="phone" type="text" className="form-control" id="exampleInputPhone" placeholder="Enter Phone #"/>
                 </div>
                 <div className="form-group">
                     <label htmlFor="exampleInputEmail1">Email address</label>
                     <input onChange={this.handleChange} name="email" type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email"/>
-                    {/* <small id="emailHelp" className="form-text text-muted">We'll never share your email with anyone else.</small> */}
                 </div>
                 <div className="form-group">
                     <label htmlFor="exampleInputPassword1">Password</label>

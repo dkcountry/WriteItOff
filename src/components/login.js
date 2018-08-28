@@ -25,7 +25,7 @@ class LoginPage extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            email: '', 
+            phone: '', 
             password: ''
         };
         this.handleChange = this.handleChange.bind(this);
@@ -42,7 +42,7 @@ class LoginPage extends React.Component {
             method: "POST",
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({
-                email: this.state.email,
+                phone: this.state.phone,
                 password: this.state.password
               })
         }).then(results => {
@@ -65,9 +65,9 @@ class LoginPage extends React.Component {
 
             <form style={formStyle} onSubmit={this.handleSubmit}>
                 <div className="form-group">
-                    <label htmlFor="exampleInputEmail1">Email address</label>
-                    <input onChange={this.handleChange} name="email" type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email"/>
-                    {/* <small id="emailHelp" className="form-text text-muted">We'll never share your email with anyone else.</small> */}
+                    <label htmlFor="exampleInputPhone1">Login</label>
+                    <input onChange={this.handleChange} name="phone" className="form-control" id="exampleInputPhone1" aria-describedby="emailHelp" placeholder="Enter phone #"/>
+                    {/* <small id="phoneHelp" className="form-text text-muted">We'll never share your phone with anyone else.</small> */}
                 </div>
                 <div className="form-group">
                     <label htmlFor="exampleInputPassword1">Password</label>

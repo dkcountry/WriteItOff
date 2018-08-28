@@ -12,7 +12,7 @@ class App extends React.Component {
         super(props);
         this.state = {
             isLoggedin: false,
-            email: null,
+            phone: null,
             userToken: null,
             firstname: null,
             lastname: null,
@@ -24,13 +24,13 @@ class App extends React.Component {
     }
 
     componentDidMount() {
-        this.loginCallback({isLoggedin: false, email: "dk", userToken: 'dkdkd'})
+        this.loginCallback({isLoggedin: false, phone: "dk", userToken: 'dkdkd'})
 
     }
 
     loginCallback(loginInfo) {
         this.setState({ isLoggedin: loginInfo.isLoggedin });
-        this.setState({ email: loginInfo.email });
+        this.setState({ phone: loginInfo.phone });
         this.setState({ userToken: loginInfo.userToken });
         this.setState({ firstname: loginInfo.firstname });
         this.setState({ lastname: loginInfo.lastname });
@@ -77,7 +77,7 @@ class App extends React.Component {
                     <div>{viewItems}</div>
                     <div>{viewTokens}</div>
 
-                    <PlaidFace plaidCallback={this.plaidCallback} email={this.state.email}/>
+                    <PlaidFace plaidCallback={this.plaidCallback} phone={this.state.phone}/>
                 </div>
         )}
     }
