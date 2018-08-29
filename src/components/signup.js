@@ -41,7 +41,7 @@ class SignupPage extends React.Component {
     
     handleSubmit(event) {
         console.log(this.state)
-        fetch('/signup', {
+        fetch('https://writeitoff.herokuapp.com/signup', {
             method: "POST",
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({

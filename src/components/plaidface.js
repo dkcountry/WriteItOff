@@ -42,7 +42,7 @@ class PlaidFace extends React.Component {
     }
 
     getAccessToken(publicToken) {
-        fetch('/get_access_token', {
+        fetch('https://writeitoff.herokuapp.com/get_access_token', {
             method: "POST",
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({

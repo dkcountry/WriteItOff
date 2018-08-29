@@ -38,7 +38,7 @@ class LoginPage extends React.Component {
     }
     
     handleSubmit(event) {
-        fetch('/signin', {
+        fetch('https://writeitoff.herokuapp.com/signin', {
             method: "POST",
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({
