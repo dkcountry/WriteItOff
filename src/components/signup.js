@@ -68,8 +68,8 @@ class SignupPage extends React.Component {
                 </div>
             </nav>
 
-            <div class="container"> 
-                <div class="row justify-content-sm-center">
+            <div className="container"> 
+                <div className="row justify-content-sm-center">
                     <div className="col-lg-5 text-justify">
                         Welcome to the private beta invite of Write It Off. Our site might not be pretty yet, but who cares when we’re saving you a heck of a lot on taxes — for free!
                     </div>
@@ -93,7 +93,7 @@ class SignupPage extends React.Component {
                     <label htmlFor="exampleInputPassword1">Password</label>
                     <input onChange={this.handleChange} name="password" type="password" className="form-control" id="exampleInputPassword1" placeholder="At least 6 characters"/>
                 </div>
-                <div class="col-md-auto text-center"> 
+                <div className="col-md-auto text-center"> 
                     <button style={btnStyle} type="submit" className="btn btn-primary">Goodbye, tax stress!</button>
                 </div> 
             </form>
