@@ -1,13 +1,16 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 
 const style = {
     "margin": "auto",
-    "fontSize": "40px"
+    "fontSize": "40px",
+    "paddingBottom": "25px",
+    "paddingTop": "25px"
 }
 
 const navStyle = {
-    "height": "200px"
+    "height": "50px",
 }
 
 const formStyle = {
@@ -17,7 +20,7 @@ const formStyle = {
 }
 
 const btnStyle = {
-    "backgroundColor": "#445c82"
+    "backgroundColor": "#445c82",
 }
 
 class SignupPage extends React.Component {
@@ -62,16 +65,18 @@ class SignupPage extends React.Component {
     render() {
         return (
         <div>
-            <nav style={navStyle} className="navbar navbar-light">
-                <div className="container">
-                <p  style={style} className="navbar-brand bold">You're invited!</p>
-                </div>
+            <nav style={navStyle} className="navbar justify-content-between">
+                <a className="navbar-brand"></a>
+                <Link to="/login">
+                    <h className="text-secondary">login</h>
+                </Link>
             </nav>
 
             <div className="container"> 
+                <h1  style={style} className="bold text-center">Pssst! You're invited.</h1>
                 <div className="row justify-content-sm-center">
                     <div className="col-lg-5 text-justify">
-                        Welcome to the private beta invite of Write It Off. Our site might not be pretty yet, but who cares when we’re saving you a heck of a lot on taxes — for free!
+                        Welcome to the private beta for Write It Off. Our site might not be pretty yet, but who cares when we’re saving you a heck of a lot on taxes — for free!
                     </div>
                 </div>
             </div>
@@ -94,7 +99,7 @@ class SignupPage extends React.Component {
                     <input onChange={this.handleChange} name="password" type="password" className="form-control" id="exampleInputPassword1" placeholder="At least 6 characters"/>
                 </div>
                 <div className="col-md-auto text-center"> 
-                    <button style={btnStyle} type="submit" className="btn btn-primary">Goodbye, tax stress!</button>
+                    <button style={btnStyle} type="submit" className="btn btn-primary btn-lg btn-block">Goodbye, tax stress!</button>
                 </div> 
             </form>
         </div>

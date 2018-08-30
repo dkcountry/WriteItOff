@@ -8,7 +8,9 @@ const style = {
 }
 
 const navStyle = {
-    "height": "200px"
+    "height": "50px",
+    "backgroundColor": "#445c82",
+    "color": "white"
 }
 
 const formStyle = {
@@ -57,10 +59,11 @@ class LoginPage extends React.Component {
     render() {
         return (
         <div>
-            <nav style={navStyle} className="navbar navbar-dark bg-dark">
-                <div className="container">
-                <p  style={style} className="navbar-brand">Write It Off</p>
-                </div>
+            <nav style={navStyle} className="navbar justify-content-between">
+                <a className="navbar-brand">Write It Off</a>
+                <Link to="/">
+                    signup
+                </Link>
             </nav>
 
             <form style={formStyle} onSubmit={this.handleSubmit}>
@@ -73,17 +76,9 @@ class LoginPage extends React.Component {
                     <label htmlFor="exampleInputPassword1">Password</label>
                     <input onChange={this.handleChange} name="password" type="password" className="form-control" id="exampleInputPassword1" placeholder="Password"/>
                 </div>
-                <button style={btnStyle} type="submit" className="btn btn-primary">Submit</button> 
-
-                <span style={{"paddingLeft": "10px"}}>
-                <Link to="/signup">
-                <button style={btnStyle} className="btn btn-primary">
-                    <div >
-                        Sign Up! 
-                    </div>
-                </button>
-                </Link>
-                </span>
+                <div className="col-md-auto text-center"> 
+                    <button style={btnStyle} type="submit" className="btn btn-primary">Log in</button>
+                </div> 
             </form>
 
         </div>
