@@ -25,8 +25,7 @@ class SignupPage extends React.Component {
         super(props);
         this.state = {
             firstname: '',
-            lastname: '',
-            email: '', 
+            lastname: '', 
             phone: '',
             password: ''
         };
@@ -63,34 +62,40 @@ class SignupPage extends React.Component {
     render() {
         return (
         <div>
-            <nav style={navStyle} className="navbar navbar-dark bg-dark">
+            <nav style={navStyle} className="navbar navbar-light">
                 <div className="container">
-                <p  style={style} className="navbar-brand">Sign Up</p>
+                <p  style={style} className="navbar-brand bold">You're invited!</p>
                 </div>
             </nav>
+
+            <div className="container"> 
+                <div className="row justify-content-sm-center">
+                    <div className="col-lg-5 text-justify">
+                        Welcome to the private beta invite of Write It Off. Our site might not be pretty yet, but who cares when we’re saving you a heck of a lot on taxes — for free!
+                    </div>
+                </div>
+            </div>
             
             <form style={formStyle} onSubmit={this.handleSubmit}>
                 <div className="form-group">
-                    <label htmlFor="exampleInputFirstName">First Name</label>
-                    <input onChange={this.handleChange} name="firstname" type="text" className="form-control" id="exampleInputFirstName" placeholder="Enter first name"/>
+                    <label htmlFor="exampleInputFirstName">First name</label>
+                    <input onChange={this.handleChange} name="firstname" type="text" className="form-control" id="exampleInputFirstName" placeholder="Warren"/>
                 </div>
                 <div className="form-group">
-                    <label htmlFor="exampleInputLastName">Last Name</label>
-                    <input onChange={this.handleChange} name="lastname" type="text" className="form-control" id="exampleInputLastName" placeholder="Enter last name"/>
+                    <label htmlFor="exampleInputLastName">Last name</label>
+                    <input onChange={this.handleChange} name="lastname" type="text" className="form-control" id="exampleInputLastName" placeholder="Buffet"/>
                 </div>
                 <div className="form-group">
-                    <label htmlFor="exampleInputPhone">Phone Number</label>
-                    <input onChange={this.handleChange} name="phone" type="text" className="form-control" id="exampleInputPhone" placeholder="Enter Phone #"/>
-                </div>
-                <div className="form-group">
-                    <label htmlFor="exampleInputEmail1">Email address</label>
-                    <input onChange={this.handleChange} name="email" type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email"/>
+                    <label htmlFor="exampleInputPhone">Phone number (so we can text you updates)</label>
+                    <input onChange={this.handleChange} name="phone" type="text" className="form-control" id="exampleInputPhone" placeholder="(123) 456 7890"/>
                 </div>
                 <div className="form-group">
                     <label htmlFor="exampleInputPassword1">Password</label>
-                    <input onChange={this.handleChange} name="password" type="password" className="form-control" id="exampleInputPassword1" placeholder="Password"/>
+                    <input onChange={this.handleChange} name="password" type="password" className="form-control" id="exampleInputPassword1" placeholder="At least 6 characters"/>
                 </div>
-                <button style={btnStyle} type="submit" className="btn btn-primary">Submit</button> 
+                <div className="col-md-auto text-center"> 
+                    <button style={btnStyle} type="submit" className="btn btn-primary">Goodbye, tax stress!</button>
+                </div> 
             </form>
         </div>
     )}
