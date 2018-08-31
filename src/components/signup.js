@@ -6,7 +6,8 @@ const style = {
     "margin": "auto",
     "fontSize": "40px",
     "paddingBottom": "25px",
-    "paddingTop": "25px"
+    "paddingTop": "25px",
+    "fontWeight": "bold"
 }
 
 const navStyle = {
@@ -14,13 +15,15 @@ const navStyle = {
 }
 
 const formStyle = {
-    "paddingLeft": "37%",
-    "paddingRight": "37%",
-    "paddingTop": "50px"
+    "paddingTop": "50px",
+    "fontWeight": "bold"
 }
 
-const btnStyle = {
-    "backgroundColor": "#445c82",
+const btnStyle = { 
+    "display":"inline-block",
+    "marginTop": "25px",
+    "fontWeight": "bold",
+    "backgroundColor": "#445c82"
 }
 
 class SignupPage extends React.Component {
@@ -68,40 +71,61 @@ class SignupPage extends React.Component {
             <nav style={navStyle} className="navbar justify-content-between">
                 <a className="navbar-brand"></a>
                 <Link to="/login">
-                    <h className="text-secondary">login</h>
+                    <p className="text-secondary">log in</p>
                 </Link>
             </nav>
 
-            <div className="container"> 
-                <h1  style={style} className="bold text-center">Pssst! You're invited.</h1>
-                <div className="row justify-content-sm-center">
-                    <div className="col-lg-5 text-justify">
-                        Welcome to the private beta for Write It Off. Our site might not be pretty yet, but who cares when we’re saving you a heck of a lot on taxes — for free!
+            <div className="container">
+                
+                <div className="row align-items-start">
+                    <div className="col">
+                    </div>
+                    <div className="col-6 text-center" >
+                        <div className="container"> 
+                            <p style={style} className="bold text-center">Pssst! You're invited. </p>
+                            <div className="row justify-content-sm-center">
+                                <div className="text-justify">
+                                    Welcome to the private beta for Write It Off. Our site might not be pretty yet, but who cares when we’re saving you a heck of a lot on taxes — for free!
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="col">
+                    </div>
+                </div>
+
+                <div className="row align-items-end">
+                    <div className="col">
+                    </div>
+                    <div className="col-6" >
+                        <form style={formStyle} onSubmit={this.handleSubmit}>
+                            <div className="form-group">
+                                <label htmlFor="exampleInputFirstName">First name</label>
+                                <input onChange={this.handleChange} name="firstname" type="text" className="form-control" id="exampleInputFirstName" placeholder="Warren"/>
+                            </div>
+                            <div className="form-group">
+                                <label htmlFor="exampleInputLastName">Last name</label>
+                                <input onChange={this.handleChange} name="lastname" type="text" className="form-control" id="exampleInputLastName" placeholder="Buffet"/>
+                            </div>
+                            <div className="form-group">
+                                <label htmlFor="exampleInputPhone">Phone number</label>
+                                <input onChange={this.handleChange} name="phone" type="text" className="form-control" id="exampleInputPhone" placeholder="(123) 456 7890"/>
+                            </div>
+                            <div className="form-group">
+                                <label htmlFor="exampleInputPassword1">Password</label>
+                                <input onChange={this.handleChange} name="password" type="password" className="form-control" id="exampleInputPassword1" placeholder="At least 6 characters"/>
+                            </div>
+                            <div className="col-md-auto text-center"> 
+                                <button style={btnStyle} type="submit" className="btn btn-primary btn-lg">
+                                    Goodbye, tax stress
+                                </button>
+                            </div> 
+                        </form>
+                    </div>
+                    <div className="col">
                     </div>
                 </div>
             </div>
-            
-            <form style={formStyle} onSubmit={this.handleSubmit}>
-                <div className="form-group">
-                    <label htmlFor="exampleInputFirstName">First name</label>
-                    <input onChange={this.handleChange} name="firstname" type="text" className="form-control" id="exampleInputFirstName" placeholder="Warren"/>
-                </div>
-                <div className="form-group">
-                    <label htmlFor="exampleInputLastName">Last name</label>
-                    <input onChange={this.handleChange} name="lastname" type="text" className="form-control" id="exampleInputLastName" placeholder="Buffet"/>
-                </div>
-                <div className="form-group">
-                    <label htmlFor="exampleInputPhone">Phone number (so we can text you updates)</label>
-                    <input onChange={this.handleChange} name="phone" type="text" className="form-control" id="exampleInputPhone" placeholder="(123) 456 7890"/>
-                </div>
-                <div className="form-group">
-                    <label htmlFor="exampleInputPassword1">Password</label>
-                    <input onChange={this.handleChange} name="password" type="password" className="form-control" id="exampleInputPassword1" placeholder="At least 6 characters"/>
-                </div>
-                <div className="col-md-auto text-center"> 
-                    <button style={btnStyle} type="submit" className="btn btn-primary btn-lg btn-block">Goodbye, tax stress!</button>
-                </div> 
-            </form>
         </div>
     )}
 }
