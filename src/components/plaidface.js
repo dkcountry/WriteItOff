@@ -24,7 +24,8 @@ class PlaidFace extends React.Component {
         }
 
         this.metadataCallback = this.metadataCallback.bind(this);
-        this.handleOnSuccess = this.handleOnSuccess.bind(this)
+        this.handleOnSuccess = this.handleOnSuccess.bind(this);
+        this.getBankSummary = this.getBankSummary.bind(this);
     }
 
     metadataCallback(metadata) {
@@ -35,6 +36,21 @@ class PlaidFace extends React.Component {
         this.setState({ accountSubType: metadata.accounts.subtype });
     }
 
+    getBankSummary() {
+        fetch('/get_bank_summary', {
+            method: "POST",
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({
+                phone: this.props.phone,
+                password: this.props.userToken
+              })
+        }).then(results => {
+            return results.json();
+        }).then(data => {
+            console.log(data)
+        })
+    }
+
     handleOnSuccess(publicToken, metadata) {
         console.log(publicToken);
         this.metadataCallback(metadata);
@@ -42,7 +58,7 @@ class PlaidFace extends React.Component {
     }
 
     getAccessToken(publicToken) {
-        fetch('https://writeitoff.herokuapp.com/get_access_token', {
+        fetch('/get_access_token', {
             method: "POST",
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({
@@ -60,6 +76,10 @@ class PlaidFace extends React.Component {
             this.props.plaidCallback(data)
         });
         event.preventDefault();
+    }
+
+    componentWillUpdate() {
+        this.getBankSummary();
     }
 
     render() {

@@ -76,8 +76,9 @@ class App extends React.Component {
                     <div> </div>Welcome, {this.state.firstname} <div/>
                     <div>{viewItems}</div>
                     <div>{viewTokens}</div>
+                    {this.state.userToken}
 
-                    <PlaidFace plaidCallback={this.plaidCallback} phone={this.state.phone}/>
+                    <PlaidFace plaidCallback={this.plaidCallback} phone={this.state.phone} userToken={this.state.userToken}/>
                 </div>
         )}
     }
