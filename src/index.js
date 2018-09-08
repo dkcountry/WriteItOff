@@ -6,6 +6,7 @@ import { BrowserRouter } from 'react-router-dom';
 import { Switch, Route } from 'react-router-dom';
 import PlaidFace from "./components/plaidface";
 import Footer from "./components/footer";
+import * as styles from "./styles";
 
 class App extends React.Component {
     constructor(props) {
@@ -37,10 +38,14 @@ class App extends React.Component {
         if (this.state.isLoggedin === false) {
             return (
                 <div>
-                    <Switch>
-                        <Route exact path='/' render={(props) => <SignupPage {...props} loginCallback={this.loginCallback}/>}/>
-                        <Route exact path='/login' render={(props) => <LoginPage {...props} loginCallback={this.loginCallback}/>}/>
-                    </Switch>
+                    <div style={styles.wrap}>
+                        <div style={styles.main} className="container clear-top">
+                            <Switch>
+                                <Route exact path='/' render={(props) => <SignupPage {...props} loginCallback={this.loginCallback}/>}/>
+                                <Route exact path='/login' render={(props) => <LoginPage {...props} loginCallback={this.loginCallback}/>}/>
+                            </Switch>
+                        </div>
+                    </div>
                     <Footer />
                 </div>
             )}

@@ -31,7 +31,7 @@ export const colStyle = {
 }
 
 export const containerStyle = { 
-    "minWidth": "320px"
+    "minWidth": "320px",    
 }
 
 export const bankCard = {
@@ -42,10 +42,6 @@ export const bankList = {
 	"marginTop": "25px"
 }
 
-export const footerStyle = {
-    "paddingTop": "50px",
-}
-
-export const footerLinks = {
-    "display": "flex"
+export const footer = {
+    "marginTop": "25px"
 }
