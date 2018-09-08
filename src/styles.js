@@ -36,3 +36,11 @@ export const colStyle = {
 export const containerStyle = { 
     "minWidth": "320px"
 }
+
+export const footerStyle = {
+    "paddingTop": "50px",
+}
+
+export const footerLinks = {
+    "display": "flex"
+}
