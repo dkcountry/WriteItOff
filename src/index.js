@@ -16,11 +16,8 @@ class App extends React.Component {
             userToken: null,
             firstname: null,
             lastname: null,
-            accessTokens: [],
-            items: [],
         };    
         this.loginCallback = this.loginCallback.bind(this);
-        this.plaidCallback = this.plaidCallback.bind(this);
     }
 
     componentDidMount() {
@@ -36,30 +33,7 @@ class App extends React.Component {
         this.setState({ lastname: loginInfo.lastname });
     }
 
-    plaidCallback(plaidInfo) {
-        this.setState({ accessTokens: [...this.state.accessTokens, plaidInfo.accessToken] })
-        this.setState({ items: [...this.state.items, plaidInfo.itemId] })
-    }
-
     render() {
-        const viewItems = [];
-        for (let item in this.state.items) {
-            viewItems.push(
-                <div  key={item} className="col-sm-12">
-                    {this.state.items[item]}
-                </div>
-            )
-        }
-        const viewTokens = [];
-        for (let item in this.state.accessTokens) {
-            viewTokens.push(
-                <div  key={item} className="col-sm-12">
-                    {this.state.accessTokens[item]}
-                </div>
-            )
-        }
-
-
         if (this.state.isLoggedin === false) {
             return (
                 <div>
@@ -72,13 +46,7 @@ class App extends React.Component {
         else {
             return (
                 <div>
-                    <hr></hr>
-                    <div> </div>Welcome, {this.state.firstname} <div/>
-                    <div>{viewItems}</div>
-                    <div>{viewTokens}</div>
-                    {this.state.userToken}
-
-                    <PlaidFace plaidCallback={this.plaidCallback} phone={this.state.phone} userToken={this.state.userToken}/>
+                    <PlaidFace firstname={this.state.firstname} phone={this.state.phone} userToken={this.state.userToken}/>
                 </div>
         )}
     }
