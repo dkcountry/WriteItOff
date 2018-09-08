@@ -1,30 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
-
-const style = {
-    "margin": "auto",
-    "fontSize": "40px",
-    "paddingBottom": "25px",
-    "paddingTop": "25px",
-    "fontWeight": "bold"
-}
-
-const navStyle = {
-    "height": "50px",
-}
-
-const formStyle = {
-    "paddingTop": "50px",
-    "fontWeight": "bold"
-}
-
-const btnStyle = { 
-    "display":"inline-block",
-    "marginTop": "25px",
-    "fontWeight": "bold",
-    "backgroundColor": "#445c82"
-}
+import * as styles from "../styles";
 
 class SignupPage extends React.Component {
     constructor(props) {
@@ -68,21 +44,19 @@ class SignupPage extends React.Component {
     render() {
         return (
         <div>
-            <nav style={navStyle} className="navbar justify-content-between">
+            <nav style={styles.navStyle} className="navbar justify-content-between">
                 <a className="navbar-brand"></a>
                 <Link to="/login">
                     <p className="text-secondary">log in</p>
                 </Link>
             </nav>
 
-            <div className="container">
+            <div style={styles.containerStyle} className="container">
                 
                 <div className="row align-items-start">
-                    <div className="col">
-                    </div>
-                    <div className="col-6 text-center" >
+                    <div style={styles.colStyle} className="col-6 text-center" >
                         <div className="container"> 
-                            <p style={style} className="bold text-center">Pssst! You're invited. </p>
+                            <p style={styles.title} className="bold text-center">Pssst! You're invited. </p>
                             <div className="row justify-content-sm-center">
                                 <div className="text-justify">
                                     Welcome to the private beta for Write It Off. Our site might not be pretty yet, but who cares when we’re saving you a heck of a lot on taxes — for free!
@@ -90,15 +64,11 @@ class SignupPage extends React.Component {
                             </div>
                         </div>
                     </div>
-                    <div className="col">
-                    </div>
                 </div>
 
                 <div className="row align-items-end">
-                    <div className="col">
-                    </div>
-                    <div className="col-6" >
-                        <form style={formStyle} onSubmit={this.handleSubmit}>
+                    <div style={styles.colStyle} className="col-6" >
+                        <form style={styles.formStyle} onSubmit={this.handleSubmit}>
                             <div className="form-group">
                                 <label htmlFor="exampleInputFirstName">First name</label>
                                 <input onChange={this.handleChange} name="firstname" type="text" className="form-control" id="exampleInputFirstName" placeholder="Warren"/>
@@ -116,13 +86,11 @@ class SignupPage extends React.Component {
                                 <input onChange={this.handleChange} name="password" type="password" className="form-control" id="exampleInputPassword1" placeholder="At least 6 characters"/>
                             </div>
                             <div className="col-md-auto text-center"> 
-                                <button style={btnStyle} type="submit" className="btn btn-primary btn-lg">
+                                <button style={styles.btnStyle} type="submit" className="btn btn-primary btn-lg">
                                     Goodbye, tax stress
                                 </button>
                             </div> 
                         </form>
-                    </div>
-                    <div className="col">
                     </div>
                 </div>
             </div>
