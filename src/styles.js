@@ -21,10 +21,7 @@ export const btnStyle = {
     "marginTop": "25px",
     "fontWeight": "bold",
     "backgroundColor": "#445c82",
-    "border": "none",
-    "&:hover": {
-    	"marginTop":'1000px'
-    }
+    "border": "none"
 }
 
 export const colStyle = { 
@@ -35,6 +32,14 @@ export const colStyle = {
 
 export const containerStyle = { 
     "minWidth": "320px"
+}
+
+export const bankCard = {
+	"marginTop": "10px"
+}
+
+export const bankList = {
+	"marginTop": "25px"
 }
 
 export const footerStyle = {

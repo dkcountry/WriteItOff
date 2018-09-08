@@ -1,6 +1,8 @@
 import plaid from 'plaid';
 import PlaidLink from 'react-plaid-link';
 import React from "react";
+import { Link } from 'react-router-dom';
+import * as styles from "../styles";
 
 
 const PLAID_PUBLIC_KEY = "36bd55c50f7421ae5ef190a4fa03fd";
@@ -92,29 +94,71 @@ class PlaidFace extends React.Component {
         const viewBanks = [];
         for (let bank in this.state.allBanks) {
             viewBanks.push(
-                <div  key={bank} className="col-sm-12">
-                    {this.state.allBanks[bank]}
+                <div  key={bank} style={styles.bankCard} className="card text-left col-12">
+                    <div className="card-body">
+                        <h5 className="card-title">
+                            {this.state.allBanks[bank]}
+                        </h5>
+                        <h6 className="card-subtitle mb-2 text-muted">
+                            All debit and credit card purchases included.
+                        </h6>
+                    </div>
                 </div>
             )
         }
         return (
             <div>
-                <div> </div>Welcome, {this.props.firstname} <div/>
-                <div>
-                    {viewBanks}
-                </div>
-                <div style={formStyle}>
-                    <PlaidLink
-                        publicKey={PLAID_PUBLIC_KEY}
-                        product={["auth", "transactions"]}
-                        env="development"
-                        apiVersion={'v2'}
-                        clientName="Spend Tracker"
-                        onSuccess={this.handleOnSuccess}
-                    >
-                            Connect your bank!
-                    </PlaidLink>
-                </div>
+                <nav style={styles.navStyle} className="navbar justify-content-between">
+                    <a className="navbar-brand"></a>
+                    <Link to="/login">
+                        <p className="text-secondary">log out</p>
+                    </Link>
+                </nav>
+
+                <div style={styles.containerStyle} className="container">
+
+                    <div className="row align-items-start">
+                        <div style={styles.colStyle} className="col-6 text-center" >
+                            <div className="container"> 
+                                <p style={styles.title} className="bold text-center">Which transactions should we scan? </p>
+                                <div className="row justify-content-sm-center">
+                                    <div className="text-justify">
+                                        Write It Off automatically finds tax write offs among your purchase history. Please link any financial institutions you use below. 
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style={styles.bankList} className="container">
+                        <div className="row align-items-middle">
+                            <div style={styles.colStyle} className="col-6 text-center" >
+                                {viewBanks}
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className="row align-items-end">
+                        <div style={styles.colStyle} className="col-6 text-center" >
+                            <div className="container"> 
+                                <div style={styles.formStyle}>
+                                    <PlaidLink
+                                        style={styles.btnStyle}
+                                        className="btn btn-primary btn-lg"
+                                        publicKey={PLAID_PUBLIC_KEY}
+                                        product={["auth", "transactions"]}
+                                        env="development"
+                                        apiVersion={'v2'}
+                                        clientName="Spend Tracker"
+                                        onSuccess={this.handleOnSuccess}
+                                    >
+                                        Link financial institution
+                                    </PlaidLink>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>             
             </div>
     )
     }
