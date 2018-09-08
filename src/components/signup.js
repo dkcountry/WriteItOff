@@ -21,7 +21,6 @@ class SignupPage extends React.Component {
     }
     
     handleSubmit(event) {
-        console.log(this.state)
         fetch('https://writeitoff.herokuapp.com/signup', {
             method: "POST",
             headers: {'Content-Type': 'application/json'},
@@ -35,7 +34,6 @@ class SignupPage extends React.Component {
         }).then(results => {
             return results.json();
         }).then(data => {
-            console.log(data)
             this.props.loginCallback(data)
         });
         event.preventDefault();

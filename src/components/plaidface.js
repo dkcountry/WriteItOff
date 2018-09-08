@@ -1,4 +1,3 @@
-import plaid from 'plaid';
 import PlaidLink from 'react-plaid-link';
 import React from "react";
 import { Link } from 'react-router-dom';
@@ -7,12 +6,6 @@ import * as styles from "../styles";
 
 const PLAID_PUBLIC_KEY = "36bd55c50f7421ae5ef190a4fa03fd";
 
-
-const formStyle = {
-    "paddingLeft": "37%",
-    "paddingRight": "37%",
-    "paddingTop": "50px"
-}
 
 class PlaidFace extends React.Component {
     constructor(props) {
@@ -28,6 +21,11 @@ class PlaidFace extends React.Component {
         this.metadataCallback = this.metadataCallback.bind(this);
         this.handleOnSuccess = this.handleOnSuccess.bind(this);
         this.getBankSummary = this.getBankSummary.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+    }
+
+    handleSubmit(event) {
+        this.props.logoutCallback();
     }
 
     metadataCallback(metadata) {
@@ -54,7 +52,6 @@ class PlaidFace extends React.Component {
                 accts.push(data[acct]["institution_name"])
             }
             this.setState({allBanks: [...accts]})
-            console.log(data)
         })
     }
 
@@ -63,7 +60,6 @@ class PlaidFace extends React.Component {
     }
 
     handleOnSuccess(publicToken, metadata) {
-        console.log(publicToken);
         this.metadataCallback(metadata);
         this.getAccessToken(publicToken);
     }
@@ -84,7 +80,6 @@ class PlaidFace extends React.Component {
         }).then(results => {
             return results.json();
         }).then(data => {
-            console.log(data)
             this.getBankSummary(this.props)
         });
         event.preventDefault();
@@ -110,9 +105,11 @@ class PlaidFace extends React.Component {
             <div>
                 <nav style={styles.navStyle} className="navbar justify-content-between">
                     <a className="navbar-brand"></a>
-                    <Link to="/login">
-                        <p className="text-secondary">log out</p>
-                    </Link>
+                    <form onSubmit={this.handleSubmit}>
+                            <button style={styles.logoutBtnFormat} type="submit">
+                                <p className="text-secondary">log out</p>
+                            </button>
+                    </form>
                 </nav>
 
                 <div style={styles.containerStyle} className="container">

@@ -29,7 +29,6 @@ class LoginPage extends React.Component {
         }).then(results => {
             return results.json();
         }).then(data => {
-            console.log(data)
             this.props.loginCallback(data)
         });
         event.preventDefault();

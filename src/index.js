@@ -19,11 +19,7 @@ class App extends React.Component {
             lastname: null,
         };    
         this.loginCallback = this.loginCallback.bind(this);
-    }
-
-    componentDidMount() {
-        this.loginCallback({isLoggedin: false, phone: "dk", userToken: 'dkdkd'})
-
+        this.logoutCallback = this.logoutCallback.bind(this);
     }
 
     loginCallback(loginInfo) {
@@ -32,6 +28,11 @@ class App extends React.Component {
         this.setState({ userToken: loginInfo.userToken });
         this.setState({ firstname: loginInfo.firstname });
         this.setState({ lastname: loginInfo.lastname });
+    }
+
+    logoutCallback() {
+        this.setState({isLoggedin: false})
+        console.log(this.state.isLoggedin)
     }
 
     render() {
@@ -48,7 +49,7 @@ class App extends React.Component {
         else {
             return (
                 <div>
-                    <PlaidFace firstname={this.state.firstname} phone={this.state.phone} userToken={this.state.userToken}/>
+                    <PlaidFace firstname={this.state.firstname} phone={this.state.phone} userToken={this.state.userToken} logoutCallback={this.logoutCallback}/>
                     <Footer />
                 </div>
         )}

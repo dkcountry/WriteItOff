@@ -45,3 +45,9 @@ export const bankList = {
 export const footer = {
     "marginTop": "25px"
 }
+
+export const logoutBtnFormat = {
+    padding: "0",
+    border: "none",
+    background: "none"
+}
