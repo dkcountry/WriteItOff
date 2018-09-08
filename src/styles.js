@@ -41,3 +41,11 @@ export const bankCard = {
 export const bankList = {
 	"marginTop": "25px"
 }
+
+export const footerStyle = {
+    "paddingTop": "50px",
+}
+
+export const footerLinks = {
+    "display": "flex"
+}

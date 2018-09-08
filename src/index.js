@@ -1,11 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import LoginPage from "./components/login"
-import SignupPage from "./components/signup"
+import LoginPage from "./components/login";
+import SignupPage from "./components/signup";
 import { BrowserRouter } from 'react-router-dom';
-import { Switch, Route } from 'react-router-dom'
-import PlaidFace from "./components/plaidface"
-
+import { Switch, Route } from 'react-router-dom';
+import PlaidFace from "./components/plaidface";
+import Footer from "./components/footer";
 
 class App extends React.Component {
     constructor(props) {
@@ -41,12 +41,14 @@ class App extends React.Component {
                         <Route exact path='/' render={(props) => <SignupPage {...props} loginCallback={this.loginCallback}/>}/>
                         <Route exact path='/login' render={(props) => <LoginPage {...props} loginCallback={this.loginCallback}/>}/>
                     </Switch>
+                    <Footer />
                 </div>
             )}
         else {
             return (
                 <div>
                     <PlaidFace firstname={this.state.firstname} phone={this.state.phone} userToken={this.state.userToken}/>
+                    <Footer />
                 </div>
         )}
     }
