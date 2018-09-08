@@ -9,18 +9,14 @@ class Footer extends React.Component {
 
     render() {
         return (
-        <div id="footer-content" style={styles.footerStyle} className="container">               
-            <div>© Write It Off, 2018</div>
-            <div style={styles.footerLinks}>
-                <div>
-                    <a href="#">Terms </a>
-                </div>
-                |
-                <div>
-                    <a href="#">Contact Us </a>
+            <div style={styles.footer} className="navbar text-center navbar-fixed-bottom">
+                <div className="text-muted text-center col-12">
+                    © Write It Off, 2018 | 
+                    <a className="text-muted" href="#"> Terms </a>
+                     |  
+                    <a className="text-muted" href="#"> Contact Us </a>
                 </div>
             </div>
-        </div>
     )}
 }
 

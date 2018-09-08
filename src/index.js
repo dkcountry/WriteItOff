@@ -6,6 +6,7 @@ import { BrowserRouter } from 'react-router-dom';
 import { Switch, Route } from 'react-router-dom';
 import PlaidFace from "./components/plaidface";
 import Footer from "./components/footer";
+import * as styles from "./styles";
 
 class App extends React.Component {
     constructor(props) {
