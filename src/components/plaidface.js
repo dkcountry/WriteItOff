@@ -107,7 +107,7 @@ class PlaidFace extends React.Component {
                     <PlaidLink
                         publicKey={PLAID_PUBLIC_KEY}
                         product={["auth", "transactions"]}
-                        env="sandbox"
+                        env="development"
                         apiVersion={'v2'}
                         clientName="Spend Tracker"
                         onSuccess={this.handleOnSuccess}
