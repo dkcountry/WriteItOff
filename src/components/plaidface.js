@@ -20,11 +20,12 @@ class PlaidFace extends React.Component {
             institutionId: null,
             accountId: null,
             accountType: null,
-            accountSubType: null
+            accountSubType: null,
+            allBanks: []
         }
-
         this.metadataCallback = this.metadataCallback.bind(this);
-        this.handleOnSuccess = this.handleOnSuccess.bind(this)
+        this.handleOnSuccess = this.handleOnSuccess.bind(this);
+        this.getBankSummary = this.getBankSummary.bind(this);
     }
 
     metadataCallback(metadata) {
@@ -33,6 +34,30 @@ class PlaidFace extends React.Component {
         this.setState({ accountId: metadata.accounts.id });
         this.setState({ accountType: metadata.accounts.type });
         this.setState({ accountSubType: metadata.accounts.subtype });
+    }
+
+    getBankSummary(props) {
+        fetch('https://writeitoff.herokuapp.com/get_bank_summary', {
+            method: "POST",
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({
+                phone: props.phone,
+                password: props.userToken
+              })
+        }).then(results => {
+            return results.json();
+        }).then(data => {
+            const accts = [];
+            for (let acct in data) {
+                accts.push(data[acct]["institution_name"])
+            }
+            this.setState({allBanks: [...accts]})
+            console.log(data)
+        })
+    }
+
+    componentWillReceiveProps(nextProps) {
+        this.getBankSummary(nextProps)
     }
 
     handleOnSuccess(publicToken, metadata) {
@@ -57,24 +82,39 @@ class PlaidFace extends React.Component {
         }).then(results => {
             return results.json();
         }).then(data => {
-            this.props.plaidCallback(data)
+            console.log(data)
+            this.getBankSummary(this.props)
         });
         event.preventDefault();
     }
 
     render() {
+        const viewBanks = [];
+        for (let bank in this.state.allBanks) {
+            viewBanks.push(
+                <div  key={bank} className="col-sm-12">
+                    {this.state.allBanks[bank]}
+                </div>
+            )
+        }
         return (
-            <div style={formStyle}>
-                <PlaidLink
-                    publicKey={PLAID_PUBLIC_KEY}
-                    product={["auth", "transactions"]}
-                    env="sandbox"
-                    apiVersion={'v2'}
-                    clientName="Spend Tracker"
-                    onSuccess={this.handleOnSuccess}
-                >
-                        Open Link and connect your bank!
-                </PlaidLink>
+            <div>
+                <div> </div>Welcome, {this.props.firstname} <div/>
+                <div>
+                    {viewBanks}
+                </div>
+                <div style={formStyle}>
+                    <PlaidLink
+                        publicKey={PLAID_PUBLIC_KEY}
+                        product={["auth", "transactions"]}
+                        env="sandbox"
+                        apiVersion={'v2'}
+                        clientName="Spend Tracker"
+                        onSuccess={this.handleOnSuccess}
+                    >
+                            Connect your bank!
+                    </PlaidLink>
+                </div>
             </div>
     )
     }
