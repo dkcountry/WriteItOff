@@ -30,6 +30,8 @@ class PlaidFace extends React.Component {
     }
 
     handleSubmit(event) {
+        Amplitude.logEvent('log out');        
+        Amplitude.resetUserId();
         this.props.logoutCallback();
     }
 
@@ -67,6 +69,7 @@ class PlaidFace extends React.Component {
     handleOnSuccess(publicToken, metadata) {
         this.metadataCallback(metadata);
         this.getAccessToken(publicToken);
+        Amplitude.logEvent('bank account linked');        
     }
 
     getAccessToken(publicToken) {
