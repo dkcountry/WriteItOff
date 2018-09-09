@@ -34,6 +34,7 @@
     "envvar": "^2.0.0",
     "plaid": "^2.8.0",
     "react": "^16.4.2",
+    "react-amplitude": "^0.1.7",
     "react-dom": "^16.4.2",
     "react-plaid-link": "^1.0.2",
     "react-router-dom": "^4.3.1"
