@@ -1,6 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import * as styles from "../styles";
+import Amplitude from 'react-amplitude';
+
+Amplitude.logEvent('navigation: signup page');
 
 class SignupPage extends React.Component {
     constructor(props) {
@@ -39,6 +42,8 @@ class SignupPage extends React.Component {
             this.props.loginCallback(data)
         });
         event.preventDefault();
+        Amplitude.init('212ed2feb2663c8004ae16498974992b', this.state.phone);
+        Amplitude.logEvent('sign up');
     }
 
     render() {

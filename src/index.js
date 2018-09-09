@@ -7,6 +7,10 @@ import { Switch, Route } from 'react-router-dom';
 import PlaidFace from "./components/plaidface";
 import Footer from "./components/footer";
 import * as styles from "./styles";
+import Amplitude from 'react-amplitude';
+
+Amplitude.init('212ed2feb2663c8004ae16498974992b');
+
 
 class App extends React.Component {
     constructor(props) {
@@ -28,11 +32,13 @@ class App extends React.Component {
         this.setState({ userToken: loginInfo.userToken });
         this.setState({ firstname: loginInfo.firstname });
         this.setState({ lastname: loginInfo.lastname });
+        Amplitude.init('212ed2feb2663c8004ae16498974992b', loginInfo.phone);
     }
 
     logoutCallback() {
-        this.setState({isLoggedin: false})
-        console.log(this.state.isLoggedin)
+        this.setState({isLoggedin: false});
+        console.log(this.state.isLoggedin);
+        Amplitude.resetUserId();
     }
 
     render() {
@@ -49,7 +55,7 @@ class App extends React.Component {
         else {
             return (
                 <div>
-                    <PlaidFace firstname={this.state.firstname} phone={this.state.phone} userToken={this.state.userToken} logoutCallback={this.logoutCallback}/>
+                    <PlaidFace firstname={this.state.firstname} lastname={this.state.lastname} phone={this.state.phone} userToken={this.state.userToken} logoutCallback={this.logoutCallback}/>
                     <Footer />
                 </div>
         )}

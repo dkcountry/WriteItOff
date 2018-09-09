@@ -2,6 +2,7 @@ import PlaidLink from 'react-plaid-link';
 import React from "react";
 import { Link } from 'react-router-dom';
 import * as styles from "../styles";
+import Amplitude from 'react-amplitude';
 
 
 const PLAID_PUBLIC_KEY = "36bd55c50f7421ae5ef190a4fa03fd";
@@ -22,9 +23,15 @@ class PlaidFace extends React.Component {
         this.handleOnSuccess = this.handleOnSuccess.bind(this);
         this.getBankSummary = this.getBankSummary.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+        Amplitude.init('212ed2feb2663c8004ae16498974992b', this.props.phone);
+        Amplitude.setUserProperties({'firstname': this.props.firstname});
+        Amplitude.setUserProperties({'lastname': this.props.lastname});
+        Amplitude.logEvent('navigation: dashboard');
     }
 
     handleSubmit(event) {
+        Amplitude.logEvent('log out');        
+        Amplitude.resetUserId();
         this.props.logoutCallback();
     }
 
@@ -62,6 +69,7 @@ class PlaidFace extends React.Component {
     handleOnSuccess(publicToken, metadata) {
         this.metadataCallback(metadata);
         this.getAccessToken(publicToken);
+        Amplitude.logEvent('bank account linked');        
     }
 
     getAccessToken(publicToken) {
