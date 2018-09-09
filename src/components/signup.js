@@ -10,7 +10,8 @@ class SignupPage extends React.Component {
             firstname: '',
             lastname: '', 
             phone: '',
-            password: ''
+            password: '',
+            isLoading: false
         };
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -23,6 +24,7 @@ class SignupPage extends React.Component {
     }
     
     handleSubmit(event) {
+        this.setState({isLoading: true});
         fetch('https://writeitoff.herokuapp.com/signup', {
             method: "POST",
             headers: {'Content-Type': 'application/json'},
@@ -44,6 +46,11 @@ class SignupPage extends React.Component {
     }
 
     render() {
+        let loadingView = <div></div>
+        if (this.state.isLoading) {
+            loadingView = <div>Loading...</div>
+        }
+
         return (
         <div>
             <nav style={styles.navStyle} className="navbar justify-content-between">
@@ -88,6 +95,7 @@ class SignupPage extends React.Component {
                                 <input onChange={this.handleChange} name="password" type="password" className="form-control" id="exampleInputPassword1" placeholder="At least 6 characters"/>
                             </div>
                             <div className="col-md-auto text-center"> 
+                                {loadingView}
                                 <button style={styles.btnStyle} type="submit" className="btn btn-primary btn-lg">
                                     Goodbye, tax stress
                                 </button>

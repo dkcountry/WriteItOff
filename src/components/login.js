@@ -8,7 +8,8 @@ class LoginPage extends React.Component {
         super(props);
         this.state = {
             phone: '', 
-            password: ''
+            password: '',
+            isLoading: false
         };
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -21,6 +22,7 @@ class LoginPage extends React.Component {
     }
     
     handleSubmit(event) {
+        this.setState({isLoading: true});
         fetch('https://writeitoff.herokuapp.com/signin', {
             method: "POST",
             headers: {'Content-Type': 'application/json'},
@@ -39,6 +41,11 @@ class LoginPage extends React.Component {
     }
 
     render() {
+        let loadingView = <div></div>
+        if (this.state.isLoading) {
+            loadingView = <div>Loading...</div>
+        }
+
         return (
         <div>
             <nav style={styles.navStyle} className="navbar justify-content-between">
@@ -70,6 +77,7 @@ class LoginPage extends React.Component {
                                 <input onChange={this.handleChange} name="password" type="password" className="form-control" id="exampleInputPassword1" placeholder="password"/>
                             </div>
                             <div className="col-md-auto text-center"> 
+                                {loadingView}
                                 <button style={styles.btnStyle} type="submit" className="btn btn-primary btn-lg">Log in</button>
                             </div> 
                         </form>
