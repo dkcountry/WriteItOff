@@ -32,13 +32,12 @@ class App extends React.Component {
         this.setState({ userToken: loginInfo.userToken });
         this.setState({ firstname: loginInfo.firstname });
         this.setState({ lastname: loginInfo.lastname });
-        Amplitude.init('212ed2feb2663c8004ae16498974992b', loginInfo.phone);
+        Amplitude.setUserProperties({'phone number': loginInfo.phone, 'firstname': loginInfo.firstname, 'lastname': loginInfo.lastname});
     }
 
     logoutCallback() {
         this.setState({isLoggedin: false});
         console.log(this.state.isLoggedin);
-        Amplitude.resetUserId();
     }
 
     render() {
