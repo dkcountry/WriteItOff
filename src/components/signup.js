@@ -3,8 +3,6 @@ import { Link } from "react-router-dom";
 import * as styles from "../styles";
 import Amplitude from 'react-amplitude';
 
-Amplitude.logEvent('navigation: signup page');
-
 class SignupPage extends React.Component {
     constructor(props) {
         super(props);
@@ -17,6 +15,7 @@ class SignupPage extends React.Component {
         };
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+        Amplitude.logEvent('navigation: signup page');
     }
     
     handleChange(event) {

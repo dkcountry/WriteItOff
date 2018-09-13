@@ -24,8 +24,7 @@ class PlaidFace extends React.Component {
         this.getBankSummary = this.getBankSummary.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         Amplitude.init('212ed2feb2663c8004ae16498974992b', this.props.phone);
-        Amplitude.setUserProperties({'firstname': this.props.firstname});
-        Amplitude.setUserProperties({'lastname': this.props.lastname});
+        Amplitude.setUserProperties({'phone number': this.props.phone, 'firstname': this.props.firstname, 'lastname': this.props.lastname});
         Amplitude.logEvent('navigation: dashboard');
     }
 
