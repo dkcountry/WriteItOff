@@ -55,7 +55,7 @@ class SignupPage extends React.Component {
         <div>
             <nav style={styles.navStyle} className="navbar justify-content-between">
                 <a className="navbar-brand"></a>
-                <Link to="/login">
+                <Link to="/index.html">
                     <p className="text-secondary">log in</p>
                 </Link>
             </nav>
