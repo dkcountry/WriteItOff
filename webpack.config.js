@@ -10,9 +10,12 @@ module.exports = {
         inline: true, 
         contentBase: './dist', 
         port: 5000, 
-        proxy: { "/**": { target: 'http://localhost:5000', secure: false }  },
+        // proxy: { "/**": { target: 'http://localhost:5000', secure: false }  },
         historyApiFallback: true
      },
+     output: {
+        publicPath: '/'
+      },
      externals: {
         plaid: 'Plaid'
     },
