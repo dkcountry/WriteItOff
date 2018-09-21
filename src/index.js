@@ -46,7 +46,7 @@ class App extends React.Component {
                 <div>
                     <Switch>
                         <Route exact path='/' render={(props) => <SignupPage {...props} loginCallback={this.loginCallback}/>}/>
-                        <Route exact path='/login' render={(props) => <LoginPage {...props} loginCallback={this.loginCallback}/>}/>
+                        <Route exact path='/index.html' render={(props) => <LoginPage {...props} loginCallback={this.loginCallback}/>}/>
                     </Switch>
                     <Footer />
                 </div>

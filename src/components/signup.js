@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import * as styles from "../styles";
 import Amplitude from 'react-amplitude';
+import WIOImage from "./wioImage";
 
 class SignupPage extends React.Component {
     constructor(props) {
@@ -55,16 +56,18 @@ class SignupPage extends React.Component {
         <div>
             <nav style={styles.navStyle} className="navbar justify-content-between">
                 <a className="navbar-brand"></a>
-                <Link to="/login">
+                <Link to="/index.html">
                     <p className="text-secondary">log in</p>
                 </Link>
             </nav>
 
+       
+
             <div style={styles.containerStyle} className="container">
                 
                 <div className="row align-items-start">
-                    <div style={styles.colStyle} className="col-6 text-center" >
-                        <div className="container"> 
+                    <div style={styles.colStyle} className="col-6" >
+                        <div className="container text-center"> 
                             <p style={styles.title} className="bold text-center">Pssst! You're invited. </p>
                             <div className="row justify-content-sm-center">
                                 <div className="text-justify">
@@ -72,11 +75,7 @@ class SignupPage extends React.Component {
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
 
-                <div className="row align-items-end">
-                    <div style={styles.colStyle} className="col-6" >
                         <form style={styles.formStyle} onSubmit={this.handleSubmit}>
                             <div className="form-group">
                                 <label htmlFor="exampleInputFirstName">First name</label>
@@ -102,7 +101,11 @@ class SignupPage extends React.Component {
                             </div> 
                         </form>
                     </div>
+                    <div style={styles.imagePadding} className="text-center">
+                        <WIOImage />
                 </div>
+                </div>
+               
             </div>
         </div>
     )}

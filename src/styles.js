@@ -26,7 +26,7 @@ export const btnStyle = {
 
 export const colStyle = { 
     "float": "none",
-    "margin": "0 auto",
+    // "margin": "0 auto",
     "minWidth": "320px"
 }
 
@@ -44,6 +44,10 @@ export const bankList = {
 
 export const footer = {
     "marginTop": "25px"
+}
+
+export const imagePadding = {
+    "paddingTop": "60px",
 }
 
 export const logoutBtnFormat = {
