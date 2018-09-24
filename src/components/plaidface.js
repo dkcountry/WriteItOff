@@ -122,7 +122,7 @@ class PlaidFace extends React.Component {
                 <div style={styles.containerStyle} className="container">
 
                     <div className="row align-items-start">
-                        <div style={styles.colStyle} className="col-6 text-center" >
+                        <div style={styles.colStyleCenter} className="col-6 text-center" >
                             <div className="container"> 
                                 <p style={styles.title} className="bold text-center">Which transactions should we scan? </p>
                                 <div className="row justify-content-sm-center">
@@ -136,14 +136,14 @@ class PlaidFace extends React.Component {
 
                     <div style={styles.bankList} className="container">
                         <div className="row align-items-middle">
-                            <div style={styles.colStyle} className="col-6 text-center" >
+                            <div style={styles.colStyleCenter} className="col-offset-3 col-6 text-center" >
                                 {viewBanks}
                             </div>
                         </div>
                     </div>
 
                     <div className="row align-items-end">
-                        <div style={styles.colStyle} className="col-6 text-center" >
+                        <div style={styles.colStyleCenter} className="col-offset-3 col-6 text-center" >
                             <div className="container"> 
                                 <div style={styles.formStyle}>
                                     <PlaidLink

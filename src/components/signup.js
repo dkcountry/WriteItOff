@@ -66,7 +66,7 @@ class SignupPage extends React.Component {
             <div style={styles.containerStyle} className="container">
                 
                 <div className="row align-items-start">
-                    <div style={styles.colStyle} className="col-6" >
+                    <div style={styles.colStyleCenter} className="col-6" >
                         <div className="container text-center"> 
                             <p style={styles.title} className="bold text-center">Pssst! You're invited. </p>
                             <div className="row justify-content-sm-center">
@@ -103,7 +103,7 @@ class SignupPage extends React.Component {
                     </div>
                     <div style={styles.imagePadding} className="text-center">
                         <WIOImage />
-                </div>
+                    </div>
                 </div>
                
             </div>

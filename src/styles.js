@@ -26,7 +26,12 @@ export const btnStyle = {
 
 export const colStyle = { 
     "float": "none",
-    // "margin": "0 auto",
+    "minWidth": "320px"
+}
+
+export const colStyleCenter = { 
+    "float": "none",
+    "margin": "0 auto",
     "minWidth": "320px"
 }
 
@@ -48,6 +53,11 @@ export const footer = {
 
 export const imagePadding = {
     "paddingTop": "60px",
+    "margin": "0 auto",
+}
+
+export const imageWidth = {
+    "max-width": "100%"
 }
 
 export const logoutBtnFormat = {

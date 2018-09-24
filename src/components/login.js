@@ -2,6 +2,8 @@ import React from "react";
 import { Link } from 'react-router-dom';
 import * as styles from "../styles";
 import Amplitude from 'react-amplitude';
+import WIOImage from "./wioImage";
+
 
 class LoginPage extends React.Component {
     constructor(props) {
@@ -58,15 +60,11 @@ class LoginPage extends React.Component {
             <div style={styles.containerStyle} className="container">
                 
                 <div className="row align-items-start">
-                    <div style={styles.colStyle} className="col-6 text-center" >
+                    <div style={styles.colStyleCenter} className="col-6 text-center" >
                         <div className="container"> 
                             <p style={styles.title} className="bold text-center">login </p>
                         </div>
-                    </div>
-                </div>
 
-                 <div className="row align-items-end">
-                    <div style={styles.colStyle} className="col-6" >
                         <form style={styles.formStyle} onSubmit={this.handleSubmit}>
                             <div className="form-group">
                                 <label htmlFor="exampleInputPhone1">Phone number</label>
@@ -81,6 +79,9 @@ class LoginPage extends React.Component {
                                 <button style={styles.btnStyle} type="submit" className="btn btn-primary btn-lg">Log in</button>
                             </div> 
                         </form>
+                    </div>
+                    <div style={styles.imagePadding} className="text-center">
+                        <WIOImage />
                     </div>
                 </div>  
             </div>                 
