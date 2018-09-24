@@ -150,7 +150,7 @@ class PlaidFace extends React.Component {
                                         style={styles.btnStyle}
                                         className="btn btn-primary btn-lg"
                                         publicKey={PLAID_PUBLIC_KEY}
-                                        product={["auth", "transactions"]}
+                                        product={["transactions"]}
                                         env="development"
                                         apiVersion={'v2'}
                                         clientName="Spend Tracker"
