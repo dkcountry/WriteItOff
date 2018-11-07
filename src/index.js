@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import LoginPage from "./components/login";
 import SignupPage from "./components/signup";
+import LandingPage from "./components/landingpage"
 import { BrowserRouter } from 'react-router-dom';
 import { Switch, Route } from 'react-router-dom';
 import PlaidFace from "./components/plaidface";
@@ -45,8 +46,9 @@ class App extends React.Component {
             return (
                 <div>
                     <Switch>
-                        <Route exact path='/' render={(props) => <SignupPage {...props} loginCallback={this.loginCallback}/>}/>
-                        <Route exact path='/index.html' render={(props) => <LoginPage {...props} loginCallback={this.loginCallback}/>}/>
+                        <Route exact path='/' component={LandingPage}/>
+                        <Route exact path='/signup' render={(props) => <SignupPage {...props} loginCallback={this.loginCallback}/>}/>
+                        <Route exact path='/login' render={(props) => <LoginPage {...props} loginCallback={this.loginCallback}/>}/>
                     </Switch>
                     <Footer />
                 </div>
