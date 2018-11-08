@@ -24,7 +24,8 @@ class SignupPage extends React.Component {
     
     handleSubmit(event) {
         this.setState({isLoading: true});
-        fetch('http://penguin.linux.test:5000/sms', {
+        alert(this.state.phone);
+        fetch('http://penguin.linux.test:5000/welcome-sms', {
             method: "POST",
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({
