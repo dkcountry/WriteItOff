@@ -1,5 +1,4 @@
 export const title = {
-    "margin": "auto",
     "fontSize": "40px",
     "paddingBottom": "25px",
     "paddingTop": "25px",
@@ -12,15 +11,18 @@ export const navStyle = {
 }
 
 export const formStyle = {
-    "paddingTop": "50px",
-    "fontWeight": "bold"
+    "paddingTop": "20px",
+    "fontWeight": "bold",
+    "maxWidth": "300px",
+    "float": "none",   
+    "margin": "0 auto",
 }
 
 export const btnStyle = { 
     "display":"inline-block",
     "marginTop": "25px",
     "fontWeight": "bold",
-    "backgroundColor": "#445c82",
+    "backgroundColor": "#0980FE",
     "border": "none"
 }
 
@@ -61,7 +63,13 @@ export const imageWidth = {
 }
 
 export const logoutBtnFormat = {
-    padding: "0",
-    border: "none",
-    background: "none"
+    "padding": "0",
+    "border": "none",
+    "background": "none"
+}
+
+export const landingPageInput = {
+    "maxWidth": "420px",
+    "margin": "0 auto",
+    "float": "none",
 }

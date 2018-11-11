@@ -24,7 +24,6 @@ class SignupPage extends React.Component {
     
     handleSubmit(event) {
         this.setState({isLoading: true});
-        alert(this.state.phone);
         fetch('http://penguin.linux.test:5000/welcome-sms', {
             method: "POST",
             headers: {'Content-Type': 'application/json'},
@@ -66,26 +65,31 @@ class SignupPage extends React.Component {
                         <WIOImage />
                     </div>
                     <div style={styles.colStyleCenter} className="col-6 my-auto" >
-                        <div className="container text-center"> 
-                            <p style={styles.title} className="bold text-center">Say hello to your new personal bookkeeper </p>
-                        </div>
 
-                        <form style={styles.formStyle} onSubmit={this.handleSubmit}>
-                            <div className="form-group">
-                                <label htmlFor="exampleInputFirstName">First name</label>
-                                <input onChange={this.handleChange} name="firstname" type="text" required className="form-control" id="exampleInputFirstName" placeholder="Warren"/>
+                        <div style={styles.landingPageInput} classname="container"> 
+
+                            <div className="container"> 
+                                <p style={styles.title} className="bold">Say hello to your new personal bookkeeper </p>
                             </div>
-                            <div className="form-group">
-                                <label htmlFor="exampleInputPhone">Phone number</label>
-                                <input onChange={this.handleChange} name="phone" type="text" required className="form-control" id="exampleInputPhone" placeholder="(123) 456 7890"/>
-                            </div>
-                            <div className="col-md-auto text-center"> 
-                                {loadingView}
-                                <button style={styles.btnStyle} type="submit" className="btn btn-primary btn-lg">
-                                    Hello!
-                                </button>
-                            </div> 
-                        </form>
+
+                            <form style={styles.formStyle} onSubmit={this.handleSubmit}>
+                                <div className="form-group">
+                                    <label htmlFor="exampleInputFirstName">First name</label>
+                                    <input onChange={this.handleChange} name="firstname" type="text" required className="form-control" id="exampleInputFirstName" placeholder="Warren"/>
+                                </div>
+                                <div className="form-group">
+                                    <label htmlFor="exampleInputPhone">Phone number</label>
+                                    <input onChange={this.handleChange} name="phone" type="text" required className="form-control" id="exampleInputPhone" placeholder="(123) 456 7890"/>
+                                </div>
+                                <div className="col-md-auto text-center"> 
+                                    {loadingView}
+                                    <button style={styles.btnStyle} type="submit" className="btn btn-primary btn-lg">
+                                        Hello!
+                                    </button>
+                                </div> 
+                            </form>
+
+                        </div>
                     </div>
                 </div>
                
