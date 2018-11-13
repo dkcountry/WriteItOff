@@ -3,6 +3,19 @@ import { Link } from 'react-router-dom';
 import * as styles from "../styles";
 import Amplitude from 'react-amplitude';
 import WIOImage from "./wioImage";
+import MaskedInput from 'react-text-mask';
+import {
+  Collapse,
+  Navbar,
+  NavbarToggler,
+  NavbarBrand,
+  Nav,
+  NavItem,
+  NavLink,
+  UncontrolledDropdown,
+  DropdownToggle,
+  DropdownMenu,
+  DropdownItem } from 'reactstrap';
 
 
 class LoginPage extends React.Component {
@@ -16,8 +29,17 @@ class LoginPage extends React.Component {
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         Amplitude.logEvent('navigation: login page');
+        this.toggle = this.toggle.bind(this);
+            this.state = {
+              isOpen: false
+            };
     }
-    
+
+    toggle() {
+        this.setState({
+          isOpen: !this.state.isOpen});
+    }
+
     handleChange(event) {
         const name = event.target.name;
         this.setState({[name]: event.target.value});
@@ -49,43 +71,57 @@ class LoginPage extends React.Component {
         }
 
         return (
-        <div>
-            <nav style={styles.navStyle} className="navbar justify-content-between">
-                <a className="navbar-brand"></a>
-                <Link to="/">
-                    <p className="text-secondary">sign up</p>
-                </Link>
-            </nav>
+        <div style={styles.outerContainer} className="container">
+
+            <div>
+                <Navbar color="white" light expand="lg">
+                  <NavbarBrand style={styles.title} href="/">keeper</NavbarBrand>
+                  <NavbarToggler onClick={this.toggle} />
+                  <Collapse isOpen={this.state.isOpen} navbar>
+                    <Nav className="ml-auto" navbar>
+                      <NavItem>
+                        <NavLink style={styles.navLink} href="/pricing">pricing</NavLink>
+                      </NavItem>
+                      <NavItem>
+                        <NavLink style={styles.navLink} href="/index.html">log in</NavLink>
+                      </NavItem>
+                    </Nav>
+                  </Collapse>
+                </Navbar>
+            </div>
 
             <div style={styles.containerStyle} className="container">
-                
                 <div className="row align-items-start">
-                    <div style={styles.colStyleCenter} className="col-6 text-center" >
+                    <div style={styles.actionCard} className="col-6 my-auto" >
                         <div className="container"> 
-                            <p style={styles.title} className="bold text-center">login </p>
+
+                            <div>
+                                <p style={styles.title}> Welcome back!</p>
+                            </div>
+
+                            <div style={styles.landingPageInput}>
+                                <form onSubmit={this.handleSubmit}>
+                                    <div className="form-group">
+                                        <MaskedInput 
+                                        mask={['(', /[1-9]/, /\d/, /\d/, ')', ' ', /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/]}
+                                        style={styles.inputStyle} onChange={this.handleChange} name="phone" type="tel" required id="exampleInputPhone1" placeholder="phone number"
+                                        />
+                                    </div>
+                                    <div className="form-group">
+                                        <input style={styles.inputStyle} onChange={this.handleChange} name="password" type="password" id="exampleInputPassword1" placeholder="password"/>
+                                    </div>
+                                    <div className="col-md-auto text-center"> 
+                                        {loadingView}
+                                        <button style={styles.btnStyle} type="submit" className="btn btn-primary btn-lg">
+                                            log in
+                                        </button>
+                                    </div> 
+                                </form>
+                            </div>
                         </div>
-
-                        <form style={styles.formStyle} onSubmit={this.handleSubmit}>
-                            <div className="form-group">
-                                <label htmlFor="exampleInputPhone1">Phone number</label>
-                                <input onChange={this.handleChange} name="phone" className="form-control" id="exampleInputPhone1" aria-describedby="emailHelp" placeholder="(123) 456 7890"/>
-                            </div>
-                            <div className="form-group">
-                                <label htmlFor="exampleInputPassword1">Password</label>
-                                <input onChange={this.handleChange} name="password" type="password" className="form-control" id="exampleInputPassword1" placeholder="password"/>
-                            </div>
-                            <div className="col-md-auto text-center"> 
-                                {loadingView}
-                                <button style={styles.btnStyle} type="submit" className="btn btn-primary btn-lg">Log in</button>
-                            </div> 
-                        </form>
                     </div>
-                    <div style={styles.imagePadding} className="text-center">
-                        <WIOImage />
-                    </div>
-                </div>  
-            </div>                 
-
+                </div>
+            </div>             
         </div>
     )}
 }

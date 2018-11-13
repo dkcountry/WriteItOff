@@ -1,10 +1,7 @@
-export const body = {
-    "fontFamily": "Quicksand",
-}
-
 export const title = {
     "fontSize": "42px",
-    "fontWeight": "bold"
+    "fontWeight": "bold",
+    "color": "#4F4F4F",
 }
 
 export const navStyle = {
@@ -40,11 +37,18 @@ export const actionCard = {
     "backgroundColor": "#F7F7F7",
     "boxShadow": "4px 1px 2px rgba(79,79,79,.30)",
     "fontSize": "30px",
-    "minHeight": "500px",
+    "color":"#4F4F4F",
+}
+
+export const navLink = {
+    "fontSize": "30px",
+    "color":"#4F4F4F",
+    "marginLeft":"25px",
 }
 
 export const containerStyle = { 
-    "minWidth": "320px",   
+    "minWidth": "320px",
+    "marginTop":"20px"   
 }
 
 export const outerContainer = { 
@@ -62,7 +66,8 @@ export const bankList = {
 }
 
 export const footer = {
-    "marginTop": "25px"
+    "marginTop": "25px",
+    "fontFamily": "Quicksand",
 }
 
 export const imagePadding = {
@@ -73,7 +78,6 @@ export const imagePadding = {
 export const imageWidth = {
     "maxWidth": "100%",
     "minWidth": "420px",
-    "minHeight": "500px",
 }
 
 export const logoutBtnFormat = {
@@ -90,4 +94,5 @@ export const inputStyle = {
     "minWidth": "100%",
     "maxWidth": "100%",
     "paddingTop": "5px",
+    "color": "#0980FE",
 }

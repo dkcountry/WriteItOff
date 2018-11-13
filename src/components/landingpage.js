@@ -4,6 +4,18 @@ import * as styles from "../styles";
 import Amplitude from 'react-amplitude';
 import WIOImage from "./wioImage";
 import MaskedInput from 'react-text-mask';
+import {
+  Collapse,
+  Navbar,
+  NavbarToggler,
+  NavbarBrand,
+  Nav,
+  NavItem,
+  NavLink,
+  UncontrolledDropdown,
+  DropdownToggle,
+  DropdownMenu,
+  DropdownItem } from 'reactstrap';
 
 class LandingPage extends React.Component {
     constructor(props) {
@@ -15,7 +27,16 @@ class LandingPage extends React.Component {
         };
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.toggle = this.toggle.bind(this);
+            this.state = {
+              isOpen: false
+            };
         Amplitude.logEvent('navigation: landing page');
+    }
+
+    toggle() {
+        this.setState({
+          isOpen: !this.state.isOpen});
     }
     
     handleChange(event) {
@@ -50,15 +71,23 @@ class LandingPage extends React.Component {
 
         return (
         <div style={styles.outerContainer} className="container">
-            
-            <nav style={styles.navStyle} className="navbar justify-content-between">
-                <a className="navbar-brand"></a>
-                <Link to="/index.html">
-                    <p className="text-secondary">log in</p>
-                </Link>
-            </nav>
 
-       
+            <div>
+                <Navbar color="white" light expand="lg">
+                  <NavbarBrand style={styles.title} href="/">keeper</NavbarBrand>
+                  <NavbarToggler onClick={this.toggle} />
+                  <Collapse isOpen={this.state.isOpen} navbar>
+                    <Nav className="ml-auto" navbar>
+                      <NavItem>
+                        <NavLink style={styles.navLink} href="/pricing">pricing</NavLink>
+                      </NavItem>
+                      <NavItem>
+                        <NavLink style={styles.navLink} href="/index.html">log in</NavLink>
+                      </NavItem>
+                    </Nav>
+                  </Collapse>
+                </Navbar>
+            </div>
 
             <div style={styles.containerStyle} className="container">
                 

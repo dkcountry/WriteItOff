@@ -9,7 +9,7 @@ import PlaidFace from "./components/plaidface";
 import Footer from "./components/footer";
 import * as styles from "./styles";
 import Amplitude from 'react-amplitude';
-
+import 'bootstrap/dist/css/bootstrap.css';
 Amplitude.init('212ed2feb2663c8004ae16498974992b');
 
 
@@ -47,7 +47,7 @@ class App extends React.Component {
                 <div>
                     <Switch>
                         <Route exact path='/' component={LandingPage}/>
-                        <Route exact path='/index.html' render={(props) => <SignupPage {...props} loginCallback={this.loginCallback}/>}/>
+                        <Route exact path='/index.html' render={(props) => <LoginPage {...props} loginCallback={this.loginCallback}/>}/>
                         <Route exact path='/login' render={(props) => <LoginPage {...props} loginCallback={this.loginCallback}/>}/>
                     </Switch>
                     <Footer />
