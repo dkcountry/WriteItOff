@@ -3,8 +3,9 @@ import { Link } from "react-router-dom";
 import * as styles from "../styles";
 import Amplitude from 'react-amplitude';
 import WIOImage from "./wioImage";
+import MaskedInput from 'react-text-mask';
 
-class SignupPage extends React.Component {
+class LandingPage extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -48,7 +49,8 @@ class SignupPage extends React.Component {
         }
 
         return (
-        <div>
+        <div style={styles.outerContainer} className="container">
+            
             <nav style={styles.navStyle} className="navbar justify-content-between">
                 <a className="navbar-brand"></a>
                 <Link to="/index.html">
@@ -61,42 +63,48 @@ class SignupPage extends React.Component {
             <div style={styles.containerStyle} className="container">
                 
                 <div className="row align-items-start">
+                    
                     <div style={styles.imagePadding} className="text-center">
                         <WIOImage />
                     </div>
-                    <div style={styles.colStyleCenter} className="col-6 my-auto" >
 
-                        <div style={styles.landingPageInput} classname="container"> 
+                    <div style={styles.actionCard} className="col-6 my-auto" >
 
-                            <div className="container"> 
-                                <p style={styles.title} className="bold">Say hello to your new personal bookkeeper </p>
+                        <div className="container"> 
+
+                            <div> 
+                                <p style={styles.title}> Say hello {"\n"} to your new {"\n"} personal bookkeeper</p>
                             </div>
 
-                            <form style={styles.formStyle} onSubmit={this.handleSubmit}>
-                                <div className="form-group">
-                                    <label htmlFor="exampleInputFirstName">First name</label>
-                                    <input onChange={this.handleChange} name="firstname" type="text" required className="form-control" id="exampleInputFirstName" placeholder="Warren"/>
-                                </div>
-                                <div className="form-group">
-                                    <label htmlFor="exampleInputPhone">Phone number</label>
-                                    <input onChange={this.handleChange} name="phone" type="text" required className="form-control" id="exampleInputPhone" placeholder="(123) 456 7890"/>
-                                </div>
-                                <div className="col-md-auto text-center"> 
-                                    {loadingView}
-                                    <button style={styles.btnStyle} type="submit" className="btn btn-primary btn-lg">
-                                        Hello!
-                                    </button>
-                                </div> 
-                            </form>
-
+                            <div style={styles.landingPageInput}>
+                                <form onSubmit={this.handleSubmit}>
+                                    <div className="form-group">
+                                        <input style={styles.inputStyle} onChange={this.handleChange} name="firstname" type="text" required id="exampleInputFirstName" placeholder="first name"/>
+                                    </div>
+                                    <div className="form-group">
+                                        <MaskedInput 
+                                        mask={['(', /[1-9]/, /\d/, /\d/, ')', ' ', /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/]}
+                                        style={styles.inputStyle} onChange={this.handleChange} name="phone" type="tel" required id="exampleInputPhone" placeholder="phone number"
+                                        />
+                                    </div>
+                                    <div className="col-md-auto text-center"> 
+                                        {loadingView}
+                                        <button style={styles.btnStyle} type="submit" className="btn btn-primary btn-lg">
+                                            Hello!
+                                        </button>
+                                    </div> 
+                                </form>
+                            </div>
                         </div>
                     </div>
+
                 </div>
                
             </div>
+
         </div>
     )}
 }
 
 
-export default SignupPage;
+export default LandingPage;
