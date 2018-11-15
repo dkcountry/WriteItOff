@@ -4,6 +4,13 @@ export const title = {
     "color": "#4F4F4F",
 }
 
+export const header = {
+    "fontSize": "36px",
+    "fontWeight": "bold",
+    "color": "#4F4F4F",
+}
+
+
 export const navStyle = {
     "height": "50px",
     "minWidth": "320px"
@@ -40,6 +47,18 @@ export const actionCard = {
     "color":"#4F4F4F",
 }
 
+export const actionCardPricing = { 
+    "float":"none",
+    "margin": "0 auto",
+    "minWidth": "420px",
+    "maxWidth": "800px",
+    "padding": "5%",
+    "backgroundColor": "#F7F7F7",
+    "boxShadow": "4px 1px 2px rgba(79,79,79,.30)",
+    "fontSize": "25px",
+    "color":"#4F4F4F",
+}
+
 export const navLink = {
     "fontSize": "30px",
     "color":"#4F4F4F",
@@ -53,7 +72,7 @@ export const containerStyle = {
 
 export const outerContainer = { 
     "minWidth": "320px", 
-    "maxWidth": "1118px",
+    "maxWidth": "1000px",
     "fontFamily": "Quicksand",
 }
 
@@ -70,9 +89,16 @@ export const footer = {
     "fontFamily": "Quicksand",
 }
 
+export const activeNavLink = {
+    "fontSize": "30px",
+    "color":"#0980FE",
+    "marginLeft":"25px",
+}
+
 export const imagePadding = {
     "margin": "0 auto",
     "marginBottom": "20px",
+    "minWidth":"320px",
 }
 
 export const imageWidth = {
@@ -95,4 +121,25 @@ export const inputStyle = {
     "maxWidth": "100%",
     "paddingTop": "5px",
     "color": "#0980FE",
+}
+
+export const divider = {
+    "borderTop": "dashed 10px",
+    "color": "#BDBDBD",
+    "marginTop":"50px",
+    "marginBottom":"50px",
+}
+
+export const simpleNav = {
+    "float": "none",
+    "margin": "0 auto",
+    "display": "block",
+    "textAlign": "center",
+}
+
+export const MP4video = {
+    "float": "none",
+    "margin": "0 auto",
+    "textAlign": "center",
+    "maxWidth":"100%",
 }

@@ -3,14 +3,29 @@ import { Link } from "react-router-dom";
 import * as styles from "../styles";
 import Amplitude from 'react-amplitude';
 import WIOImage from "./wioImage";
+import MaskedInput from 'react-text-mask';
+import {
+  Collapse,
+  Navbar,
+  NavbarToggler,
+  NavbarBrand,
+  Nav,
+  NavItem,
+  NavLink,
+  UncontrolledDropdown,
+  DropdownToggle,
+  DropdownMenu,
+  DropdownItem } from 'reactstrap';
+import queryString from 'query-string';
 
 class SignupPage extends React.Component {
     constructor(props) {
         super(props);
+        const urlValues = queryString.parse(this.props.location.search);
         this.state = {
-            firstname: '',
+            firstname: urlValues.fname,
             lastname: '', 
-            phone: '',
+            phone: urlValues.phone,
             password: '',
             isLoading: false
         };
@@ -54,58 +69,45 @@ class SignupPage extends React.Component {
 
         return (
         <div>
-            <nav style={styles.navStyle} className="navbar justify-content-between">
-                <a className="navbar-brand"></a>
-                <Link to="/index.html">
-                    <p className="text-secondary">log in</p>
-                </Link>
-            </nav>
+            <div>
+                <Navbar style={styles.simpleNav} color="white" light expand="lg">
+                  <p style={styles.title} href="/">keeper</p>
+                </Navbar>
+            </div>
 
        
 
             <div style={styles.containerStyle} className="container">
                 
                 <div className="row align-items-start">
-                    <div style={styles.colStyleCenter} className="col-6" >
-                        <div className="container text-center"> 
-                            <p style={styles.title} className="bold text-center">Pssst! You're invited. </p>
-                            <div className="row justify-content-sm-center">
-                                <div className="text-justify">
-                                    Welcome to the private beta for Write It Off. Our site might not be pretty yet, but who cares when we’re saving you a heck of a lot on taxes — for free!
+
+                    <div style={styles.actionCardPricing} className="col-8 my-auto" >
+
+                        <div className="container"> 
+
+                            <div>
+
+                                <div> 
+                                    <p style={styles.title}> Please set a password.</p>
+                                    <p>You will be able to access your account by logging in with your phone number and this password.</p>
                                 </div>
+                                
+                                <form style={styles.formStyle} onSubmit={this.handleSubmit}>
+                                    <div className="form-group">
+                                        <input style={styles.inputStyle} onChange={this.handleChange} name="password" type="password" id="exampleInputPassword1" placeholder="At least 6 characters"/>
+                                    </div>
+                                    <div className="col-md-auto text-center"> 
+                                        {loadingView}
+                                        <button style={styles.btnStyle} type="submit" className="btn btn-primary btn-lg">
+                                            Set password
+                                        </button>
+                                    </div> 
+                                </form>
                             </div>
                         </div>
-
-                        <form style={styles.formStyle} onSubmit={this.handleSubmit}>
-                            <div className="form-group">
-                                <label htmlFor="exampleInputFirstName">First name</label>
-                                <input onChange={this.handleChange} name="firstname" type="text" className="form-control" id="exampleInputFirstName" placeholder="Warren"/>
-                            </div>
-                            <div className="form-group">
-                                <label htmlFor="exampleInputLastName">Last name</label>
-                                <input onChange={this.handleChange} name="lastname" type="text" className="form-control" id="exampleInputLastName" placeholder="Buffet"/>
-                            </div>
-                            <div className="form-group">
-                                <label htmlFor="exampleInputPhone">Phone number</label>
-                                <input onChange={this.handleChange} name="phone" type="text" className="form-control" id="exampleInputPhone" placeholder="(123) 456 7890"/>
-                            </div>
-                            <div className="form-group">
-                                <label htmlFor="exampleInputPassword1">Password</label>
-                                <input onChange={this.handleChange} name="password" type="password" className="form-control" id="exampleInputPassword1" placeholder="At least 6 characters"/>
-                            </div>
-                            <div className="col-md-auto text-center"> 
-                                {loadingView}
-                                <button style={styles.btnStyle} type="submit" className="btn btn-primary btn-lg">
-                                    Goodbye, tax stress
-                                </button>
-                            </div> 
-                        </form>
-                    </div>
-                    <div style={styles.imagePadding} className="text-center">
-                        <WIOImage />
+               
                     </div>
                 </div>
-               
             </div>
         </div>
     )}

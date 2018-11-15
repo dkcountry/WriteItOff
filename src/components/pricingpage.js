@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import * as styles from "../styles";
 import Amplitude from 'react-amplitude';
 import WIOImage from "./wioImage";
-import MP4loader from "./mp4loader";
 import MaskedInput from 'react-text-mask';
 import {
   Collapse,
@@ -18,7 +17,7 @@ import {
   DropdownMenu,
   DropdownItem } from 'reactstrap';
 
-class LandingPage extends React.Component {
+class PricingPage extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -80,7 +79,7 @@ class LandingPage extends React.Component {
                   <Collapse isOpen={this.state.isOpen} navbar>
                     <Nav className="ml-auto" navbar>
                       <NavItem>
-                        <NavLink style={styles.navLink} href="/pricing">pricing</NavLink>
+                        <NavLink style={styles.activeNavLink} href="/pricing">pricing</NavLink>
                       </NavItem>
                       <NavItem>
                         <NavLink style={styles.navLink} href="/index.html">log in</NavLink>
@@ -93,38 +92,43 @@ class LandingPage extends React.Component {
             <div style={styles.containerStyle} className="container">
                 
                 <div className="row align-items-start">
-                    
-                    <div style={styles.imagePadding} className="col-6 text-center">
-                        <MP4loader/>
-                    </div>
 
-                    <div style={styles.actionCard} className="col-6 my-auto" >
+                    <div style={styles.actionCardPricing} className="col-8 my-auto" >
 
                         <div className="container"> 
 
                             <div> 
-                                <p style={styles.title}> Say hello {"\n"} to your new {"\n"} personal bookkeeper</p>
+
+                                <p style={styles.header}> 
+                                Free, for 6 months
+                                </p>
+
+                                <p> 
+                                Your personal bookkeeper finds tax write offs among your purchases, and calls you monthly to review your account. Cancel anytime.
+                                </p>
+
+                                <hr style={styles.divider}/>
+
+                                <p style={styles.header}> 
+                                $195, at tax time
+                                </p>
+
+                                <p> 
+                                Your personal bookkeeper prepares an year-end expense report (even if you weren’t using keeper the whole year) to easily plug into any tax filing solution.     
+                                </p>
+
+                                <hr style={styles.divider}/>
+
+                                <p style={styles.header}> 
+                                The bottom line
+                                </p>
+
+                                <p>
+                                On average, people with keeper report claiming $1,342 in tax write offs they would have missed otherwise.
+                                </p>
+                            
                             </div>
 
-                            <div style={styles.landingPageInput}>
-                                <form onSubmit={this.handleSubmit}>
-                                    <div className="form-group">
-                                        <input style={styles.inputStyle} onChange={this.handleChange} name="firstname" type="text" required id="exampleInputFirstName" placeholder="first name"/>
-                                    </div>
-                                    <div className="form-group">
-                                        <MaskedInput 
-                                        mask={['(', /[1-9]/, /\d/, /\d/, ')', ' ', /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/]}
-                                        style={styles.inputStyle} onChange={this.handleChange} name="phone" type="tel" required id="exampleInputPhone" placeholder="phone number"
-                                        />
-                                    </div>
-                                    <div className="col-md-auto text-center"> 
-                                        {loadingView}
-                                        <button style={styles.btnStyle} type="submit" className="btn btn-primary btn-lg">
-                                            Hello!
-                                        </button>
-                                    </div> 
-                                </form>
-                            </div>
                         </div>
                     </div>
 
@@ -137,4 +141,4 @@ class LandingPage extends React.Component {
 }
 
 
-export default LandingPage;
+export default PricingPage;
