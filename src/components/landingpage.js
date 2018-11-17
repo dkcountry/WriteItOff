@@ -47,7 +47,7 @@ class LandingPage extends React.Component {
     
     handleSubmit(event) {
         this.setState({isLoading: true});
-        fetch('http://penguin.linux.test:5000/welcome-sms', {
+        fetch('https://writeitoff.herokuapp.com/welcome-sms', {
             method: "POST",
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({

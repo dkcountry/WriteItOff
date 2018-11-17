@@ -25,8 +25,6 @@ class PricingPage extends React.Component {
             phone: '',
             isLoading: false
         };
-        this.handleChange = this.handleChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
         this.toggle = this.toggle.bind(this);
             this.state = {
               isOpen: false
@@ -37,30 +35,6 @@ class PricingPage extends React.Component {
     toggle() {
         this.setState({
           isOpen: !this.state.isOpen});
-    }
-    
-    handleChange(event) {
-        const name = event.target.name;
-        this.setState({[name]: event.target.value});
-    }
-    
-    handleSubmit(event) {
-        this.setState({isLoading: true});
-        fetch('http://penguin.linux.test:5000/welcome-sms', {
-            method: "POST",
-            headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify({
-                firstname: this.state.firstname,
-                phone: this.state.phone,
-              })
-        }).then(results => {
-            return results.json();
-        }).then(data => {
-            this.props.loginCallback(data)
-        });
-        event.preventDefault();
-        Amplitude.init('212ed2feb2663c8004ae16498974992b', this.state.phone);
-        Amplitude.logEvent('onboarding: input name and number');
     }
 
     render() {
