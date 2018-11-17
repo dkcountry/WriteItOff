@@ -2,13 +2,15 @@ import React from "react";
 import ReactDOM from "react-dom";
 import LoginPage from "./components/login";
 import SignupPage from "./components/signup";
+import LandingPage from "./components/landingpage";
+import PricingPage from "./components/pricingpage";
 import { BrowserRouter } from 'react-router-dom';
 import { Switch, Route } from 'react-router-dom';
 import PlaidFace from "./components/plaidface";
 import Footer from "./components/footer";
 import * as styles from "./styles";
 import Amplitude from 'react-amplitude';
-
+import 'bootstrap/dist/css/bootstrap.css';
 Amplitude.init('212ed2feb2663c8004ae16498974992b');
 
 
@@ -45,8 +47,10 @@ class App extends React.Component {
             return (
                 <div>
                     <Switch>
-                        <Route exact path='/' render={(props) => <SignupPage {...props} loginCallback={this.loginCallback}/>}/>
-                        <Route exact path='/index.html' render={(props) => <LoginPage {...props} loginCallback={this.loginCallback}/>}/>
+                        <Route exact path='/' component={LandingPage}/>
+                        <Route exact path='/pricing' component={PricingPage}/>
+                        <Route exact path='/index.html' render={(props) => <SignupPage {...props} loginCallback={this.loginCallback}/>}/>
+                        <Route exact path='/login' render={(props) => <LoginPage {...props} loginCallback={this.loginCallback}/>}/>
                     </Switch>
                     <Footer />
                 </div>

@@ -2,15 +2,18 @@ const HtmlWebPackPlugin = require("html-webpack-plugin");
 
 const htmlWebpackPlugin = new HtmlWebPackPlugin({
   template: "./src/index.html",
-  filename: "./index.html"
+  filename: "./index.html",
+  favicon: "./public/favicon.png",
 });
 
 module.exports = {
     devServer: { 
         inline: true, 
         contentBase: './dist', 
-        port: 5000, 
-        // proxy: { "/**": { target: 'http://localhost:5000', secure: false }  },
+        host: '0.0.0.0',
+        port: 3000, 
+        disableHostCheck: true,
+        proxy: { "/**": { target: '0.0.0.0:5000', secure: false }  },
         historyApiFallback: true
      },
      output: {
@@ -35,6 +38,12 @@ module.exports = {
               options: {
                 limit: 25000,
               },
+            },
+          },
+        {
+            test: /\.(mp4)$/,
+            use: {
+              loader: "url-loader?limit=10000&mimetype=video/mp4",
             },
           },
         {

@@ -3,6 +3,18 @@ import React from "react";
 import { Link } from 'react-router-dom';
 import * as styles from "../styles";
 import Amplitude from 'react-amplitude';
+import {
+  Collapse,
+  Navbar,
+  NavbarToggler,
+  NavbarBrand,
+  Nav,
+  NavItem,
+  NavLink,
+  UncontrolledDropdown,
+  DropdownToggle,
+  DropdownMenu,
+  DropdownItem } from 'reactstrap';
 
 
 const PLAID_PUBLIC_KEY = "36bd55c50f7421ae5ef190a4fa03fd";
@@ -23,9 +35,18 @@ class PlaidFace extends React.Component {
         this.handleOnSuccess = this.handleOnSuccess.bind(this);
         this.getBankSummary = this.getBankSummary.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.toggle = this.toggle.bind(this);
+            this.state = {
+              isOpen: false
+            };
         Amplitude.init('212ed2feb2663c8004ae16498974992b', this.props.phone);
         Amplitude.setUserProperties({'phone number': this.props.phone, 'firstname': this.props.firstname, 'lastname': this.props.lastname});
         Amplitude.logEvent('navigation: dashboard');
+    }
+
+    toggle() {
+        this.setState({
+          isOpen: !this.state.isOpen});
     }
 
     handleSubmit(event) {
@@ -109,60 +130,67 @@ class PlaidFace extends React.Component {
             )
         }
         return (
-            <div>
-                <nav style={styles.navStyle} className="navbar justify-content-between">
-                    <a className="navbar-brand"></a>
-                    <form onSubmit={this.handleSubmit}>
-                            <button style={styles.logoutBtnFormat} type="submit">
-                                <p className="text-secondary">log out</p>
-                            </button>
-                    </form>
-                </nav>
+            <div style={styles.outerContainer} className="container">
+                <div>
+                    <Navbar color="white" light expand="lg">
+                      <NavbarBrand style={styles.title} href="/">keeper</NavbarBrand>
+                      <NavbarToggler onClick={this.toggle} />
+                      <Collapse isOpen={this.state.isOpen} navbar>
+                        <Nav className="ml-auto" navbar>
+                          <NavItem>
+                            <NavLink style={styles.navLink} href="/">logout</NavLink>
+                          </NavItem>
+                        </Nav>
+                      </Collapse>
+                    </Navbar>
+                </div>
 
                 <div style={styles.containerStyle} className="container">
 
                     <div className="row align-items-start">
-                        <div style={styles.colStyleCenter} className="col-6 text-center" >
+                        <div style={styles.actionCardPricing} className="col-8 my-auto" >
                             <div className="container"> 
-                                <p style={styles.title} className="bold text-center">Which transactions should we scan? </p>
-                                <div className="row justify-content-sm-center">
-                                    <div className="text-justify">
+                                <div>
+                                    <p style={styles.title}> Which transactions should we scan? </p>
+                                    <p>
                                         Write It Off automatically finds tax write offs among your purchase history. Please link any financial institutions you use below. 
+                                    </p>
+
+
+                                    <div style={styles.bankList} className="container">
+                                        <div className="row align-items-middle">
+                                            <div className="text-center" >
+                                                {viewBanks}
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div className="row align-items-end">
+                                        <div style={styles.colStyleCenter} className="col-offset-3 col-6 text-center" >
+                                            <div className="container"> 
+                                                <div style={styles.formStyle}>
+                                                    <PlaidLink
+                                                        style={styles.btnStyle}
+                                                        className="btn btn-primary btn-lg"
+                                                        publicKey={PLAID_PUBLIC_KEY}
+                                                        product={["transactions"]}
+                                                        env="development"
+                                                        apiVersion={'v2'}
+                                                        clientName="Spend Tracker"
+                                                        onSuccess={this.handleOnSuccess}
+                                                    >
+                                                        Link financial institution
+                                                    </PlaidLink>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+                </div> 
 
-                    <div style={styles.bankList} className="container">
-                        <div className="row align-items-middle">
-                            <div style={styles.colStyleCenter} className="col-offset-3 col-6 text-center" >
-                                {viewBanks}
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className="row align-items-end">
-                        <div style={styles.colStyleCenter} className="col-offset-3 col-6 text-center" >
-                            <div className="container"> 
-                                <div style={styles.formStyle}>
-                                    <PlaidLink
-                                        style={styles.btnStyle}
-                                        className="btn btn-primary btn-lg"
-                                        publicKey={PLAID_PUBLIC_KEY}
-                                        product={["transactions"]}
-                                        env="development"
-                                        apiVersion={'v2'}
-                                        clientName="Spend Tracker"
-                                        onSuccess={this.handleOnSuccess}
-                                    >
-                                        Link financial institution
-                                    </PlaidLink>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>             
             </div>
     )
     }

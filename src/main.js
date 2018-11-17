@@ -15,6 +15,7 @@ class RouteHandler extends React.Component {
             <Switch>
             <Route exact path='/login' render={(props) => <LoginPage {...props} isAuthed={true} />}/>
             <Route exact path='/' component={SignupPage}/>
+            <Route exact path='/signup' component={SignupPage}/>
             
             </Switch>
         </main >

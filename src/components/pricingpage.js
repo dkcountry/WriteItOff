@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 import * as styles from "../styles";
 import Amplitude from 'react-amplitude';
 import WIOImage from "./wioImage";
@@ -17,29 +17,28 @@ import {
   DropdownMenu,
   DropdownItem } from 'reactstrap';
 
-
-class LoginPage extends React.Component {
+class PricingPage extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            phone: '', 
-            password: '',
+            firstname: '',
+            phone: '',
             isLoading: false
         };
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
-        Amplitude.logEvent('navigation: login page');
         this.toggle = this.toggle.bind(this);
             this.state = {
               isOpen: false
             };
+        Amplitude.logEvent('navigation: landing page');
     }
 
     toggle() {
         this.setState({
           isOpen: !this.state.isOpen});
     }
-
+    
     handleChange(event) {
         const name = event.target.name;
         this.setState({[name]: event.target.value});
@@ -47,12 +46,12 @@ class LoginPage extends React.Component {
     
     handleSubmit(event) {
         this.setState({isLoading: true});
-        fetch('https://writeitoff.herokuapp.com/signin', {
+        fetch('http://penguin.linux.test:5000/welcome-sms', {
             method: "POST",
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({
+                firstname: this.state.firstname,
                 phone: this.state.phone,
-                password: this.state.password
               })
         }).then(results => {
             return results.json();
@@ -61,13 +60,13 @@ class LoginPage extends React.Component {
         });
         event.preventDefault();
         Amplitude.init('212ed2feb2663c8004ae16498974992b', this.state.phone);
-        Amplitude.logEvent('log in');        
+        Amplitude.logEvent('onboarding: input name and number');
     }
 
     render() {
         let loadingView = <div></div>
         if (this.state.isLoading) {
-            loadingView = <div>Loading...</div>
+            loadingView = <div>We just sent you a text message!</div>
         }
 
         return (
@@ -80,7 +79,7 @@ class LoginPage extends React.Component {
                   <Collapse isOpen={this.state.isOpen} navbar>
                     <Nav className="ml-auto" navbar>
                       <NavItem>
-                        <NavLink style={styles.navLink} href="/pricing">pricing</NavLink>
+                        <NavLink style={styles.activeNavLink} href="/pricing">pricing</NavLink>
                       </NavItem>
                       <NavItem>
                         <NavLink style={styles.navLink} href="/index.html">log in</NavLink>
@@ -91,40 +90,55 @@ class LoginPage extends React.Component {
             </div>
 
             <div style={styles.containerStyle} className="container">
+                
                 <div className="row align-items-start">
-                    <div style={styles.actionCard} className="col-6 my-auto" >
+
+                    <div style={styles.actionCardPricing} className="col-8 my-auto" >
+
                         <div className="container"> 
 
-                            <div>
-                                <p style={styles.title}> Welcome back!</p>
+                            <div> 
+
+                                <p style={styles.header}> 
+                                Free, for 6 months
+                                </p>
+
+                                <p> 
+                                Your personal bookkeeper finds tax write offs among your purchases, and calls you monthly to review your account. Cancel anytime.
+                                </p>
+
+                                <hr style={styles.divider}/>
+
+                                <p style={styles.header}> 
+                                $195, at tax time
+                                </p>
+
+                                <p> 
+                                Your personal bookkeeper prepares an year-end expense report (even if you weren’t using keeper the whole year) to easily plug into any tax filing solution.     
+                                </p>
+
+                                <hr style={styles.divider}/>
+
+                                <p style={styles.header}> 
+                                The bottom line
+                                </p>
+
+                                <p>
+                                On average, people with keeper report claiming $1,342 in tax write offs they would have missed otherwise.
+                                </p>
+                            
                             </div>
 
-                            <div style={styles.landingPageInput}>
-                                <form onSubmit={this.handleSubmit}>
-                                    <div className="form-group">
-                                        <MaskedInput 
-                                        mask={['(', /[1-9]/, /\d/, /\d/, ')', ' ', /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/]}
-                                        style={styles.inputStyle} onChange={this.handleChange} name="phone" type="tel" required id="exampleInputPhone1" placeholder="phone number"
-                                        />
-                                    </div>
-                                    <div className="form-group">
-                                        <input style={styles.inputStyle} onChange={this.handleChange} name="password" type="password" id="exampleInputPassword1" placeholder="password"/>
-                                    </div>
-                                    <div className="col-md-auto text-center"> 
-                                        {loadingView}
-                                        <button style={styles.btnStyle} type="submit" className="btn btn-primary btn-lg">
-                                            log in
-                                        </button>
-                                    </div> 
-                                </form>
-                            </div>
                         </div>
                     </div>
+
                 </div>
-            </div>             
+               
+            </div>
+
         </div>
     )}
 }
 
 
-export default LoginPage;
+export default PricingPage;
