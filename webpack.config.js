@@ -10,10 +10,8 @@ module.exports = {
     devServer: { 
         inline: true, 
         contentBase: './dist', 
-        host: '0.0.0.0',
-        port: 3000, 
-        disableHostCheck: true,
-        proxy: { "/**": { target: '0.0.0.0:5000', secure: false }  },
+        port: 5000, 
+        // proxy: { "/**": { target: 'http://localhost:5000', secure: false }  },
         historyApiFallback: true
      },
      output: {
