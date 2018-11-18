@@ -106,7 +106,7 @@ export const imagePadding = {
 
 export const imageWidth = {
     "maxWidth": "100%",
-    "minWidth": "420px",
+    "minWidth": "330px",
 }
 
 export const logoutBtnFormat = {
