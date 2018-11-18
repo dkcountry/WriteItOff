@@ -40,13 +40,13 @@ class KeeperNav extends React.Component {
                   <Collapse isOpen={this.state.isOpen} navbar>
                     <Nav className="ml-auto" navbar>
                         <NavLink style={styles.navLink} href="https://blog.keepertax.com">
-                            <p>blog</p> 
+                            <p >blog</p> 
                             </NavLink>
                         <Link style={styles.navLink} to="/pricing">
-                            <p style={styles.navLink}>pricing</p>
+                            <p >pricing</p>
                         </Link>
                       <Link style={styles.navLink} to="/login">
-                            <p style={styles.navLink}>log in</p>
+                            <p >log in</p>
                         </Link>
                     </Nav>
                   </Collapse>
