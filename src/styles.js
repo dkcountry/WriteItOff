@@ -38,7 +38,7 @@ export const landingPageInput = {
 export const actionCard = { 
     "float":"none",
     "margin": "0 auto",
-    "minWidth": "420px",
+    "minWidth": "400px",
     "maxWidth": "500px",
     "padding": "5%",
     "backgroundColor": "#F7F7F7",
@@ -106,7 +106,7 @@ export const imagePadding = {
 
 export const imageWidth = {
     "maxWidth": "100%",
-    "minWidth": "420px",
+    "minWidth": "330px",
 }
 
 export const logoutBtnFormat = {
