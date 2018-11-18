@@ -30,7 +30,7 @@ class LandingPage extends React.Component {
         const cleaned = ('' + this.state.phone).replace(/\D/g, '');
 	    const match = cleaned.match(/^(1|)?(\d{3})(\d{3})(\d{4})$/);
 	    const phone = '1' + [match[2], match[3], match[4]].join('');
-        fetch('http://localhost:5000/welcome-sms', {
+        fetch('https://writeitoff.herokuapp.com/welcome-sms', {
             method: "POST",
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({
