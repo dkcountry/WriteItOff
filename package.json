@@ -44,6 +44,7 @@
     "react-bootstrap": "^0.32.4",
     "react-dom": "^16.6.3",
     "react-plaid-link": "^1.0.2",
+    "react-responsive": "^6.0.1",
     "react-router-dom": "^4.3.1",
     "react-text-mask": "^5.4.3",
     "react-url-query": "^1.4.0",
