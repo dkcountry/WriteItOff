@@ -13,13 +13,11 @@ class MP4loader extends React.Component {
     render() {
       return (
         <div>
-            <video poster={stillImage} autoPlay autobuffer muted style={styles.MP4video}> 
-              <source src={mp4file1} type='video/mp4;codecs="avc1.42E01E, mp4a.40.2"'/>
-            </video>
-            <video autoPlay autobuffer muted style={styles.MP4video}> 
+            <video webkit-playsinline="true" autoPlay muted src={mp4file1} type='video/mp4;codecs="avc1.42E01E, mp4a.40.2"' style={styles.MP4video} /> 
+            <video webkit-playsinline="true" autoPlay muted style={styles.MP4video}> 
               <source src={mp4file2} type='video/mp4;codecs="avc1.42E01E, mp4a.40.2"'/>
             </video>
-            <video autoPlay autobuffer muted style={styles.MP4video}> 
+            <video webkit-playsinline="true" autoPlay muted style={styles.MP4video}> 
               <source src={mp4file3} type='video/mp4;codecs="avc1.42E01E, mp4a.40.2"'/>
             </video>
         </div>
