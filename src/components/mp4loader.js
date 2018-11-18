@@ -1,11 +1,7 @@
 import React from "react";
-
-import stillImage from '../../public/still-chat.png'
-
 import mp4file1 from '../../public/keeper-1.mp4';
 import mp4file2 from '../../public/keeper-2.mp4';
 import mp4file3 from '../../public/keeper-3.mp4';
-
 import * as styles from "../styles";
 
 

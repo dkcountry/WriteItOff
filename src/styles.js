@@ -63,6 +63,8 @@ export const navLink = {
     "fontSize": "30px",
     "color":"#4F4F4F",
     "marginLeft":"25px",
+    "textDecoration": "none",
+    "padding": "0"
 }
 
 export const containerStyle = { 

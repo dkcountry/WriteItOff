@@ -2,20 +2,8 @@ import React from "react";
 import { Link } from 'react-router-dom';
 import * as styles from "../styles";
 import Amplitude from 'react-amplitude';
-import WIOImage from "./wioImage";
 import MaskedInput from 'react-text-mask';
-import {
-  Collapse,
-  Navbar,
-  NavbarToggler,
-  NavbarBrand,
-  Nav,
-  NavItem,
-  NavLink,
-  UncontrolledDropdown,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem } from 'reactstrap';
+import KeeperNav from "./nav";
 
 
 class LoginPage extends React.Component {
@@ -29,15 +17,6 @@ class LoginPage extends React.Component {
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         Amplitude.logEvent('navigation: login page');
-        this.toggle = this.toggle.bind(this);
-            this.state = {
-              isOpen: false
-            };
-    }
-
-    toggle() {
-        this.setState({
-          isOpen: !this.state.isOpen});
     }
 
     handleChange(event) {
@@ -72,23 +51,7 @@ class LoginPage extends React.Component {
 
         return (
         <div style={styles.outerContainer} className="container">
-
-            <div>
-                <Navbar color="white" light expand="lg">
-                  <NavbarBrand style={styles.title} href="/">keeper</NavbarBrand>
-                  <NavbarToggler onClick={this.toggle} />
-                  <Collapse isOpen={this.state.isOpen} navbar>
-                    <Nav className="ml-auto" navbar>
-                      <NavItem>
-                        <NavLink style={styles.navLink} href="/pricing">pricing</NavLink>
-                      </NavItem>
-                      <NavItem>
-                        <NavLink style={styles.navLink} href="/index.html">log in</NavLink>
-                      </NavItem>
-                    </Nav>
-                  </Collapse>
-                </Navbar>
-            </div>
+             <KeeperNav />
 
             <div style={styles.containerStyle} className="container">
                 <div className="row align-items-start">

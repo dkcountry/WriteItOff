@@ -2,20 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import * as styles from "../styles";
 import Amplitude from 'react-amplitude';
-import WIOImage from "./wioImage";
-import MaskedInput from 'react-text-mask';
-import {
-  Collapse,
-  Navbar,
-  NavbarToggler,
-  NavbarBrand,
-  Nav,
-  NavItem,
-  NavLink,
-  UncontrolledDropdown,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem } from 'reactstrap';
+import KeeperNav from "./nav";
+
 
 class PricingPage extends React.Component {
     constructor(props) {
@@ -25,16 +13,7 @@ class PricingPage extends React.Component {
             phone: '',
             isLoading: false
         };
-        this.toggle = this.toggle.bind(this);
-            this.state = {
-              isOpen: false
-            };
         Amplitude.logEvent('navigation: landing page');
-    }
-
-    toggle() {
-        this.setState({
-          isOpen: !this.state.isOpen});
     }
 
     render() {
@@ -45,24 +24,7 @@ class PricingPage extends React.Component {
 
         return (
         <div style={styles.outerContainer} className="container">
-
-            <div>
-                <Navbar color="white" light expand="lg">
-                  <NavbarBrand style={styles.title} href="/">keeper</NavbarBrand>
-                  <NavbarToggler onClick={this.toggle} />
-                  <Collapse isOpen={this.state.isOpen} navbar>
-                    <Nav className="ml-auto" navbar>
-                      <NavItem>
-                        <NavLink style={styles.activeNavLink} href="/pricing">pricing</NavLink>
-                      </NavItem>
-                      <NavItem>
-                        <NavLink style={styles.navLink} href="/index.html">log in</NavLink>
-                      </NavItem>
-                    </Nav>
-                  </Collapse>
-                </Navbar>
-            </div>
-
+            <KeeperNav />
             <div style={styles.containerStyle} className="container">
                 
                 <div className="row align-items-start">
