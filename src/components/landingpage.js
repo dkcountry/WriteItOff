@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import * as styles from "../styles";
 import Amplitude from 'react-amplitude';
 import MP4loader from "./mp4loader";
-import GifLoader from "./gifLoader.js";
 import MaskedInput from 'react-text-mask';
 import KeeperNav from "./nav";
 
