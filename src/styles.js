@@ -138,6 +138,15 @@ export const MP4video = {
     "maxWidth":"100%",
 }
 
+export const listContainerStyle = {
+    "padding": "25px 0px", 
+}
+
+export const iconPaddingStyle = {
+    "paddingLeft": "25px",
+    "paddingBottom": "20px"
+}
+
 export const wideActionCard = { 
     "float":"none",
     "margin": "0 auto",
