@@ -13,6 +13,9 @@ import Amplitude from 'react-amplitude';
 import 'bootstrap/dist/css/bootstrap.css';
 Amplitude.init('212ed2feb2663c8004ae16498974992b');
 
+import PhoneSignUp from "./components/landingpage/phonesignup";
+import MP4loader from "./components/landingpage/mp4loader";
+
 
 class App extends React.Component {
     constructor(props) {
