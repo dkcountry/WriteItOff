@@ -25,11 +25,6 @@ export const btnStyle = {
     "fontSize": "30px"
 }
 
-export const colStyle = { 
-    "float": "none",
-    "minWidth": "320px"
-}
-
 export const landingPageInput = {
     "paddingTop":"20px",
     "midWidth": "100%",
@@ -80,11 +75,7 @@ export const outerContainer = {
 }
 
 export const bankCard = {
-	"marginTop": "10px"
-}
-
-export const bankList = {
-	"marginTop": "25px"
+    "marginTop": "10px",    
 }
 
 export const footer = {
@@ -145,6 +136,15 @@ export const MP4video = {
     "margin": "0 auto",
     "textAlign": "center",
     "maxWidth":"100%",
+}
+
+export const listContainerStyle = {
+    "padding": "25px 0px", 
+}
+
+export const iconPaddingStyle = {
+    "paddingLeft": "25px",
+    "paddingBottom": "20px"
 }
 
 export const wideActionCard = { 
