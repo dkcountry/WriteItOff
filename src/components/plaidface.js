@@ -3,6 +3,7 @@ import React from "react";
 import { Link } from 'react-router-dom';
 import * as styles from "../styles";
 import Amplitude from 'react-amplitude';
+
 import {
   Collapse,
   Navbar,
@@ -144,55 +145,58 @@ class PlaidFace extends React.Component {
                       </Collapse>
                     </Navbar>
                 </div>
-
-                <div style={styles.containerStyle} className="container">
-
+                <div style={styles.containerStyle}>
                     <div className="row align-items-start">
-                        <div style={styles.actionCardPricing} className="col-8 my-auto" >
+                        <div style={styles.actionCardPricing} className="col-8" >
                             <div className="container"> 
-                                <div>
-                                    <p style={styles.title}> Which transactions should we scan? </p>
-                                    <p>
-                                        Write It Off automatically finds tax write offs among your purchase history. Please link any financial institutions you use below. 
-                                    </p>
-
-
-                                    <div style={styles.bankList} className="container">
-                                        <div className="row align-items-middle">
-                                            <div className="text-center" >
-                                                {viewBanks}
-                                            </div>
+                                <p style={styles.title}> Last step! Keeper needs access to your purcharse history</p>
+                                <div style={styles.listContainerStyle} className="row align-items-start ">
+                                    <div className="col-1">
+                                        <i className="fa fa-check"></i> 
+                                    </div>
+                                    <div style={styles.iconPaddingStyle} className="col-11">
+                                        Keeper works on your behalf to find tax write offs among your purchase history.
+                                    </div>
+                                    <div className="col-1">
+                                        <i className="fa fa-check"></i> 
+                                    </div> 
+                                    <div style={styles.iconPaddingStyle} className="col-11" >
+                                        Only your personal bookkeeper will have access to your purchase history.
+                                    </div>
+                                    <div className="col-1">
+                                        <i className="fa fa-check"></i> 
+                                    </div>
+                                    <div style={styles.iconPaddingStyle} className="col-11">
+                                        You will not be charged.
+                                    </div>
+                                </div>
+                                <div className="d-flex justify-content-center">
+                                    <div className="row">
+                                        <div className="text-center" >
+                                            {viewBanks}
                                         </div>
                                     </div>
-
-                                    <div className="row align-items-end">
-                                        <div style={styles.colStyleCenter} className="col-offset-3 col-6 text-center" >
-                                            <div className="container"> 
-                                                <div style={styles.formStyle}>
-                                                    <PlaidLink
-                                                        style={styles.btnStyle}
-                                                        className="btn btn-primary btn-lg"
-                                                        publicKey={PLAID_PUBLIC_KEY}
-                                                        product={["transactions"]}
-                                                        env="development"
-                                                        apiVersion={'v2'}
-                                                        clientName="Spend Tracker"
-                                                        onSuccess={this.handleOnSuccess}
-                                                    >
-                                                        Link financial institution
-                                                    </PlaidLink>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                </div>
+                                <div className="d-flex justify-content-center">
+                                    <PlaidLink
+                                        style={styles.btnStyle}
+                                        className="btn btn-primary btn-lg"
+                                        publicKey={PLAID_PUBLIC_KEY}
+                                        product={["transactions"]}
+                                        env="development"
+                                        apiVersion={'v2'}
+                                        clientName="Spend Tracker"
+                                        onSuccess={this.handleOnSuccess}
+                                    >
+                                    Give read-only access
+                                    </PlaidLink>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div> 
-
             </div>
-    )
+        )
     }
 }
 
