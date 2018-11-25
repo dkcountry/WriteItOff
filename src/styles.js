@@ -185,12 +185,3 @@ export const actionCardWhite = {
     "fontSize": "30px",
     "color":"#4F4F4F",
 }
-
-export const listContainerStyle = {
-    "padding": "25px 0px", 
-}
-
-export const iconPaddingStyle = {
-    "paddingLeft": "25px",
-    "paddingBottom": "20px"
-}
