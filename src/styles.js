@@ -33,7 +33,7 @@ export const landingPageInput = {
 export const actionCard = { 
     "float":"none",
     "margin": "0 auto",
-    "minWidth": "400px",
+    "minWidth": "375px",
     "maxWidth": "500px",
     "padding": "5%",
     "backgroundColor": "#F7F7F7",
@@ -145,4 +145,43 @@ export const listContainerStyle = {
 export const iconPaddingStyle = {
     "paddingLeft": "25px",
     "paddingBottom": "20px"
+}
+
+export const wideActionCard = { 
+    "float":"none",
+    "margin": "0 auto",
+    "minWidth": "375px",
+    "maxWidth": "1000px",
+    "padding": "5%",
+    "backgroundColor": "#F7F7F7",
+    "boxShadow": "4px 1px 2px rgba(79,79,79,.30)",
+    "fontSize": "30px",
+    "color":"#4F4F4F",
+}
+
+export const howItWorksPadding = {
+    "paddingTop": "10px",
+    "paddingBottom": "7px",
+    "paddingLeft": "60px"
+}
+
+export const writeoffPadding = {
+    "paddingTop": "10px",
+    "paddingBottom": "7px",
+}
+
+export const howItWorksEmoji = {
+    "paddingTop": "7px",
+    "paddingBottom": "7px",
+    "fontSize": "100px"
+}
+
+export const actionCardWhite = { 
+    "float":"none",
+    "margin": "0 auto",
+    "minWidth": "325px",
+    "maxWidth": "1000px",
+    "padding": "5%",
+    "fontSize": "30px",
+    "color":"#4F4F4F",
 }

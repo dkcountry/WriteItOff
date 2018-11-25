@@ -1,16 +1,16 @@
 import React from "react";
-import mp4file1 from '../../public/keeper-1.mp4';
-import mp4file2 from '../../public/keeper-2.mp4';
-import mp4file3 from '../../public/keeper-3.mp4';
-import * as styles from "../styles";
+import mp4file1 from '../../../public/keeper-1.mp4';
+import mp4file2 from '../../../public/keeper-2.mp4';
+import mp4file3 from '../../../public/keeper-3.mp4';
+import * as styles from "../../styles";
 import MediaQuery from 'react-responsive';
-import gif from '../../public/keeper.gif';
+import gif from '../../../public/keeper.gif';
 
 
 class MP4loader extends React.Component {
     render() {
       return (
-        <div>
+        <div style={styles.imagePadding} className="col-6 text-center">
             <MediaQuery query='(max-width: 1000px)'>
               <img className="logo" src={gif} style={styles.imageWidth}/>
             </MediaQuery>
