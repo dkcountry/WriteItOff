@@ -12,15 +12,15 @@ class WriteOffs extends React.Component {
     render() {
 
         return (
-            <div style={styles.actionCardWhite}> 
+            <div> 
                 <MediaQuery query='(max-width: 1000px)'>
-                    <div className= "col-3">
+                    <div>
                         <WriteOffCard emoji='📞' title='phone bill' summary="if you use your phone for work, it's a write off!"/>
                     </div>
-                    <div className= "col-3">
+                    <div>
                         <WriteOffCard emoji='📓' title='work supplies' summary="notebooks, staplers, pens, etc."/>
                     </div>
-                    <div className= "col-3">
+                    <div>
                         <WriteOffCard emoji='⛽' title='gas fill ups' summary="If you drive your car for work, add in gas, tolls, and maintenance"/>
                     </div>
                 </MediaQuery>

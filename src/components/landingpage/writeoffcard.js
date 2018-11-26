@@ -14,8 +14,7 @@ class WriteOffCard extends React.Component {
     render() {
 
         return (
-            <div style={styles.actionCardWhite}> 
-                <div className="row align-items-start"> 
+                <div style={styles.actionCardWhite} className="row align-items-start"> 
                     <div style={styles.howItWorksEmoji} className= "col-4 text-center">
                         <span role="img" aria-label="emoji">{this.state.emoji}</span>
                     </div>
@@ -28,8 +27,6 @@ class WriteOffCard extends React.Component {
                     </p>
                     </div>
                 </div>
-
-            </div>
         )
     }
 }

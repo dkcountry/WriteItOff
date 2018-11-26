@@ -3,6 +3,7 @@ import React from "react";
 import { Link } from 'react-router-dom';
 import * as styles from "../styles";
 import Amplitude from 'react-amplitude';
+import MediaQuery from 'react-responsive';
 
 import {
   Collapse,
@@ -148,28 +149,55 @@ class PlaidFace extends React.Component {
                 <div style={styles.containerStyle}>
                     <div className="row align-items-start">
                         <div style={styles.actionCardPricing} className="col-8" >
-                            <div className="container"> 
                                 <p style={styles.title}> Last step! Keeper needs access to your purcharse history</p>
-                                <div style={styles.listContainerStyle} className="row align-items-start ">
-                                    <div className="col-1">
-                                        <i className="fa fa-check"></i> 
+
+                                <MediaQuery query='(max-width: 582px)'>
+                                    <div style={styles.listContainerStyle} className="row align-items-start">
+                                        <div className="col-1">
+                                            <i className="fa fa-check"></i> 
+                                        </div>
+                                        <div style={styles.iconPaddingStyle} className="col-10">
+                                            Keeper works on your behalf to find tax write offs among your purchase history.
+                                        </div>
+                                        <div className="col-1">
+                                            <i className="fa fa-check"></i> 
+                                        </div> 
+                                        <div style={styles.iconPaddingStyle} className="col-10" >
+                                            Only your personal bookkeeper will have access to your purchase history.
+                                        </div>
+                                        <div className="col-1">
+                                            <i className="fa fa-check"></i> 
+                                        </div>
+                                        <div style={styles.iconPaddingStyle} className="col-10">
+                                            You will not be charged.
+                                        </div>
                                     </div>
-                                    <div style={styles.iconPaddingStyle} className="col-11">
-                                        Keeper works on your behalf to find tax write offs among your purchase history.
+                                </MediaQuery>
+
+                                <MediaQuery query='(min-width: 583px)'>
+
+                                    <div style={styles.listContainerStyle} className="row align-items-start">
+                                        <div className="col-1">
+                                            <i className="fa fa-check"></i> 
+                                        </div>
+                                        <div style={styles.iconPaddingStyle} className="col-11">
+                                            Keeper works on your behalf to find tax write offs among your purchase history.
+                                        </div>
+                                        <div className="col-1">
+                                            <i className="fa fa-check"></i> 
+                                        </div> 
+                                        <div style={styles.iconPaddingStyle} className="col-11" >
+                                            Only your personal bookkeeper will have access to your purchase history.
+                                        </div>
+                                        <div className="col-1">
+                                            <i className="fa fa-check"></i> 
+                                        </div>
+                                        <div style={styles.iconPaddingStyle} className="col-11">
+                                            You will not be charged.
+                                        </div>
                                     </div>
-                                    <div className="col-1">
-                                        <i className="fa fa-check"></i> 
-                                    </div> 
-                                    <div style={styles.iconPaddingStyle} className="col-11" >
-                                        Only your personal bookkeeper will have access to your purchase history.
-                                    </div>
-                                    <div className="col-1">
-                                        <i className="fa fa-check"></i> 
-                                    </div>
-                                    <div style={styles.iconPaddingStyle} className="col-11">
-                                        You will not be charged.
-                                    </div>
-                                </div>
+                                </MediaQuery>
+
                                 <div className="d-flex justify-content-center">
                                     <div className="row">
                                         <div className="text-center" >
@@ -188,11 +216,10 @@ class PlaidFace extends React.Component {
                                         clientName="Spend Tracker"
                                         onSuccess={this.handleOnSuccess}
                                     >
-                                    Give read-only access
+                                    Give Read-only access
                                     </PlaidLink>
                                 </div>
                             </div>
-                        </div>
                     </div>
                 </div> 
             </div>

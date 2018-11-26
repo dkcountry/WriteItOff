@@ -13,7 +13,7 @@ export const header = {
 
 export const navStyle = {
     "height": "50px",
-    "minWidth": "320px"
+    "minWidth": "290px"
 }
 
 export const btnStyle = { 
@@ -22,7 +22,8 @@ export const btnStyle = {
     "fontWeight": "bold",
     "backgroundColor": "#0980FE",
     "border": "none",
-    "fontSize": "30px"
+    "fontSize": "25px",
+    
 }
 
 export const landingPageInput = {
@@ -30,22 +31,12 @@ export const landingPageInput = {
     "midWidth": "100%",
 }
 
-export const actionCard = { 
-    "float":"none",
-    "margin": "0 auto",
-    "minWidth": "375px",
-    "maxWidth": "500px",
-    "padding": "5%",
-    "backgroundColor": "#F7F7F7",
-    "boxShadow": "4px 1px 2px rgba(79,79,79,.30)",
-    "fontSize": "30px",
-    "color":"#4F4F4F",
-}
+
 
 export const actionCardPricing = { 
     "float":"none",
     "margin": "0 auto",
-    "minWidth": "420px",
+    "minWidth": "290px",
     "maxWidth": "800px",
     "padding": "5%",
     "backgroundColor": "#F7F7F7",
@@ -64,12 +55,12 @@ export const navLink = {
 }
 
 export const containerStyle = { 
-    "minWidth": "320px",
+    "minWidth": "290px",
     "marginTop":"20px"   
 }
 
 export const outerContainer = { 
-    "minWidth": "320px", 
+    "minWidth": "290px", 
     "maxWidth": "1000px",
     "fontFamily": "Quicksand",
 }
@@ -92,12 +83,12 @@ export const activeNavLink = {
 export const imagePadding = {
     "margin": "0 auto",
     "marginBottom": "20px",
-    "minWidth":"320px",
+    "minWidth":"290px",
 }
 
 export const imageWidth = {
     "maxWidth": "100%",
-    "minWidth": "330px",
+    "minWidth": "290px",
 }
 
 export const logoutBtnFormat = {
@@ -147,10 +138,22 @@ export const iconPaddingStyle = {
     "paddingBottom": "20px"
 }
 
+export const actionCard = { 
+    "float":"none",
+    "margin": "0 auto",
+    "minWidth": "290px",
+    "maxWidth": "500px",
+    "padding": "5%",
+    "backgroundColor": "#F7F7F7",
+    "boxShadow": "4px 1px 2px rgba(79,79,79,.30)",
+    "fontSize": "30px",
+    "color":"#4F4F4F",
+}
+
 export const wideActionCard = { 
     "float":"none",
     "margin": "0 auto",
-    "minWidth": "375px",
+    "minWidth": "290px",
     "maxWidth": "1000px",
     "padding": "5%",
     "backgroundColor": "#F7F7F7",
@@ -162,7 +165,7 @@ export const wideActionCard = {
 export const howItWorksPadding = {
     "paddingTop": "10px",
     "paddingBottom": "7px",
-    "paddingLeft": "60px"
+    "paddingLeft": "20px",
 }
 
 export const writeoffPadding = {
@@ -173,15 +176,14 @@ export const writeoffPadding = {
 export const howItWorksEmoji = {
     "paddingTop": "7px",
     "paddingBottom": "7px",
-    "fontSize": "100px"
+    "fontSize": "250%"
 }
 
 export const actionCardWhite = { 
     "float":"none",
-    "margin": "0 auto",
-    "minWidth": "325px",
+    "margin": "25px auto",
+    "minWidth": "290px",
     "maxWidth": "1000px",
-    "padding": "5%",
     "fontSize": "30px",
     "color":"#4F4F4F",
 }
