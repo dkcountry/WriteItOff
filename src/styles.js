@@ -13,7 +13,7 @@ export const header = {
 
 export const navStyle = {
     "height": "50px",
-    "minWidth": "320px"
+    "minWidth": "335px"
 }
 
 export const btnStyle = { 
@@ -36,7 +36,7 @@ export const landingPageInput = {
 export const actionCardPricing = { 
     "float":"none",
     "margin": "0 auto",
-    "minWidth": "320px",
+    "minWidth": "335px",
     "maxWidth": "800px",
     "padding": "5%",
     "backgroundColor": "#F7F7F7",
@@ -55,12 +55,12 @@ export const navLink = {
 }
 
 export const containerStyle = { 
-    "minWidth": "320px",
+    "minWidth": "335px",
     "marginTop":"20px"   
 }
 
 export const outerContainer = { 
-    "minWidth": "320px", 
+    "minWidth": "335px", 
     "maxWidth": "1000px",
     "fontFamily": "Quicksand",
 }
@@ -83,12 +83,12 @@ export const activeNavLink = {
 export const imagePadding = {
     "margin": "0 auto",
     "marginBottom": "20px",
-    "minWidth":"320px",
+    "minWidth":"335px",
 }
 
 export const imageWidth = {
     "maxWidth": "100%",
-    "minWidth": "320px",
+    "minWidth": "335px",
 }
 
 export const logoutBtnFormat = {
@@ -141,7 +141,7 @@ export const iconPaddingStyle = {
 export const actionCard = { 
     "float":"none",
     "margin": "0 auto",
-    "minWidth": "320px",
+    "minWidth": "335px",
     "maxWidth": "500px",
     "padding": "5%",
     "backgroundColor": "#F7F7F7",
@@ -153,7 +153,7 @@ export const actionCard = {
 export const wideActionCard = { 
     "float":"none",
     "margin": "0 auto",
-    "minWidth": "320px",
+    "minWidth": "335px",
     "maxWidth": "1000px",
     "padding": "5%",
     "backgroundColor": "#F7F7F7",
@@ -182,7 +182,7 @@ export const howItWorksEmoji = {
 export const actionCardWhite = { 
     "float":"none",
     "margin": "25px auto",
-    "minWidth": "320px",
+    "minWidth": "335px",
     "maxWidth": "1000px",
     "fontSize": "30px",
     "color":"#4F4F4F",
