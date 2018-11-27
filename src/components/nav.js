@@ -9,6 +9,7 @@ import {
     NavbarBrand,
     Nav,
     NavItem,
+    Button,
     NavLink,
     UncontrolledDropdown,
     DropdownToggle,
@@ -34,21 +35,23 @@ class KeeperNav extends React.Component {
     render() {
         return (
             <div>
-                <Navbar color="white" light expand="lg">
-                  <NavbarBrand style={styles.title} href="/">keeper</NavbarBrand>
+                <Navbar color="#F7F7F7" light expand="lg">
+                  <NavbarBrand style={styles.logo} href="/">keeper</NavbarBrand>
                   <NavbarToggler onClick={this.toggle} />
                   <Collapse isOpen={this.state.isOpen} navbar>
                     <Nav className="ml-auto" navbar>
                         <NavLink style={styles.navLink} href="https://blog.keepertax.com">
                             <p >blog</p> 
                         </NavLink>
-                        <Link style={styles.navLink} to="/pricing">
-                            <p >pricing</p>
-                        </Link>
-                        <Link style={styles.navLink} to="/login">
+                        <NavLink style={styles.navLink} href="/login">
                             <p >log in</p>
-                        </Link>
-                        
+                        </NavLink>
+                        <NavLink style={styles.navLink} href="/pricing">
+                            <p>pricing</p>
+                        </NavLink>
+                        <Button href="#signup" style={styles.navBtn}>
+                            try it out
+                        </Button>
                     </Nav>
                   </Collapse>
                 </Navbar>

@@ -50,31 +50,37 @@ class PhoneSignUp extends React.Component {
         }
 
         return (
-            <div style={styles.wideActionCard} className="col-12 my-auto text-center"> 
-                <div className="col-lg-6 my-auto container text-center">
-                <div> 
-                    <p style={styles.title}> Never miss a {"\n"} tax write off</p>
+            <div id="signup" style={styles.phoneSignup} className="col-12 my-auto text-center"> 
+                <div className="row">
+                    <div className="col-12"> 
+                        <p style={styles.signupTitle}> Never miss a write off.</p>
+                        <p style={styles.signupSubTitle}> free for 6 months | $195 at tax time</p>
+                    </div>
                 </div>
+                <div className="row">
+                    <div style={styles.phoneSignupAction} className="col-8 my-auto text-center">
 
-                <div style={styles.landingPageInput}>
-                    <form onSubmit={this.handleSubmit}>
-                        <div className="form-group">
-                            <input style={styles.inputStyle} onChange={this.handleChange} name="firstname" type="text" required id="exampleInputFirstName" placeholder="first name"/>
+                        <div style={styles.landingPageInput}>
+                            <form onSubmit={this.handleSubmit}>
+                                <div className="form-group">
+                                    <input style={styles.inputStyle} onChange={this.handleChange} name="firstname" type="text" required id="exampleInputFirstName" placeholder="first name"/>
+                                </div>
+                                <div className="form-group">
+                                    <MaskedInput 
+                                        mask={['(', /[1-9]/, /\d/, /\d/, ')', ' ', /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/]}
+                                        style={styles.inputStyle} onChange={this.handleChange} name="phone" type="tel" required id="exampleInputPhone" placeholder="phone number"
+                                    />
+                                </div>
+                                <div className="col-md-auto text-center"> 
+                                    {loadingView}
+                                    <button style={styles.btnStyle} type="submit" className="btn btn-primary btn-lg">
+                                        try keeper
+                                    </button>
+                                </div> 
+                            </form>
                         </div>
-                        <div className="form-group">
-                            <MaskedInput 
-                                mask={['(', /[1-9]/, /\d/, /\d/, ')', ' ', /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/]}
-                                style={styles.inputStyle} onChange={this.handleChange} name="phone" type="tel" required id="exampleInputPhone" placeholder="phone number"
-                            />
-                        </div>
-                        <div className="col-md-auto text-center"> 
-                            {loadingView}
-                            <button style={styles.btnStyle} type="submit" className="btn btn-primary btn-lg">
-                                try it out
-                            </button>
-                        </div> 
-                    </form>
-                </div>
+
+                    </div>
                 </div>
             </div>
         )

@@ -8,9 +8,10 @@ class NeverMiss extends React.Component {
 
     render() {
         return (            
-            <div className="col-md-6 my-auto text-center"> 
-                <div> 
-                    <p style={styles.title}> Never miss a {"\n"} tax write off</p>
+            <div style={styles.heroSection} className="col-md-6 my-auto text-left"> 
+                <div style={styles.heroHeader}> 
+                    <p style={styles.title}> Never miss </p> 
+                    <p style={styles.title}> a tax write off</p>
                 </div>
             </div>
         )

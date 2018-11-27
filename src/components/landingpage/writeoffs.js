@@ -12,43 +12,20 @@ class WriteOffs extends React.Component {
     render() {
 
         return (
-            <div> 
-                <MediaQuery query='(max-width: 1000px)'>
-                    <div>
-                        <WriteOffCard emoji='📞' title='phone bill' summary="if you use your phone for work, it's a write off!"/>
-                    </div>
-                    <div>
-                        <WriteOffCard emoji='📓' title='work supplies' summary="notebooks, staplers, pens, etc."/>
-                    </div>
-                    <div>
-                        <WriteOffCard emoji='⛽' title='gas fill ups' summary="If you drive your car for work, add in gas, tolls, and maintenance"/>
-                    </div>
-                </MediaQuery>
-                <MediaQuery query='(min-width: 1001px)'>
-
-                <div className="row align-items-start container"> 
-                    <div style={styles.writeoffPadding} className= "col-6">
-                        <WriteOffCard emoji='📞' title='phone bill' summary="if you use your phone for work, it's a write off!"/>
-                    </div>
-                    <div style={styles.writeoffPadding} className= "col-6">
-                        <WriteOffCard emoji='📓' title='work supplies' summary="notebooks, pens, laptops, etc."/>
-                    </div>
-                    <div style={styles.writeoffPadding} className= "col-6">
-                        <WriteOffCard emoji='⛽' title='gas fill ups' summary="If you drive your car for work, add in gas, tolls, and maintenance"/>
-                    </div>
-                    <div style={styles.writeoffPadding} className= "col-6">
-                        <WriteOffCard emoji='🏠' title='home office' summary="Take off a portion of your rent if you have a work office inside your home"/>
-                    </div>
-                    <div style={styles.writeoffPadding} className= "col-6">
-                        <WriteOffCard emoji='🚗' title='transportation' summary="Uber, Lyft, bike share co-op, you name it!"/>
-                    </div>
-                    <div style={styles.writeoffPadding} className= "col-6 ">
-                        <WriteOffCard emoji='🍲' title='client meals' summary="Write off client meals and entertainment"/>
-                    </div>
-
-                </div>
+            <div>
+                <MediaQuery query='(max-width: 568px)'>
+                  <div className="text-center">
+                    <img style={styles.expensesImg} src="https://storage.googleapis.com/titanium-diode-208122.appspot.com/expense%20examples%20narrow%20(2).png">
+                    </img>
+                  </div>
                 </MediaQuery>
 
+                <MediaQuery query='(min-width: 569px)'>
+                    <div className="text-center"> 
+                        <img style={styles.expensesImg} src="https://storage.googleapis.com/titanium-diode-208122.appspot.com/expense%20examples.png">
+                        </img>
+                    </div>
+                </MediaQuery>
             </div>
         )
     }
