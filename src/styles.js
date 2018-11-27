@@ -279,8 +279,8 @@ export const howItWorksSteps = {
 
 export const howItWorksStep = {
     "width": "100%",
-    "minHeight": "200px",
-    "maxHeight": "400px",
+    "minHeight": "150px",
+    "maxHeight": "350px",
     "float":"none",
     "margin": "0 auto",
     "fontSize": "20px",
