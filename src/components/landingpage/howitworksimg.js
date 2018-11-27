@@ -7,14 +7,11 @@ import MediaQuery from 'react-responsive';
 import gif from '../../../public/keeper.gif';
 
 
-class MP4loader extends React.Component {
+class HowItWorksImg extends React.Component {
     render() {
       return (
-        <div style={styles.imagePadding} className="col-6 text-center">
-            <MediaQuery query='(max-width: 500px)'>
-              <img className="logo" src={gif} style={styles.imageWidth}/>
-            </MediaQuery>
-            <MediaQuery query='(min-width: 501px)'>
+        <div className="col-6 text-center">
+            <div style={styles.howItWorksImage} className="text-center">
               <video webkit-playsinline="true" autoPlay muted src={mp4file1} type='video/mp4;codecs="avc1.42E01E, mp4a.40.2"' style={styles.MP4video} /> 
               <video webkit-playsinline="true" autoPlay muted style={styles.MP4video}> 
                 <source src={mp4file2} type='video/mp4;codecs="avc1.42E01E, mp4a.40.2"'/>
@@ -22,10 +19,10 @@ class MP4loader extends React.Component {
               <video webkit-playsinline="true" autoPlay muted style={styles.MP4video}> 
                 <source src={mp4file3} type='video/mp4;codecs="avc1.42E01E, mp4a.40.2"'/>
               </video>
-            </MediaQuery>
+            </div>
         </div>
       );
     }
   }
   
-  export default MP4loader;
+  export default HowItWorksImg;

@@ -7,6 +7,7 @@ import KeeperNav from "./nav";
 import NeverMiss from "./landingpage/nevermiss";
 import HowItWorks from "./landingpage/howitworks";
 import WriteOffs from "./landingpage/writeoffs";
+import HeaderImg from "./landingpage/headerImg";
 
 class LandingPage extends React.Component {
     constructor(props) {
@@ -18,11 +19,17 @@ class LandingPage extends React.Component {
         <div style={styles.outerContainer} className="container">
             < KeeperNav />
 
-            <div style={styles.containerStyle} className="container row align-items-start"> 
+            <div style={styles.containerStyle} className="col-12 container row align-items-start"> 
                 <NeverMiss />
-                <MP4loader/>
+                <HeaderImg />
+            </div>
+            <div>
                 <HowItWorks />
+            </div>
+            <div>
                 <WriteOffs />
+            </div>
+            <div>
                 <PhoneSignUp />
             </div>
         </div>

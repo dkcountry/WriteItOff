@@ -3,7 +3,7 @@ const HtmlWebPackPlugin = require("html-webpack-plugin");
 const htmlWebpackPlugin = new HtmlWebPackPlugin({
   template: "./src/index.html",
   filename: "./index.html",
-  favicon: "./public/favicon.png",
+  favicon: "./public/favicon-money.png",
 });
 
 module.exports = {
@@ -11,6 +11,8 @@ module.exports = {
         inline: true, 
         contentBase: './dist', 
         port: 5000, 
+		    host: '0.0.0.0',
+        disableHostCheck: true,
         // proxy: { "/**": { target: 'http://localhost:5000', secure: false }  },
         historyApiFallback: true
      },
