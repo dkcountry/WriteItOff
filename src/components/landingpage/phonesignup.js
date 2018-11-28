@@ -54,7 +54,7 @@ class PhoneSignUp extends React.Component {
                 <div className="row">
                     <div className="col-12"> 
                         <p style={styles.signupTitle}> Never miss a write off.</p>
-                        <p style={styles.signupSubTitle}> free for 6 months | $195 at tax time</p>
+                        <p style={styles.signupSubTitle}> free during the year | $195 at tax time</p>
                     </div>
                 </div>
                 <div className="row">
