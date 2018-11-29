@@ -41,9 +41,12 @@ class PlaidFace extends React.Component {
             this.state = {
               isOpen: false
             };
-        Amplitude.init('212ed2feb2663c8004ae16498974992b', this.props.phone);
+        const cleaned = ('' + this.state.phone).replace(/\D/g, '');
+        const match = cleaned.match(/^(1|)?(\d{3})(\d{3})(\d{4})$/);
+        const phone = '1' + [match[2], match[3], match[4]].join('');
+        Amplitude.init('212ed2feb2663c8004ae16498974992b', phone);
         Amplitude.setUserProperties({'phone number': this.props.phone, 'firstname': this.props.firstname, 'lastname': this.props.lastname});
-        Amplitude.logEvent('navigation: dashboard');
+        Amplitude.logEvent('navigation: view dashboard');
     }
 
     toggle() {

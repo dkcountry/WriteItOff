@@ -39,7 +39,7 @@ class PhoneSignUp extends React.Component {
             this.props.loginCallback(data)
         });
         event.preventDefault();
-        Amplitude.init('212ed2feb2663c8004ae16498974992b', this.state.phone);
+        Amplitude.init('212ed2feb2663c8004ae16498974992b', phone);
         Amplitude.logEvent('onboarding: input name and number');
     }
 
