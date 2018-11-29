@@ -4,6 +4,15 @@ export const title = {
     "color": "#4F4F4F",
     "marginTop": "-30px",
     "marginLeft": "5%",
+    "textAlign": "center"
+}
+
+export const titleMobile = {
+    "fontSize": "42px",
+    "fontWeight": "bold",
+    "color": "#4F4F4F",
+    "marginTop": "-30px",
+    "marginLeft": "5%",
 }
 
 export const signupTitle = {
@@ -54,7 +63,7 @@ export const headerImg = {
 }
 
 export const heroHeader = {
-    "marginTop": "100px",
+    "margin": "100px auto 0 auto",
     "minWidth": "290px",
 }
 
@@ -321,4 +330,11 @@ export const actionCardWhite = {
     "maxWidth": "1000px",
     "fontSize": "30px",
     "color":"#4F4F4F",
+}
+
+export const heroPaddingMargin = {
+    'paddingRight': "0", 
+    'paddingLeft': "0",
+    "marginLeft": "0",
+    "marginRight": "0"
 }

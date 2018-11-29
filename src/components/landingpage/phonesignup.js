@@ -9,7 +9,8 @@ class PhoneSignUp extends React.Component {
         this.state = {
             firstname: '',
             phone: '',
-            isLoading: false
+            isLoading: false,
+            btnDisabled: false
         };
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -22,6 +23,7 @@ class PhoneSignUp extends React.Component {
     }
 
     handleSubmit(event) {
+        this.setState({btnDisabled: true});
         this.setState({isLoading: true});
         const cleaned = ('' + this.state.phone).replace(/\D/g, '');
 	    const match = cleaned.match(/^(1|)?(\d{3})(\d{3})(\d{4})$/);
@@ -54,7 +56,7 @@ class PhoneSignUp extends React.Component {
                 <div className="row">
                     <div className="col-12"> 
                         <p style={styles.signupTitle}> Never miss a write off.</p>
-                        <p style={styles.signupSubTitle}> free during the year | $195 at tax time</p>
+                        <p style={styles.signupSubTitle}> 1 month free trial | $9.99/month after</p>
                     </div>
                 </div>
                 <div className="row">
@@ -73,7 +75,7 @@ class PhoneSignUp extends React.Component {
                                 </div>
                                 <div className="col-md-auto text-center"> 
                                     {loadingView}
-                                    <button style={styles.btnStyle} type="submit" className="btn btn-primary btn-lg">
+                                    <button disabled={this.state.btnDisabled} style={styles.btnStyle} type="submit" className="btn btn-primary btn-lg">
                                         try keeper
                                     </button>
                                 </div> 

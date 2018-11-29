@@ -19,7 +19,7 @@ class LandingPage extends React.Component {
         <div style={styles.outerContainer} className="container">
             < KeeperNav />
 
-            <div style={styles.containerStyle} className="col-12 container row align-items-start"> 
+            <div style={styles.heroPaddingMargin} className="col-12 row align-items-start"> 
                 <NeverMiss />
                 <HeaderImg />
             </div>

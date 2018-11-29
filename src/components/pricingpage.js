@@ -36,21 +36,21 @@ class PricingPage extends React.Component {
                             <div> 
 
                                 <p style={styles.header}> 
-                                Free, for 6 months
+                                1 month free trial
                                 </p>
 
                                 <p> 
-                                Your personal bookkeeper finds tax write offs among your purchases, and calls you monthly to review your account. Cancel anytime.
+                                Your personal bookkeeper finds tax write offs among your purchases, and records them for a year-end expense report. Cancel anytime.
                                 </p>
 
                                 <hr style={styles.divider}/>
 
                                 <p style={styles.header}> 
-                                $195, at tax time
+                                $9.99/month after
                                 </p>
 
                                 <p> 
-                                Your personal bookkeeper prepares an year-end expense report (even if you weren’t using keeper the whole year) to easily plug into any tax filing solution.     
+                                We will call you monthly to review your account, and we'll stay on top of any changes in your work.     
                                 </p>
 
                                 <hr style={styles.divider}/>
