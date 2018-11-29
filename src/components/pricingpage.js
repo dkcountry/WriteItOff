@@ -13,7 +13,7 @@ class PricingPage extends React.Component {
             phone: '',
             isLoading: false
         };
-        Amplitude.logEvent('navigation: landing page');
+        Amplitude.logEvent('navigation: pricing page');
     }
 
     render() {
