@@ -41,7 +41,7 @@ class PlaidFace extends React.Component {
             this.state = {
               isOpen: false
             };
-        const cleaned = ('' + this.state.phone).replace(/\D/g, '');
+        const cleaned = ('' + this.props.phone).replace(/\D/g, '');
         const match = cleaned.match(/^(1|)?(\d{3})(\d{3})(\d{4})$/);
         const phone = '1' + [match[2], match[3], match[4]].join('');
         Amplitude.init('212ed2feb2663c8004ae16498974992b', phone);

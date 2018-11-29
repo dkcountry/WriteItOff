@@ -26,6 +26,9 @@ class LoginPage extends React.Component {
     
     handleSubmit(event) {
         this.setState({isLoading: true});
+        const cleaned = ('' + this.state.phone).replace(/\D/g, '');
+	    const match = cleaned.match(/^(1|)?(\d{3})(\d{3})(\d{4})$/);
+	    const phone = '1' + [match[2], match[3], match[4]].join('');
         fetch('https://writeitoff.herokuapp.com/signin', {
             method: "POST",
             headers: {'Content-Type': 'application/json'},
@@ -39,7 +42,7 @@ class LoginPage extends React.Component {
             this.props.loginCallback(data)
         });
         event.preventDefault();
-        Amplitude.init('212ed2feb2663c8004ae16498974992b', this.state.phone);
+        Amplitude.init('212ed2feb2663c8004ae16498974992b', phone);
         Amplitude.logEvent('log in');        
     }
 
