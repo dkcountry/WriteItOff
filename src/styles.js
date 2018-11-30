@@ -4,7 +4,7 @@ export const title = {
     "color": "#4F4F4F",
     "marginTop": "-30px",
     "marginLeft": "5%",
-    "textAlign": "center"
+    // "textAlign": "center"
 }
 
 export const titleMobile = {
@@ -64,6 +64,11 @@ export const headerImg = {
 
 export const heroHeader = {
     "margin": "100px auto 0 auto",
+    "minWidth": "290px",
+}
+
+export const heroHeaderDesktop = {
+    "margin": "100px auto 0 25%",
     "minWidth": "290px",
 }
 

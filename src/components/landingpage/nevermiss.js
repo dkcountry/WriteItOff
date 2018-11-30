@@ -19,7 +19,7 @@ class NeverMiss extends React.Component {
                 </MediaQuery>
 
                 <MediaQuery query='(min-width: 769px)'>
-                <div style={styles.heroHeader}> 
+                <div style={styles.heroHeaderDesktop}> 
                     <p style={styles.title}> Never miss </p> 
                     <p style={styles.title}> a tax write off</p>
                 </div>
