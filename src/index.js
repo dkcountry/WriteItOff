@@ -5,7 +5,7 @@ import SignupPage from "./components/signup";
 import LandingPage from "./components/landingpage";
 import PricingPage from "./components/pricingpage";
 import { BrowserRouter } from 'react-router-dom';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, Redirect } from 'react-router-dom';
 import PlaidFace from "./components/plaidface";
 import Footer from "./components/footer";
 import * as styles from "./styles";
@@ -50,8 +50,11 @@ class App extends React.Component {
             return (
                 <div>
                     <Switch>
-                        <Route path='/' component={LandingPage}/>
-                        <Route path='/pricing' component={PricingPage}/>
+                        <Route exact path='/' component={LandingPage}/>
+                        {/* <Route component={PricingPage}/> */}
+                        <Route exact path='/pricing' render={() => (
+                            <Redirect to="/index.html" />
+                        )}/>
                         <Route path='/index.html' render={(props) => <SignupPage {...props} loginCallback={this.loginCallback}/>}/>
                         <Route path='/login' render={(props) => <LoginPage {...props} loginCallback={this.loginCallback}/>}/>
                     </Switch>
