@@ -50,10 +50,10 @@ class App extends React.Component {
             return (
                 <div>
                     <Switch>
-                        <Route exact path='/' component={LandingPage}/>
-                        <Route exact path='/pricing' component={PricingPage}/>
-                        <Route exact path='/index.html' render={(props) => <SignupPage {...props} loginCallback={this.loginCallback}/>}/>
-                        <Route exact path='/login' render={(props) => <LoginPage {...props} loginCallback={this.loginCallback}/>}/>
+                        <Route path='/' component={LandingPage}/>
+                        <Route path='/pricing' component={PricingPage}/>
+                        <Route path='/index.html' render={(props) => <SignupPage {...props} loginCallback={this.loginCallback}/>}/>
+                        <Route path='/login' render={(props) => <LoginPage {...props} loginCallback={this.loginCallback}/>}/>
                     </Switch>
                     <Footer />
                 </div>
@@ -68,4 +68,4 @@ class App extends React.Component {
     }
 }
 
-ReactDOM.render(<BrowserRouter><App /></BrowserRouter>, document.getElementById("index"));
+ReactDOM.hydrate(<BrowserRouter><App /></BrowserRouter>, document.getElementById("index"));
