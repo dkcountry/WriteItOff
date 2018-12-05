@@ -8,7 +8,7 @@ export const title = {
 }
 
 export const titleMobile = {
-    "fontSize": "32px",
+    "fontSize": "28px",
     "fontWeight": "bold",
     "color": "#4F4F4F",
     "marginTop": "-25px",
@@ -100,7 +100,7 @@ export const btnStyle = {
     "fontWeight": "500",
     "backgroundColor": "#0980FE",
     "border": "none",
-    "fontSize": "30px", 
+    "fontSize": "28px", 
 }
 
 export const navBtn = { 
