@@ -6,5 +6,30 @@ handlers:
 - url: /
   static_files: dist/index.html
   upload: dist/index.html
-- url: /
-  static_dir: dist
+- url: /main.js
+  static_files: dist/main.js
+  upload: dist/main.js
+- url: /favicon.png
+  static_files: dist/favicon.png
+  upload: dist/favicon.png
+- url: /favicon-money.png
+  static_files: dist/favicon-money.png
+  upload: dist/favicon-money.png
+- url: /87392e9a6ea03214d1d81b8486db7ac7.mp4
+  static_files: dist/87392e9a6ea03214d1d81b8486db7ac7.mp4
+  upload: dist/87392e9a6ea03214d1d81b8486db7ac7.mp4
+- url: /1984b0826e16d1fb31eedbc454876565.gif
+  static_files: dist/1984b0826e16d1fb31eedbc454876565.gif
+  upload: dist/1984b0826e16d1fb31eedbc454876565.gif
+- url: /987cf209d1a6a063a620edd5bb0dea48.mp4
+  static_files: dist/987cf209d1a6a063a620edd5bb0dea48.mp4
+  upload: dist/987cf209d1a6a063a620edd5bb0dea48.mp4
+- url: /039f1a5bd1fa93d2a324d0b541515cde.mp4
+  static_files: dist/039f1a5bd1fa93d2a324d0b541515cde.mp4
+  upload: dist/039f1a5bd1fa93d2a324d0b541515cde.mp4
+- url: /0db9e89d642b7a1393230c02ca382679.jpg
+  static_files: dist/0db9e89d642b7a1393230c02ca382679.jpg
+  upload: dist/0db9e89d642b7a1393230c02ca382679.jpg
+- url: /.*
+  static_files: dist/index.html
+  upload: dist/index.html
