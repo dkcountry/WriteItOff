@@ -13,36 +13,35 @@ class HowItWorksSteps extends React.Component {
 
             <div style={styles.howItWorksSteps} className="row align-items-start my-auto">
                 <div style={styles.howItWorksStep} className="row">
-                    <div style={styles.howItWorksNum} className="col-2 my-auto"> 
-                        <p>1</p>
+                    <div className="col-3 my-auto"> 
+                        <img style={styles.howItWorksIcon} src='https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/google/146/speech-balloon_1f4ac.png'/>
                     </div>
-                    <div className="col-10 my-auto"> 
+                    <div className="col-9 my-auto"> 
                         <p>
-                            <b>5 minute setup.</b> Fill out a quick form and grant keeper read-only access to your purchase history. 
+                            <b>Tell Keeper about your work. </b> <br/> Do you travel for work? Do you work from home? Takes 5 minutes. 
                         </p>
                     </div>
                 </div>
 
                 <div style={styles.howItWorksStep} className="row">
-                    <div style={styles.howItWorksNum} className="col-2 my-auto"> 
-                        <p>2</p>
+                    <div className="col-3 my-auto"> 
+                        <img style={styles.howItWorksIcon} src='https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/google/146/credit-card_1f4b3.png'/>
                     </div>
-                    <div className="col-10 my-auto"> 
+                    <div className="col-9 my-auto"> 
                         <p>
-                            <b>Keeper finds tax write offs for you. </b> 
-                             Our bookkeepers review every purchase, asking ocassional clarifying questions over SMS.
+                            <b>Grant read-access to your purchase history.</b> <br/> Private, secure, and far less work than tracking paper receipts.  
                         </p>
                     </div>
                 </div>
 
                 <div style={styles.howItWorksStep} className="row">
-                    <div style={styles.howItWorksNum} className="col-2 my-auto"> 
-                        <p>3</p>
+                    <div className="col-3 my-auto"> 
+                        <img style={styles.howItWorksIcon} src='https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/google/146/left-pointing-magnifying-glass_1f50d.png'/>
                     </div>
-                    <div className="col-10 my-auto"> 
+                    <div className="col-9 my-auto"> 
                         <p>
-                            <b>Sit back, and save big at tax time. </b>
-                             All your tax write offs in one file (rather than a shoe box of receipts).
+                            <b>Keeper finds you tax write offs.  </b> <br/>
+                             Keeper reviews every purchase, asking ocassional clarifying questions over SMS.
                         </p>
                     </div>
                 </div>

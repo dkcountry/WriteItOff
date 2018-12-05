@@ -2,6 +2,7 @@ import React from "react";
 import * as styles from "../../styles";
 import WriteOffCard from "./writeoffcard";
 import MediaQuery from 'react-responsive';
+import ImgFile from '../../../public/real-estate-monthly-summary.png';
 
 
 class WriteOffs extends React.Component {
@@ -15,14 +16,14 @@ class WriteOffs extends React.Component {
             <div>
                 <MediaQuery query='(max-width: 568px)'>
                   <div className="text-center">
-                    <img style={styles.expensesImg} src="https://storage.googleapis.com/titanium-diode-208122.appspot.com/expense%20examples%20narrow%20(2).png">
+                    <img style={styles.expensesImgMobile} src={ImgFile}>
                     </img>
                   </div>
                 </MediaQuery>
 
                 <MediaQuery query='(min-width: 569px)'>
                     <div className="text-center"> 
-                        <img style={styles.expensesImg} src="https://storage.googleapis.com/titanium-diode-208122.appspot.com/expense%20examples.png">
+                        <img style={styles.expensesImg} src={ImgFile}>
                         </img>
                     </div>
                 </MediaQuery>

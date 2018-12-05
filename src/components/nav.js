@@ -36,7 +36,10 @@ class KeeperNav extends React.Component {
         return (
             <div>
                 <Navbar color="#F7F7F7" light expand="lg">
-                  <NavbarBrand style={styles.logo} href="/">keeper</NavbarBrand>
+                  <NavbarBrand style={styles.logo} href="/">
+                        <img style={styles.logoIcon} src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/320/google/146/money-with-wings_1f4b8.png"/>
+                        keeper
+                  </NavbarBrand>
                   <NavbarToggler onClick={this.toggle} />
                   <Collapse isOpen={this.state.isOpen} navbar>
                     <Nav className="ml-auto" navbar>
@@ -49,9 +52,6 @@ class KeeperNav extends React.Component {
                         <Link style={styles.navLink} to="/login">
                             <p >log in</p>
                         </Link>
-                        <Button href="#signup" style={styles.navBtn}>
-                            try it out
-                        </Button>
                     </Nav>
                   </Collapse>
                 </Navbar>

@@ -30,9 +30,6 @@ class HowItWorks extends React.Component {
                         <div style={styles.centeringContainer} className="col-6 my-auto text-left">
                             <HowItWorksSteps/>
                         </div>
-                        <div className="col-6 text-center">
-                            <HowItWorksImg/>
-                        </div>
                     </MediaQuery>
                 </div>
             </div>
