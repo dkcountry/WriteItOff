@@ -51,12 +51,11 @@ class App extends React.Component {
                 <div>
                     <Switch>
                         <Route exact path='/' component={LandingPage}/>
-                        {/* <Route component={PricingPage}/> */}
-                        <Route exact path='/pricing' render={() => (
-                            <Redirect to="/index.html" />
-                        )}/>
-                        <Route path='/index.html' render={(props) => <SignupPage {...props} loginCallback={this.loginCallback}/>}/>
-                        <Route path='/login' render={(props) => <LoginPage {...props} loginCallback={this.loginCallback}/>}/>
+                        <Route exact path='/pricing' component={PricingPage}>
+                            <Redirect from="index.html" to="/pricing" />
+                        </Route>
+                        <Route exact path='/index.html' render={(props) => <SignupPage {...props} loginCallback={this.loginCallback}/>}/>
+                        <Route exact path='/login' render={(props) => <LoginPage {...props} loginCallback={this.loginCallback}/>}/>
                     </Switch>
                     <Footer />
                 </div>
@@ -71,4 +70,4 @@ class App extends React.Component {
     }
 }
 
-ReactDOM.hydrate(<BrowserRouter><App /></BrowserRouter>, document.getElementById("index"));
+ReactDOM.render(<BrowserRouter><App /></BrowserRouter>, document.getElementById("index"));
