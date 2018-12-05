@@ -11,16 +11,6 @@ import Footer from "./components/footer";
 import * as styles from "./styles";
 import Amplitude from 'react-amplitude';
 import 'bootstrap/dist/css/bootstrap.css';
-Amplitude.init('212ed2feb2663c8004ae16498974992b', null, {
-    // optional configuration options
-    saveEvents: true,
-    includeUtm: true,
-    includeReferrer: true,
-    trackingOptions: {
-       city: true,
-       ip_address: true,
-    }
-});
 
 import PhoneSignUp from "./components/landingpage/phonesignup";
 import MP4loader from "./components/landingpage/mp4loader";

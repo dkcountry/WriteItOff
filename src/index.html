@@ -36,7 +36,16 @@
   ;if(!n._iq.hasOwnProperty(e)){n._iq[e]={_q:[]};v(n._iq[e])}return n._iq[e]}
   ;e.amplitude=n})(window,document);
 
-  amplitude.getInstance().init("212ed2feb2663c8004ae16498974992b");
+  amplitude.getInstance().init('212ed2feb2663c8004ae16498974992b', null, {
+      saveEvents: true,
+      includeUtm: true,
+      includeReferrer: true,
+      trackingOptions: {
+         city: true,
+         ip_address: true,
+      }
+  });
+  
   </script>
 
 
