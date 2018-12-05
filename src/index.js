@@ -70,4 +70,4 @@ class App extends React.Component {
     }
 }
 
-ReactDOM.hydrate(<BrowserRouter><App /></BrowserRouter>, document.getElementById("index"));
+ReactDOM.render(<BrowserRouter><App /></BrowserRouter>, document.getElementById("index"));
