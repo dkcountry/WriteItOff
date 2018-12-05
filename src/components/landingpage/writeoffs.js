@@ -16,14 +16,14 @@ class WriteOffs extends React.Component {
             <div>
                 <MediaQuery query='(max-width: 568px)'>
                   <div className="text-center">
-                    <img style={styles.expensesImgMobile} src={ImgFile}>
+                    <img style={styles.expensesImgMobile} src="https://storage.googleapis.com/titanium-diode-208122.appspot.com/real-estate-monthly-summary.png">
                     </img>
                   </div>
                 </MediaQuery>
 
                 <MediaQuery query='(min-width: 569px)'>
                     <div className="text-center"> 
-                        <img style={styles.expensesImg} src={ImgFile}>
+                        <img style={styles.expensesImg} src="https://storage.googleapis.com/titanium-diode-208122.appspot.com/real-estate-monthly-summary.png">
                         </img>
                     </div>
                 </MediaQuery>
