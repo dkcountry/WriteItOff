@@ -1,22 +1,22 @@
 export const title = {
-    "fontSize": "42px",
+    "fontSize": "38px",
     "fontWeight": "bold",
     "color": "#4F4F4F",
-    "marginTop": "-30px",
+    "marginTop": "-25px",
     "marginLeft": "5%",
     // "textAlign": "center"
 }
 
 export const titleMobile = {
-    "fontSize": "42px",
+    "fontSize": "32px",
     "fontWeight": "bold",
     "color": "#4F4F4F",
-    "marginTop": "-30px",
+    "marginTop": "-25px",
     "marginLeft": "5%",
 }
 
 export const signupTitle = {
-    "fontSize": "42px",
+    "fontSize": "32px",
     "fontWeight": "bold",
     "color": "#4F4F4F",
     "paddingTop": "30px",
@@ -39,7 +39,7 @@ export const signupSubTitle = {
 }
 
 export const howItWorksTitle = {
-    "fontSize": "42px",
+    "fontSize": "32px",
     "fontWeight": "bold",
     "color": "#4F4F4F",
     "padding": "30px",
@@ -62,16 +62,32 @@ export const headerImg = {
     "marginTop": "50px",
 }
 
+export const howItWorksIcon = {
+    "height": "70px",
+    "float":"right",
+}
+
+export const logoIcon = {
+    "height": "28px",
+    "marginBottom": "7px",
+}
+
 export const heroHeader = {
-    "margin": "100px auto 0 auto",
+    "margin": "60px auto 0",
     "minWidth": "290px",
 }
 
 export const heroHeaderDesktop = {
-    "margin": "100px auto 0 25%",
+    "margin": "60px auto 0 5%",
     "minWidth": "290px",
+    "maxWidth": "450px",
 }
 
+export const subtext = {
+    "marginTop": "10px",
+    "fontSize": "15px",
+    "fontStyle": "oblique",
+}
 
 export const navStyle = {
     "height": "50px",
@@ -80,27 +96,26 @@ export const navStyle = {
 }
 
 export const btnStyle = { 
-    "display":"inline-block",
     "marginTop": "25px",
-    "fontWeight": "bold",
+    "fontWeight": "500",
     "backgroundColor": "#0980FE",
     "border": "none",
-    "fontSize": "25px", 
+    "fontSize": "30px", 
 }
 
 export const navBtn = { 
     "display":"inline-block",
-    "fontWeight": "bold",
+    "fontWeight": "regular",
     "backgroundColor": "#0980FE",
     "border": "none",
-    "fontSize": "25px",
+    "fontSize": "30px",
     "marginTop":"5px",
     "height": "100%"  
 }
 
 export const landingPageInput = {
     "paddingTop":"20px",
-    "midWidth": "100%",
+    "minWidth": "100%",
 }
 
 
@@ -108,7 +123,7 @@ export const phoneSignupAction = {
     "float": "none",
     "margin": "0 auto",
     "paddingBottom": "50px",
-    "maxWidth": "320px",
+    "maxWidth": "400px",
 }
 
 
@@ -125,7 +140,7 @@ export const actionCardPricing = {
 }
 
 export const navLink = {
-    "fontSize": "25px",
+    "fontSize": "20px",
     "color":"#4F4F4F",
     "marginLeft":"25px",
     "marginTop":"10px",
@@ -135,7 +150,7 @@ export const navLink = {
 }
 
 export const heroSection = {
-    "height": "300px",
+    "minHeight": "80px",
 }
 
 export const containerStyle = { 
@@ -147,8 +162,8 @@ export const containerStyle = {
 export const outerContainer = { 
     "minWidth": "340px", 
     "maxWidth": "1400px",
-    "fontFamily": "Quicksand",
-    "backgroundColor": "#F7F7F7",
+    "fontFamily": "Open Sans",
+    "backgroundColor": "#FFFFFF",
 }
 
 export const bankCard = {
@@ -157,7 +172,7 @@ export const bankCard = {
 
 export const footer = {
     "marginTop": "25px",
-    "fontFamily": "Quicksand",
+    "fontFamily": "Open Sans",
 }
 
 export const activeNavLink = {
@@ -167,9 +182,11 @@ export const activeNavLink = {
 }
 
 export const imagePadding = {
-    "margin": "0 auto",
-    "marginBottom": "20px",
+    "paddingRight": "5%",
+    "marginBottom": "50px",
+    "marginTop": "50px",
     "minWidth":"335px",
+    "float": "left",
 }
 
 export const howItWorksImage = {
@@ -243,7 +260,11 @@ export const actionCard = {
 }
 
 export const expensesImg = {
-    width: "100%",
+    "width": "450px",
+}
+
+export const expensesImgMobile = {
+    "width": "100%",
 }
 
 export const centeringContainer = { 
@@ -251,12 +272,16 @@ export const centeringContainer = {
     "margin": "0 auto",
 }
 
+export const imageBackgroundColor = {
+    "backgroundColor": "white",
+}
+
 export const phoneSignup = { 
     "float":"none",
     "margin": "0 auto",
     "minWidth": "335px",
     "width": "100%",
-    "backgroundColor": "#F2F2F2",
+    "backgroundColor": "#F7F7F7",
     "fontSize": "30px",
     "color":"#4F4F4F",
 }
@@ -275,26 +300,26 @@ export const wideActionCard = {
 
 export const howItWorks = { 
     "float":"none",
-    "margin": "0 auto",
+    "paddingBottom": "50px",
     "minWidth": "335px",
     "minHeight": "500px",
     "width": "100%",
-    "backgroundColor": "white",
+    "backgroundImage": "linear-gradient(#F7F7F7, white)",
     "fontSize": "30px",
     "color":"#4F4F4F",
 }
 
 export const howItWorksSteps = {
     "float":"none",
-    "fontSize": "26px",
+    "fontSize": "20px",
     "margin": "0 auto",
     "maxWidth": "700px",
 }
 
 export const howItWorksStep = {
     "width": "100%",
-    "minHeight": "150px",
-    "maxHeight": "350px",
+    "minHeight": "200px",
+    "maxHeight": "320px",
     "float":"none",
     "margin": "0 auto",
     "fontSize": "20px",

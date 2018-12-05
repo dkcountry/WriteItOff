@@ -48,15 +48,14 @@ class PhoneSignUp extends React.Component {
     render() {
         let loadingView = <div></div>
         if (this.state.isLoading) {
-            loadingView = <div>We just sent you a text message!</div>
+            loadingView = <div>You're on the list!</div>
         }
 
         return (
             <div id="signup" style={styles.phoneSignup} className="col-12 my-auto text-center"> 
                 <div className="row">
                     <div className="col-12"> 
-                        <p style={styles.signupTitle}> Never miss a write off.</p>
-                        <p style={styles.signupSubTitle}> 1 month free trial | $9.99/month after</p>
+                        <p style={styles.signupTitle}> Be the first to know when spots open up </p>
                     </div>
                 </div>
                 <div className="row">
@@ -76,7 +75,7 @@ class PhoneSignUp extends React.Component {
                                 <div className="col-md-auto text-center"> 
                                     {loadingView}
                                     <button disabled={this.state.btnDisabled} style={styles.btnStyle} type="submit" className="btn btn-primary btn-lg">
-                                        try keeper
+                                        let me know!
                                     </button>
                                 </div> 
                             </form>

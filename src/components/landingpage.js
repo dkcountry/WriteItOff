@@ -22,11 +22,12 @@ class LandingPage extends React.Component {
             <div style={styles.heroPaddingMargin} className="col-12 row align-items-start"> 
                 <NeverMiss />
                 <HeaderImg />
+                
             </div>
             <div>
                 <HowItWorks />
             </div>
-            <div>
+            <div style={styles.imageBackgroundColor} >
                 <WriteOffs />
             </div>
             <div>
