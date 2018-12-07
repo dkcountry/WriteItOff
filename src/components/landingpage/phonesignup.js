@@ -54,8 +54,8 @@ class PhoneSignUp extends React.Component {
         return (
             <div id="signup" style={styles.phoneSignup} className="col-12 my-auto text-center"> 
                 <div className="row">
-                    <div className="col-12"> 
-                        <p style={styles.signupTitle}> Be the first to know when spots open up </p>
+                    <div style={styles.phoneSignupDesc} className="col-8 text-center"> 
+                        <p style={styles.titleMobileOffset}> Sign up, see it for yourself </p>
                     </div>
                 </div>
                 <div className="row">
@@ -75,7 +75,7 @@ class PhoneSignUp extends React.Component {
                                 <div className="col-md-auto text-center"> 
                                     {loadingView}
                                     <button disabled={this.state.btnDisabled} style={styles.btnStyle} type="submit" className="btn btn-primary btn-lg">
-                                        let me know!
+                                        request access
                                     </button>
                                 </div> 
                             </form>

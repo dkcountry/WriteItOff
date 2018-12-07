@@ -11,10 +11,11 @@ class HeaderImg extends React.Component {
         <div style={styles.imagePadding} className="col-6">
             <MediaQuery query='(max-width: 768px)'>
               <div>
+                  <img src="https://storage.googleapis.com/titanium-diode-208122.appspot.com/keeper-real-estate.gif" style={styles.MP4video} />
               </div>
             </MediaQuery>
             <MediaQuery query='(min-width: 769px)'>
-                <video webkit-playsinline="true" autoPlay muted src="https://storage.googleapis.com/titanium-diode-208122.appspot.com/keeper-real-estate.mp4" type='video/mp4;codecs="avc1.42E01E, mp4a.40.2"' style={styles.MP4video} />
+                <video webkit-playsinline="true" autoPlay muted src="https://storage.googleapis.com/titanium-diode-208122.appspot.com/keeper-real-estate.mp4" style={styles.MP4video} />
             </MediaQuery>
         </div>
       );

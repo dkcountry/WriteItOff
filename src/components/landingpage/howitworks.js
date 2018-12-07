@@ -16,7 +16,7 @@ class HowItWorks extends React.Component {
         return (
             <div style={styles.howItWorks} > 
                 <div className="col-12 my-auto container text-center"> 
-                    <p style={styles.howItWorksTitle}> how it works</p>
+                    <p style={styles.howItWorksTitle}> How it works:</p>
                 </div>
 
                 <div className="row"> 

@@ -15,6 +15,40 @@ export const titleMobile = {
     "marginLeft": "5%",
 }
 
+export const titleMobileOffset = {
+    "fontSize": "28px",
+    "fontWeight": "bold",
+    "color": "#4F4F4F",
+    "marginTop": "-25px",
+}
+
+export const howItWorksTitle = {
+    "fontSize": "28px",
+    "fontWeight": "bold",
+    "color": "#4F4F4F",
+    "marginLeft": "5%",
+    "paddingTop": "30px",
+}
+
+export const subTitleMobile = {
+    "fontSize": "24px",
+    "fontWeight": "bold",
+    "color": "#4F4F4F",
+    "marginTop": "-25px",
+    "marginLeft": "5%",
+}
+
+export const subtextMobile = {
+    "fontSize": "20px",
+    "color": "#4F4F4F",
+    "marginTop": "15px",
+    "marginLeft": "5%",
+}
+
+export const leftPadding = {
+    "marginLeft": "2%",
+}
+
 export const signupTitle = {
     "fontSize": "32px",
     "fontWeight": "bold",
@@ -38,11 +72,9 @@ export const signupSubTitle = {
     "textAlign":"center",
 }
 
-export const howItWorksTitle = {
-    "fontSize": "32px",
-    "fontWeight": "bold",
-    "color": "#4F4F4F",
-    "padding": "30px",
+export const pricingText = {
+    "fontSize": "18px",
+    "textAlign":"left",
 }
 
 export const logo = {
@@ -75,10 +107,12 @@ export const logoIcon = {
 export const heroHeader = {
     "margin": "60px auto 0",
     "minWidth": "290px",
+    "paddingBottom": "50px",
 }
 
 export const heroHeaderDesktop = {
-    "margin": "60px auto 0 5%",
+    "float": "none",
+    "margin": "0 auto",
     "minWidth": "290px",
     "maxWidth": "450px",
 }
@@ -97,10 +131,10 @@ export const navStyle = {
 
 export const btnStyle = { 
     "marginTop": "25px",
-    "fontWeight": "500",
+    "fontWeight": "bold",
     "backgroundColor": "#0980FE",
     "border": "none",
-    "fontSize": "28px", 
+    "fontSize": "20px", 
 }
 
 export const navBtn = { 
@@ -115,7 +149,9 @@ export const navBtn = {
 
 export const landingPageInput = {
     "paddingTop":"20px",
-    "minWidth": "100%",
+    "maxWidth": "300px",
+    "fontSize": "20px",
+    "margin": "auto",
 }
 
 
@@ -124,6 +160,12 @@ export const phoneSignupAction = {
     "margin": "0 auto",
     "paddingBottom": "50px",
     "maxWidth": "400px",
+}
+
+export const phoneSignupDesc = {
+    "paddingTop": "50px",
+    "float": "none",
+    "margin": "0 auto",
 }
 
 
@@ -182,15 +224,18 @@ export const activeNavLink = {
 }
 
 export const imagePadding = {
+    "minWidth":"335px",
+    "maxWidth": "500px",
+    "textAlign": "center",
+    "margin": "0 auto",
+    "marginBottom": "50px",
+    "marginTop": "30px",
     "paddingRight": "5%",
     "marginBottom": "50px",
-    "marginTop": "50px",
-    "minWidth":"335px",
-    "float": "left",
 }
 
 export const howItWorksImage = {
-    "width": "450px",
+    "width": "350px",
     "float":"none",
     "margin": "0 auto",
 }
@@ -260,7 +305,7 @@ export const actionCard = {
 }
 
 export const expensesImg = {
-    "width": "450px",
+    "width": "100%",
 }
 
 export const expensesImgMobile = {
@@ -281,9 +326,15 @@ export const phoneSignup = {
     "margin": "0 auto",
     "minWidth": "335px",
     "width": "100%",
-    "backgroundColor": "#F7F7F7",
+    "backgroundColor": "#F2F1F1",
     "fontSize": "30px",
     "color":"#4F4F4F",
+}
+
+export const writeOffsSection = {
+    "backgroundColor": "#F2F1F1",
+    "paddingTop": "50px",
+    "textAlign": "center",
 }
 
 export const wideActionCard = { 

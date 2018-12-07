@@ -40,11 +40,24 @@ class HowItWorksSteps extends React.Component {
                     </div>
                     <div className="col-9 my-auto"> 
                         <p>
-                            <b>Keeper finds you tax write offs.  </b> <br/>
+                            <b>Keeper finds you tax write offs for you.  </b> <br/>
                              Keeper reviews every purchase, asking ocassional clarifying questions over SMS.
                         </p>
                     </div>
                 </div>
+
+                <div style={styles.howItWorksStep} className="row">
+                    <div className="col-3 my-auto"> 
+                        <img style={styles.howItWorksIcon} src='https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/google/146/beach-with-umbrella_1f3d6.png'/>
+                    </div>
+                    <div className="col-9 my-auto"> 
+                        <p>
+                            <b>At tax time, hit the beach.  </b> <br/>
+                             Simply forward your keeper file to an accountant, or plug it into an e-filing solution.
+                        </p>
+                    </div>
+                </div>
+
             </div> 
         )
     }

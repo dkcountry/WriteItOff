@@ -36,33 +36,17 @@ class PricingPage extends React.Component {
                             <div> 
 
                                 <p style={styles.header}> 
-                                1 month free trial
+                                $10 / month
                                 </p>
 
-                                <p> 
-                                Your personal bookkeeper finds tax write offs among your purchases, and records them for a year-end expense report. Cancel anytime.
+                                <p style={styles.pricingText}> 
+                                This includes daily bookkeeping, and 15 minute calls monthly to review your write offs. Export anytime.
+                                </p>
+                                
+                                <p style={styles.pricingText}> 
+                                Note: if you try it and then tell us that you don't love it, we'll refund you and then send you a $30 amazon gift card. Seriously.
                                 </p>
 
-                                <hr style={styles.divider}/>
-
-                                <p style={styles.header}> 
-                                $9.99/month after
-                                </p>
-
-                                <p> 
-                                We will call you monthly to review your account, and we'll stay on top of any changes in your work.     
-                                </p>
-
-                                <hr style={styles.divider}/>
-
-                                <p style={styles.header}> 
-                                The bottom line
-                                </p>
-
-                                <p>
-                                On average, people with keeper report claiming $1,342 in tax write offs they would have missed otherwise.
-                                </p>
-                            
                             </div>
 
                         </div>
