@@ -41,7 +41,7 @@ class HowItWorksSteps extends React.Component {
                     <div className="col-9 my-auto"> 
                         <p>
                             <b>Keeper finds you tax write offs for you.  </b> <br/>
-                             Keeper reviews every purchase, asking ocassional clarifying questions over SMS.
+                             Keeper reviews every purchase, asking occasional clarifying questions over SMS.
                         </p>
                     </div>
                 </div>
