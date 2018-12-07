@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import LoginPage from "./components/login";
 import SignupPage from "./components/signup";
 import LandingPage from "./components/landingpage";
+import LandingPageBetaList from "./components/landingpage-betalist";
 import PricingPage from "./components/pricingpage";
 import { BrowserRouter } from 'react-router-dom';
 import { Switch, Route, Redirect } from 'react-router-dom';
@@ -50,6 +51,7 @@ class App extends React.Component {
                 <div>
                     <Switch>
                         <Route exact path='/' component={LandingPage}/>
+                        <Route exact path='/betalist' component={LandingPageBetaList}/>
                         <Route exact path='/pricing' component={PricingPage}>
                             <Redirect from="index.html" to="/pricing" />
                         </Route>
