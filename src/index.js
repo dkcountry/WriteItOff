@@ -54,7 +54,8 @@ class App extends React.Component {
                         <Route exact path='/pricing' component={PricingPage}>
                             <Redirect from="index.html" to="/pricing" />
                         </Route>
-                        <Route exact path='/index.html' render={(props) => <SignupPage {...props} loginCallback={this.loginCallback}/>}/>
+                        <Route exact path='/signup' render={(props) => <SignupPage {...props} loginCallback={this.loginCallback}/>}/>
+                        <Route exact path='/index.html' render={(props) => <SignupPage {...props} loginCallback={this.loginCallback}/>}/>                        
                         <Route exact path='/login' render={(props) => <LoginPage {...props} loginCallback={this.loginCallback}/>}/>
                     </Switch>
                     <Footer />

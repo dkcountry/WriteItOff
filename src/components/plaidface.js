@@ -137,22 +137,26 @@ class PlaidFace extends React.Component {
         return (
             <div style={styles.outerContainer} className="container">
                 <div>
-                    <Navbar color="white" light expand="lg">
-                      <NavbarBrand style={styles.title} href="/">keeper</NavbarBrand>
+                    <Navbar color="#F7F7F7" light expand="lg">
+                      <NavbarBrand style={styles.logo} href="/">
+                            <img style={styles.logoIcon} src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/320/google/146/money-with-wings_1f4b8.png"/>
+                            keeper
+                      </NavbarBrand>
                       <NavbarToggler onClick={this.toggle} />
                       <Collapse isOpen={this.state.isOpen} navbar>
                         <Nav className="ml-auto" navbar>
-                          <NavItem>
-                            <NavLink style={styles.navLink} href="/">logout</NavLink>
-                          </NavItem>
+                            <Link style={styles.navLink} to="/">
+                                <p >log out</p>
+                            </Link>
                         </Nav>
                       </Collapse>
                     </Navbar>
                 </div>
+
                 <div style={styles.containerStyle}>
                     <div className="row align-items-start">
                         <div style={styles.actionCardPricing} className="col-8" >
-                                <p style={styles.title}> Last step! Keeper needs access to your purcharse history</p>
+                                <p style={styles.header}> Last step! Keeper needs access to your purcharse history</p>
 
                                 <MediaQuery query='(max-width: 582px)'>
                                     <div style={styles.listContainerStyle} className="row align-items-start">
@@ -166,7 +170,7 @@ class PlaidFace extends React.Component {
                                             <i className="fa fa-check"></i> 
                                         </div> 
                                         <div style={styles.iconPaddingStyle} className="col-10" >
-                                            Only your personal bookkeeper will have access to your purchase history.
+                                            Only your Keeper will have access to your purchase history.
                                         </div>
                                         <div className="col-1">
                                             <i className="fa fa-check"></i> 
@@ -190,7 +194,7 @@ class PlaidFace extends React.Component {
                                             <i className="fa fa-check"></i> 
                                         </div> 
                                         <div style={styles.iconPaddingStyle} className="col-11" >
-                                            Only your personal bookkeeper will have access to your purchase history.
+                                            Only your Keeper will have access to your purchase history.
                                         </div>
                                         <div className="col-1">
                                             <i className="fa fa-check"></i> 
@@ -216,7 +220,7 @@ class PlaidFace extends React.Component {
                                         product={["transactions"]}
                                         env="development"
                                         apiVersion={'v2'}
-                                        clientName="Spend Tracker"
+                                        clientName="Keeper Tax"
                                         onSuccess={this.handleOnSuccess}
                                     >
                                     Give Read-only access

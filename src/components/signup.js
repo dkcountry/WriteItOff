@@ -17,6 +17,7 @@ import {
   DropdownMenu,
   DropdownItem } from 'reactstrap';
 import queryString from 'query-string';
+import KeeperNav from "./nav";
 
 class SignupPage extends React.Component {
     constructor(props) {
@@ -73,9 +74,7 @@ class SignupPage extends React.Component {
         return (
         <div>
             <div>
-                <Navbar style={styles.simpleNav} color="white" light expand="lg">
-                  <p style={styles.title} href="/">keeper</p>
-                </Navbar>
+                <KeeperNav />
             </div>
 
        
@@ -91,8 +90,8 @@ class SignupPage extends React.Component {
                             <div>
 
                                 <div> 
-                                    <p style={styles.title}> Please set a password.</p>
-                                    <p>You will be able to access your account by logging in with your phone number and this password.</p>
+                                    <p style={styles.header}> Please set a password.</p>
+                                    <p style={styles.pricingText}>You will be able to access your account by logging in with your phone number and this password.</p>
                                 </div>
                                 
                                 <form style={styles.formStyle} onSubmit={this.handleSubmit}>

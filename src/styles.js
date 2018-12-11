@@ -289,7 +289,9 @@ export const listContainerStyle = {
 
 export const iconPaddingStyle = {
     "paddingLeft": "25px",
-    "paddingBottom": "20px"
+    "paddingBottom": "20px",
+    "fontSize": "18px",
+    "textAlign":"left",
 }
 
 export const actionCard = { 
