@@ -2,8 +2,9 @@ import React from "react";
 import ReactDOM from "react-dom";
 import LoginPage from "./components/login";
 import SignupPage from "./components/signup";
-import LandingPage from "./components/landingpage";
-import LandingPageBetaList from "./components/landingpage-betalist";
+import MainLP from "./components/LPs/main/landingpage";
+import RealestateLP from "./components/LPs/real-estate/landingpage";
+import BetalistLP from "./components/LPs/betalist/landingpage";
 import PricingPage from "./components/pricingpage";
 import { BrowserRouter } from 'react-router-dom';
 import { Switch, Route, Redirect } from 'react-router-dom';
@@ -12,9 +13,6 @@ import Footer from "./components/footer";
 import * as styles from "./styles";
 import Amplitude from 'react-amplitude';
 import 'bootstrap/dist/css/bootstrap.css';
-
-import PhoneSignUp from "./components/landingpage/phonesignup";
-import MP4loader from "./components/landingpage/mp4loader";
 
 
 class App extends React.Component {
@@ -50,8 +48,9 @@ class App extends React.Component {
             return (
                 <div>
                     <Switch>
-                        <Route exact path='/' component={LandingPage}/>
-                        <Route exact path='/betalist' component={LandingPageBetaList}/>
+                        <Route exact path='/' component={MainLP}/>
+                        <Route exact path='/betalist' component={BetalistLP}/>
+                        <Route exact path='/real-estate-agent' component={RealestateLP}/>
                         <Route exact path='/pricing' component={PricingPage}>
                             <Redirect from="index.html" to="/pricing" />
                         </Route>

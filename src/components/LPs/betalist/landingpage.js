@@ -1,13 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import * as styles from "../styles";
-import MP4loader from "./landingpage/mp4loader";
-import PhoneSignUp from "./landingpage/phonesignup";
+import * as styles from "../../../styles";
 import KeeperNav from "./nav";
-import NeverMiss from "./landingpage/nevermiss";
-import HowItWorks from "./landingpage/howitworks";
-import WriteOffs from "./landingpage/writeoffs";
-import HeaderImg from "./landingpage/headerImg";
+import Hero from "./hero";
+import WriteOffs from "./writeoffs";
+import HeroImg from "./heroImg";
+import HowItWorks from "../../howitworks";
+import PhoneSignUp from "../../phonesignup";
 import MediaQuery from 'react-responsive';
 
 class LandingPage extends React.Component {
@@ -23,19 +22,19 @@ class LandingPage extends React.Component {
             <MediaQuery query='(max-width: 768px)'>
 
                 <div> 
-                    <HeaderImg />
+                    <HeroImg />
                 </div> 
 
                 <div> 
-                    <NeverMiss />
+                    <Hero />
                 </div> 
             </MediaQuery>
 
             <MediaQuery query='(min-width: 769px)'>
 
                 <div style={styles.heroPaddingMargin} className="col-12 row align-items-start"> 
-                    <NeverMiss />
-                    <HeaderImg />
+                    <Hero />
+                    <HeroImg />
                 </div>
 
             </MediaQuery>

@@ -1,16 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import * as styles from "../styles";
-import MP4loader from "./landingpage-betalist/mp4loader";
-import PhoneSignUp from "./landingpage-betalist/phonesignup";
+import * as styles from "../../../styles";
 import KeeperNav from "./nav";
-import NeverMiss from "./landingpage-betalist/nevermiss";
-import HowItWorks from "./landingpage-betalist/howitworks";
-import WriteOffs from "./landingpage-betalist/writeoffs";
-import HeaderImg from "./landingpage-betalist/headerImg";
+import Hero from "./hero";
+import WriteOffs from "./writeoffs";
+import HeroImg from "./heroImg";
+import HowItWorks from "../../howitworks";
+import PhoneSignUp from "../../phonesignup";
 import MediaQuery from 'react-responsive';
 
-class LandingPageBetaList extends React.Component {
+class LandingPage extends React.Component {
     constructor(props) {
         super(props);
     }
@@ -23,19 +22,19 @@ class LandingPageBetaList extends React.Component {
             <MediaQuery query='(max-width: 768px)'>
 
                 <div> 
-                    <HeaderImg />
+                    <HeroImg />
                 </div> 
 
                 <div> 
-                    <NeverMiss />
+                    <Hero />
                 </div> 
             </MediaQuery>
 
             <MediaQuery query='(min-width: 769px)'>
 
                 <div style={styles.heroPaddingMargin} className="col-12 row align-items-start"> 
-                    <NeverMiss />
-                    <HeaderImg />
+                    <Hero />
+                    <HeroImg />
                 </div>
 
             </MediaQuery>
@@ -54,4 +53,4 @@ class LandingPageBetaList extends React.Component {
 }
 
 
-export default LandingPageBetaList;
+export default LandingPage;

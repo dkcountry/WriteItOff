@@ -1,9 +1,7 @@
 import React from "react";
-import * as styles from "../../styles";
+import * as styles from "../styles";
 import MaskedInput from 'react-text-mask';
-import Amplitude from 'react-amplitude';
-import HowItWorksImg from "../landingpage/howitworksimg";
-import HowItWorksSteps from "../landingpage/howitworkssteps";
+import HowItWorksSteps from "./howitworkssteps";
 import MediaQuery from 'react-responsive';
 
 class HowItWorks extends React.Component {

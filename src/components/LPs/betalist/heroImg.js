@@ -1,8 +1,6 @@
 import React from "react";
-import * as styles from "../../styles";
+import * as styles from "../../../styles";
 import MediaQuery from 'react-responsive';
-import gif from '../../../public/keeper.gif';
-import mp4file from '../../../public/keeper-real-estate.mp4';
 
 
 class HeaderImg extends React.Component {

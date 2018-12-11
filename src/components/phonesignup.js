@@ -1,5 +1,5 @@
 import React from "react";
-import * as styles from "../../styles";
+import * as styles from "../styles";
 import MaskedInput from 'react-text-mask';
 import Amplitude from 'react-amplitude';
 
@@ -14,7 +14,8 @@ class PhoneSignUp extends React.Component {
         };
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
-        Amplitude.logEvent('navigation: landing page');
+        var path_array = window.location.pathname.split("/");
+        Amplitude.logEvent('navigation: landing page', {'url': path_array[path_array.length-1]});
     }
     
     handleChange(event) {
@@ -75,7 +76,7 @@ class PhoneSignUp extends React.Component {
                                 <div className="col-md-auto text-center"> 
                                     {loadingView}
                                     <button disabled={this.state.btnDisabled} style={styles.btnStyle} type="submit" className="btn btn-primary btn-lg">
-                                        request access (beta)
+                                        request access
                                     </button>
                                 </div> 
                             </form>

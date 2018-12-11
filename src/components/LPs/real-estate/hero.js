@@ -1,5 +1,5 @@
 import React from "react";
-import * as styles from "../../styles";
+import * as styles from "../../../styles";
 import MediaQuery from 'react-responsive';
 
 
@@ -14,13 +14,13 @@ class NeverMiss extends React.Component {
                 <MediaQuery query='(max-width: 768px)'>
                     <div style={styles.heroHeader}> 
                         <p style={styles.titleMobile}> AI tax bookkeeper </p> 
-                        <p style={styles.subTitleMobile}> for the self-employed</p>
+                        <p style={styles.subTitleMobile}> for real estate agents</p>
 
                         <p style={styles.subtextMobile}>Keeper finds you tax write offs among your purchase history. It’s like having a personal bookkeeper. </p>
 
                         <div className="col-md-auto text-center"> 
-                            <button style={styles.btnStyle} href="#signup" className="btn btn-primary btn-lg">
-                                request access (beta)
+                            <button style={styles.btnStyle} link="#signup" className="btn btn-primary btn-lg">
+                                request access
                             </button> 
                         </div>
                     </div>
@@ -29,14 +29,14 @@ class NeverMiss extends React.Component {
                 <MediaQuery query='(min-width: 769px)'>
                 <div style={styles.heroHeaderDesktop}> 
                     <p style={styles.title}> AI tax bookkeeper </p> 
-                    <p style={styles.titleMobile}> for the self-employed</p>
+                    <p style={styles.titleMobile}> for real estate agents</p>
 
                     <p style={styles.subtextMobile}>Keeper finds write offs among your purchases. It’s like having a personal bookkeeper. </p>
 
                     <div style={styles.leftPadding} className="col-md-auto text-left"> 
                         <form action="#signup">
                             <button style={styles.btnStyle} link="#signup" className="btn btn-primary btn-lg">
-                                request access (beta)
+                                request access
                             </button>
                         </form>
                     </div> 
