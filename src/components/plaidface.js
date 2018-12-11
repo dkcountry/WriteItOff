@@ -156,7 +156,7 @@ class PlaidFace extends React.Component {
                 <div style={styles.containerStyle}>
                     <div className="row align-items-start">
                         <div style={styles.actionCardPricing} className="col-8" >
-                                <p style={styles.header}> Last step! Keeper needs access to your purcharse history</p>
+                                <p style={styles.header}> Last step! Allow Keeper to access to purchase history</p>
 
                                 <MediaQuery query='(max-width: 582px)'>
                                     <div style={styles.listContainerStyle} className="row align-items-start">
@@ -170,7 +170,7 @@ class PlaidFace extends React.Component {
                                             <i className="fa fa-check"></i> 
                                         </div> 
                                         <div style={styles.iconPaddingStyle} className="col-10" >
-                                            Only your Keeper will have access to your purchase history.
+                                            Nobody besides your personal bookkeeper will have access to your purchase history.
                                         </div>
                                         <div className="col-1">
                                             <i className="fa fa-check"></i> 
@@ -194,7 +194,7 @@ class PlaidFace extends React.Component {
                                             <i className="fa fa-check"></i> 
                                         </div> 
                                         <div style={styles.iconPaddingStyle} className="col-11" >
-                                            Only your Keeper will have access to your purchase history.
+                                            Nobody besides your personal bookkeeper will have access to your purchase history.
                                         </div>
                                         <div className="col-1">
                                             <i className="fa fa-check"></i> 
@@ -223,7 +223,7 @@ class PlaidFace extends React.Component {
                                         clientName="Keeper Tax"
                                         onSuccess={this.handleOnSuccess}
                                     >
-                                    Give Read-only access
+                                    Grant read-only access
                                     </PlaidLink>
                                 </div>
                             </div>
