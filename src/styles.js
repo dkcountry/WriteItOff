@@ -22,6 +22,15 @@ export const titleMobileOffset = {
     "marginTop": "-25px",
 }
 
+export const titleMobileLeft = {
+    "fontSize": "28px",
+    "fontWeight": "bold",
+    "float": "left",
+    "textAlign": "left",
+    "color": "#4F4F4F",
+    "marginTop": "-25px",
+}
+
 export const howItWorksTitle = {
     "fontSize": "28px",
     "fontWeight": "bold",
@@ -109,6 +118,11 @@ export const logoIcon = {
     "marginBottom": "7px",
 }
 
+export const logoIconThreeLines = {
+    "height": "28px",
+    "marginTop": "10px",
+}
+
 export const heroHeader = {
     "margin": "60px auto 0",
     "minWidth": "290px",
@@ -136,6 +150,15 @@ export const navStyle = {
 
 export const btnStyle = { 
     "marginTop": "25px",
+    "fontWeight": "bold",
+    "backgroundColor": "#0980FE",
+    "border": "none",
+    "fontSize": "20px", 
+}
+
+export const linkBankBtn = { 
+    "marginTop": "10px",
+    "marginBottom": "50px",
     "fontWeight": "bold",
     "backgroundColor": "#0980FE",
     "border": "none",

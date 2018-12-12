@@ -153,82 +153,75 @@ class PlaidFace extends React.Component {
                     </Navbar>
                 </div>
 
-                <div style={styles.containerStyle}>
-                    <div className="row align-items-start">
-                        <div style={styles.actionCardPricing} className="col-8" >
-                                <p style={styles.header}> Last step! Allow Keeper to access to purchase history</p>
 
-                                <MediaQuery query='(max-width: 582px)'>
-                                    <div style={styles.listContainerStyle} className="row align-items-start">
-                                        <div className="col-1">
-                                            <i className="fa fa-check"></i> 
-                                        </div>
-                                        <div style={styles.iconPaddingStyle} className="col-10">
-                                            Keeper works on your behalf to find tax write offs among your purchase history.
-                                        </div>
-                                        <div className="col-1">
-                                            <i className="fa fa-check"></i> 
-                                        </div> 
-                                        <div style={styles.iconPaddingStyle} className="col-10" >
-                                            Nobody besides your personal bookkeeper will have access to your purchase history.
-                                        </div>
-                                        <div className="col-1">
-                                            <i className="fa fa-check"></i> 
-                                        </div>
-                                        <div style={styles.iconPaddingStyle} className="col-10">
-                                            You will not be charged.
-                                        </div>
-                                    </div>
-                                </MediaQuery>
+                <div style={styles.phoneSignup} className="col-8 my-auto" >
 
-                                <MediaQuery query='(min-width: 583px)'>
+                    <div className="container"> 
 
-                                    <div style={styles.listContainerStyle} className="row align-items-start">
-                                        <div className="col-1">
-                                            <i className="fa fa-check"></i> 
-                                        </div>
-                                        <div style={styles.iconPaddingStyle} className="col-11">
-                                            Keeper works on your behalf to find tax write offs among your purchase history.
-                                        </div>
-                                        <div className="col-1">
-                                            <i className="fa fa-check"></i> 
-                                        </div> 
-                                        <div style={styles.iconPaddingStyle} className="col-11" >
-                                            Nobody besides your personal bookkeeper will have access to your purchase history.
-                                        </div>
-                                        <div className="col-1">
-                                            <i className="fa fa-check"></i> 
-                                        </div>
-                                        <div style={styles.iconPaddingStyle} className="col-11">
-                                            You will not be charged.
-                                        </div>
-                                    </div>
-                                </MediaQuery>
+                        <div style={styles.landingPageInput}>
 
-                                <div className="d-flex justify-content-center">
-                                    <div className="row">
-                                        <div className="text-center" >
-                                            {viewBanks}
-                                        </div>
-                                    </div>
+                            <div style={styles.phoneSignupDesc}> 
+                                <p style={styles.titleMobileLeft}> 
+                                <img style={styles.logoIcon} src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/google/146/right-pointing-magnifying-glass_1f50e.png"/> 
+                                &nbsp; Which purchases should we scan? 
+                                </p>
+                                <p style={styles.pricingText}>
+                                    To find tax write offs among your purchases, we use Plaid to integrate with 1,700+ financial institutions.
+                                </p>
+                            </div>
+        
+                            <div style={styles.listContainerStyle} className="row align-items-start">
+                                <div className="col-2">
+                                    <img style={styles.logoIconThreeLines} src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/google/146/lock_1f512.png"/> 
                                 </div>
-                                <div className="d-flex justify-content-center">
-                                    <PlaidLink
-                                        style={styles.btnStyle}
-                                        className="btn btn-primary btn-lg"
-                                        publicKey={PLAID_PUBLIC_KEY}
-                                        product={["transactions"]}
-                                        env="development"
-                                        apiVersion={'v2'}
-                                        clientName="Keeper Tax"
-                                        onSuccess={this.handleOnSuccess}
-                                    >
-                                    Grant read-only access
-                                    </PlaidLink>
+                                <div style={styles.iconPaddingStyle} className="col-10">
+                                    <strong> Secure </strong> <br />
+                                    We don't store institution login credentials in our database.
+                                </div>
+
+                                <div className="col-2">
+                                    <img style={styles.logoIconThreeLines} src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/google/146/sleuth-or-spy_1f575.png"/> 
+                                </div>
+                                <div style={styles.iconPaddingStyle} className="col-10">
+                                    <strong> Private </strong> <br />
+                                    Only our algorithm & account manager will have access to your purchase history.
+                                </div>
+                                <div className="col-2">
+                                    <img style={styles.logoIconThreeLines} src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/google/146/pie_1f967.png"/> 
+                                </div>
+                                <div style={styles.iconPaddingStyle} className="col-10">
+                                    <strong> Easy </strong> <br />
+                                    It's as simple as logging into your bank's website. Easy as pie!
                                 </div>
                             </div>
+                        </div>
+
+                        <div className="d-flex justify-content-center">
+                            <div className="row">
+                                <div className="text-center" >
+                                    {viewBanks}
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div className="d-flex justify-content-center">
+                            <PlaidLink
+                                style={styles.linkBankBtn}
+                                className="btn btn-primary btn-lg"
+                                publicKey={PLAID_PUBLIC_KEY}
+                                product={["transactions"]}
+                                env="development"
+                                apiVersion={'v2'}
+                                clientName="Keeper Tax"
+                                onSuccess={this.handleOnSuccess}
+                            >
+                            Grant read-only access
+                            </PlaidLink>
+                        </div>
+
                     </div>
-                </div> 
+                </div>
+
             </div>
         )
     }
