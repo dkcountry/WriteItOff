@@ -63,6 +63,7 @@ class SignupPage extends React.Component {
         });
         event.preventDefault();
         Amplitude.init('212ed2feb2663c8004ae16498974992b', phone);
+        Amplitude.setUserProperties({'email': this.state.email});
         Amplitude.logEvent('set password');
     }
 
