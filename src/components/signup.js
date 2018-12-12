@@ -27,6 +27,7 @@ class SignupPage extends React.Component {
             firstname: urlValues.fname,
             lastname: '', 
             phone: urlValues.phone,
+            email: '',
             password: '',
             isLoading: false
         };
@@ -83,25 +84,46 @@ class SignupPage extends React.Component {
                 
                 <div className="row align-items-start">
 
-                    <div style={styles.actionCardPricing} className="col-8 my-auto" >
+                    <div style={styles.phoneSignup} className="col-8 my-auto" >
 
                         <div className="container"> 
 
-                            <div>
+                            <div style={styles.landingPageInput}>
 
-                                <div> 
-                                    <p style={styles.header}> Please set a password.</p>
-                                    <p style={styles.pricingText}>You will be able to access your account by logging in with your phone number and this password.</p>
+                                <div style={styles.phoneSignupDesc}> 
+                                    <p style={styles.titleMobileOffset}> <img style={styles.logoIcon} src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/google/146/party-popper_1f389.png"/> Congradulations! </p>
+                                    <p style={styles.pricingText}>
+                                        You're off the waitlist. 
+                                    </p>
+                                    <p style={styles.pricingText}>
+                                        To never worry about tracking receipts again, please create an account and grant access to your purchase history (takes  2-5 min).
+                                    </p>
+                                    <p style={styles.pricingText}>
+                                        Note: to be fair to others on the waitlist, we can only hold your spot for 24 hours.
+                                    </p>
                                 </div>
                                 
                                 <form style={styles.formStyle} onSubmit={this.handleSubmit}>
                                     <div className="form-group">
-                                        <input style={styles.inputStyle} onChange={this.handleChange} name="password" type="password" id="exampleInputPassword1" placeholder="At least 6 characters"/>
+                                        <label style={styles.labelStyle} htmlFor="fname"> First name: </label>
+                                        <input disabled style={styles.inputStyle} onChange={this.handleChange} name="fname" id="fname" placeholder={ this.state.firstname }/>
+                                    </div>
+                                    <div className="form-group">
+                                        <label style={styles.labelStyle} htmlFor="phone"> Phone number: </label>
+                                        <input disabled style={styles.inputStyle} onChange={this.handleChange} name="phone" id="phone" placeholder={ this.state.phone }/>
+                                    </div>
+                                    <div className="form-group">
+                                        <label style={styles.labelStyle} htmlFor="email"> Email: </label>
+                                        <input required style={styles.inputStyle} onChange={this.handleChange} type="email" name="email" id="email" placeholder=""/>
+                                    </div>
+                                    <div className="form-group">
+                                        <label style={styles.labelStyle} htmlFor="exampleInputPassword1"> Password: </label>
+                                        <input required style={styles.inputStyle} onChange={this.handleChange} name="password" type="password" id="exampleInputPassword1" placeholder=""/>
                                     </div>
                                     <div className="col-md-auto text-center"> 
                                         {loadingView}
                                         <button style={styles.btnStyle} type="submit" className="btn btn-primary btn-lg">
-                                            Set password
+                                            continue
                                         </button>
                                     </div> 
                                 </form>

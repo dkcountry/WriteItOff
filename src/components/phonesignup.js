@@ -43,6 +43,7 @@ class PhoneSignUp extends React.Component {
         });
         event.preventDefault();
         Amplitude.init('212ed2feb2663c8004ae16498974992b', phone);
+        Amplitude.setUserProperties({'phone number': phone, 'first name': this.state.firstname});
         Amplitude.logEvent('onboarding: input name and number');
     }
 
@@ -56,7 +57,7 @@ class PhoneSignUp extends React.Component {
             <div id="signup" style={styles.phoneSignup} className="col-12 my-auto text-center"> 
                 <div className="row">
                     <div style={styles.phoneSignupDesc} className="col-8 text-center"> 
-                        <p style={styles.titleMobileOffset}> Sign up, see it for yourself </p>
+                        <p style={styles.titleMobileOffset}>Sign up, see it for yourself </p>
                     </div>
                 </div>
                 <div className="row">

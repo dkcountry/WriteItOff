@@ -99,6 +99,11 @@ export const howItWorksIcon = {
     "float":"right",
 }
 
+export const congratsIcon = {
+    "height": "70px",
+    "float":"left",
+}
+
 export const logoIcon = {
     "height": "28px",
     "marginBottom": "7px",
@@ -251,6 +256,10 @@ export const logoutBtnFormat = {
     "background": "none",
 }
 
+export const formStyle = {
+    "paddingBottom": "50px",
+}
+
 export const inputStyle = {
     "border": "0",
     "outline": "0",
@@ -386,6 +395,15 @@ export const howItWorksNum = {
     "maxHight": "250px",
     "minWidth": "50px",
     "paddingLeft": "5%",
+}
+
+export const labelStyle = {
+    "fontSize": "18px",
+    "fontWeight": "bold",
+    "textAlign": "left",
+    "float": "left",
+    "paddingTop": "15px",
+    "marginBottom": "-5px",
 }
 
 
