@@ -19,6 +19,7 @@ import {
 import queryString from 'query-string';
 import KeeperNav from "./nav";
 
+
 class SignupPage extends React.Component {
     constructor(props) {
         super(props);
@@ -63,7 +64,7 @@ class SignupPage extends React.Component {
         });
         event.preventDefault();
         Amplitude.init('212ed2feb2663c8004ae16498974992b', phone);
-        Amplitude.setUserProperties({'email': this.state.email});
+        Amplitude.setUserProperties({'email': this.state.email, 'lastname': this.state.lastname});
         Amplitude.logEvent('set password');
     }
 
@@ -92,9 +93,10 @@ class SignupPage extends React.Component {
                             <div style={styles.landingPageInput}>
 
                                 <div style={styles.phoneSignupDesc}> 
-                                    <p style={styles.titleMobileOffset}> <img style={styles.logoIcon} src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/google/146/party-popper_1f389.png"/> Congradulations! </p>
+                                    <p style={styles.titleMobileLeft}> <img style={styles.logoIcon} src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/google/146/party-popper_1f389.png"/> Congradulations! </p>
+                                    
                                     <p style={styles.pricingText}>
-                                        You're off the waitlist. 
+                                        <br /> <br />  You're off the waitlist. 
                                     </p>
                                     <p style={styles.pricingText}>
                                         To never worry about tracking receipts again, please create an account and grant access to your purchase history (takes  2-5 min).
@@ -108,6 +110,10 @@ class SignupPage extends React.Component {
                                     <div className="form-group">
                                         <label style={styles.labelStyle} htmlFor="fname"> First name: </label>
                                         <input disabled style={styles.inputStyle} onChange={this.handleChange} name="fname" id="fname" placeholder={ this.state.firstname }/>
+                                    </div>
+                                    <div className="form-group">
+                                        <label style={styles.labelStyle} htmlFor="lastname"> Last name: </label>
+                                        <input style={styles.inputStyle} onChange={this.handleChange} name="lastname" id="lastname" placeholder=""/>
                                     </div>
                                     <div className="form-group">
                                         <label style={styles.labelStyle} htmlFor="phone"> Phone number: </label>
@@ -132,6 +138,7 @@ class SignupPage extends React.Component {
                         </div>
                
                     </div>
+
                 </div>
             </div>
         </div>
