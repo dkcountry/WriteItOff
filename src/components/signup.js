@@ -93,7 +93,7 @@ class SignupPage extends React.Component {
                             <div style={styles.landingPageInput}>
 
                                 <div style={styles.phoneSignupDesc}> 
-                                    <p style={styles.titleMobileLeft}> <img style={styles.logoIcon} src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/google/146/party-popper_1f389.png"/> Congradulations! </p>
+                                    <p style={styles.titleMobileLeft}> <img style={styles.logoIcon} src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/google/146/party-popper_1f389.png"/> Congratulations! </p>
                                     
                                     <p style={styles.pricingText}>
                                         <br /> <br />  You're off the waitlist. 
