@@ -37,6 +37,10 @@ class LoginPage extends React.Component {
                 password: this.state.password
               })
         }).then(results => {
+            if (!results.ok) {
+                this.setState({isLoading: 'fail'});
+                throw Error(results.statusText);
+            }
             return results.json();
         }).then(data => {
             this.props.loginCallback(data)
@@ -50,6 +54,9 @@ class LoginPage extends React.Component {
         let loadingView = <div></div>
         if (this.state.isLoading) {
             loadingView = <div>Loading...</div>
+        }
+        if (this.state.isLoading == 'fail') {
+            loadingView = <div>Phone Number / Password Invalid</div>
         }
 
         return (
