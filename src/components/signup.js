@@ -2,20 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import * as styles from "../styles";
 import Amplitude from 'react-amplitude';
-import WIOImage from "./wioImage";
 import MaskedInput from 'react-text-mask';
-import {
-  Collapse,
-  Navbar,
-  NavbarToggler,
-  NavbarBrand,
-  Nav,
-  NavItem,
-  NavLink,
-  UncontrolledDropdown,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem } from 'reactstrap';
 import queryString from 'query-string';
 import KeeperNav from "./nav";
 
@@ -47,7 +34,9 @@ class SignupPage extends React.Component {
         const cleaned = ('' + this.state.phone).replace(/\D/g, '');
         const match = cleaned.match(/^(1|)?(\d{3})(\d{3})(\d{4})$/);
         const phone = '1' + [match[2], match[3], match[4]].join('');
-        fetch('https://writeitoff.herokuapp.com/signup', {
+        const SERVER_URL = process.env.SERVER_HOST
+
+        fetch(SERVER_URL + 'signup', {
             method: "POST",
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({

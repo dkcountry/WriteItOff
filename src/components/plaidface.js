@@ -63,7 +63,8 @@ class PlaidFace extends React.Component {
     }
 
     getBankSummary(props) {
-        fetch('https://writeitoff.herokuapp.com/get_bank_summary', {
+        const SERVER_URL = process.env.SERVER_HOST
+        fetch(SERVER_URL + 'get_bank_summary', {
             method: "POST",
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({
@@ -98,7 +99,8 @@ class PlaidFace extends React.Component {
     }
 
     getAccessToken(publicToken) {
-        fetch('https://writeitoff.herokuapp.com/get_access_token', {
+        const SERVER_URL = process.env.SERVER_HOST
+        fetch(SERVER_URL + 'get_access_token', {
             method: "POST",
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({
