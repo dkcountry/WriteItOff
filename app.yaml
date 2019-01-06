@@ -33,3 +33,6 @@ handlers:
 - url: /.*
   static_files: dist/index.html
   upload: dist/index.html
+
+env_variables:
+  SERVER_HOST: https://writeitoff.herokuapp.com/
