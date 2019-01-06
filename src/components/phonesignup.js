@@ -45,6 +45,7 @@ class PhoneSignUp extends React.Component {
         Amplitude.init('212ed2feb2663c8004ae16498974992b', phone);
         Amplitude.setUserProperties({'phone number': phone, 'first name': this.state.firstname});
         Amplitude.logEvent('onboarding: input name and number');
+        fbq('track', 'CompleteRegistration');
     }
 
     render() {
