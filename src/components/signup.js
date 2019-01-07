@@ -34,7 +34,7 @@ class SignupPage extends React.Component {
         const cleaned = ('' + this.state.phone).replace(/\D/g, '');
         const match = cleaned.match(/^(1|)?(\d{3})(\d{3})(\d{4})$/);
         const phone = '1' + [match[2], match[3], match[4]].join('');
-        const SERVER_URL = process.env.SERVER_HOST
+        const SERVER_URL = process.env.SERVER_HOST || "https://writeitoff.herokuapp.com/"
 
         fetch(SERVER_URL + 'signup', {
             method: "POST",

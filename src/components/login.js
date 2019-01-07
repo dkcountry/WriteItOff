@@ -26,7 +26,7 @@ class LoginPage extends React.Component {
     
     handleSubmit(event) {
         this.setState({isLoading: true});
-        const SERVER_URL = process.env.SERVER_HOST
+        const SERVER_URL = process.env.SERVER_HOST || "https://writeitoff.herokuapp.com/"
         console.log(SERVER_URL)
 
         const cleaned = ('' + this.state.phone).replace(/\D/g, '');
