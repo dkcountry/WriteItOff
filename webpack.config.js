@@ -1,4 +1,6 @@
 const HtmlWebPackPlugin = require("html-webpack-plugin");
+const Dotenv = require('dotenv-webpack');
+
 
 const htmlWebpackPlugin = new HtmlWebPackPlugin({
   template: "./src/index.html",
@@ -11,7 +13,7 @@ module.exports = {
         inline: true, 
         contentBase: './dist', 
         port: 5000, 
-		    host: '0.0.0.0',
+		    host: 'localhost',
         disableHostCheck: true,
         // proxy: { "/**": { target: 'http://localhost:5000', secure: false }  },
         historyApiFallback: true
@@ -66,5 +68,5 @@ module.exports = {
         }
         ]
     },
-  plugins: [htmlWebpackPlugin]
+  plugins: [htmlWebpackPlugin, new Dotenv()]
 };

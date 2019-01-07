@@ -10,7 +10,6 @@ import { BrowserRouter } from 'react-router-dom';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import PlaidFace from "./components/plaidface";
 import Footer from "./components/footer";
-import * as styles from "./styles";
 import Amplitude from 'react-amplitude';
 import 'bootstrap/dist/css/bootstrap.css';
 

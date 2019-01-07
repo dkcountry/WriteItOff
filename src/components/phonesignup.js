@@ -28,8 +28,10 @@ class PhoneSignUp extends React.Component {
         this.setState({isLoading: true});
         const cleaned = ('' + this.state.phone).replace(/\D/g, '');
 	    const match = cleaned.match(/^(1|)?(\d{3})(\d{3})(\d{4})$/);
-	    const phone = '1' + [match[2], match[3], match[4]].join('');
-        fetch('https://writeitoff.herokuapp.com/welcome-sms', {
+        const phone = '1' + [match[2], match[3], match[4]].join('');
+        const SERVER_URL = process.env.SERVER_HOST || "https://writeitoff.herokuapp.com/"
+
+        fetch(SERVER_URL + 'welcome-sms', {
             method: "POST",
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({
