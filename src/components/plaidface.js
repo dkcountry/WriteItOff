@@ -10,17 +10,10 @@ import {
   Navbar,
   NavbarToggler,
   NavbarBrand,
-  Nav,
-  NavItem,
-  NavLink,
-  UncontrolledDropdown,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem } from 'reactstrap';
+  Nav} from 'reactstrap';
 
 
 const PLAID_PUBLIC_KEY = "36bd55c50f7421ae5ef190a4fa03fd";
-
 
 class PlaidFace extends React.Component {
     constructor(props) {
@@ -31,16 +24,15 @@ class PlaidFace extends React.Component {
             accountId: null,
             accountType: null,
             accountSubType: null,
-            allBanks: []
+            allBanks: [],
+            isOpen: false
         }
         this.metadataCallback = this.metadataCallback.bind(this);
         this.handleOnSuccess = this.handleOnSuccess.bind(this);
         this.getBankSummary = this.getBankSummary.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.toggle = this.toggle.bind(this);
-            this.state = {
-              isOpen: false
-            };
+        this.handlePlaidEvent = this.handlePlaidEvent.bind(this);
     }
 
     toggle() {
@@ -54,16 +46,25 @@ class PlaidFace extends React.Component {
         this.props.logoutCallback();
     }
 
+    handlePlaidEvent(eventName, metadata) {
+        console.log(eventName);
+        console.log(metadata)
+        if (metadata.request_id != null) {
+            Amplitude.logEvent('bank link attempt', {'request_id': metadata.request_id});
+        }
+    }
+
     metadataCallback(metadata) {
         this.setState({ institutionName: metadata.institution.name });
         this.setState({ institutionId: metadata.institution.institution_id });
-        this.setState({ accountId: metadata.accounts.id });
+        this.setState({ accountId: metadata.account_id });
         this.setState({ accountType: metadata.accounts.type });
         this.setState({ accountSubType: metadata.accounts.subtype });
     }
 
     getBankSummary(props) {
-        fetch('https://writeitoff.herokuapp.com/get_bank_summary', {
+        const SERVER_URL = process.env.SERVER_HOST || "https://writeitoff.herokuapp.com/"
+        fetch(SERVER_URL + 'get_bank_summary', {
             method: "POST",
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({
@@ -92,13 +93,24 @@ class PlaidFace extends React.Component {
     }
 
     handleOnSuccess(publicToken, metadata) {
-        this.metadataCallback(metadata);
-        this.getAccessToken(publicToken);
+        const promise = new Promise((resolve, reject) => {
+            console.log(metadata)
+            this.metadataCallback(metadata);
+            resolve("nice");
+        });
+        promise.then((result) => {
+            this.getAccessToken(publicToken);
+            }, (err) => {
+                console.log('fail');
+        });
+
         Amplitude.logEvent('bank account linked');        
     }
 
     getAccessToken(publicToken) {
-        fetch('https://writeitoff.herokuapp.com/get_access_token', {
+        console.log(this.state.accountId);
+        const SERVER_URL = process.env.SERVER_HOST || "https://writeitoff.herokuapp.com/"
+        fetch(SERVER_URL + 'get_access_token', {
             method: "POST",
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({
@@ -210,10 +222,11 @@ class PlaidFace extends React.Component {
                                 className="btn btn-primary btn-lg"
                                 publicKey={PLAID_PUBLIC_KEY}
                                 product={["transactions"]}
-                                env="development"
+                                env="sandbox"
                                 apiVersion={'v2'}
                                 clientName="Keeper Tax"
                                 onSuccess={this.handleOnSuccess}
+                                onEvent = {this.handlePlaidEvent}
                             >
                             Grant read-only access
                             </PlaidLink>
