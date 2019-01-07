@@ -1,17 +1,17 @@
 export const title = {
-    "fontSize": "38px",
+    "fontSize": "34px",
     "fontWeight": "bold",
     "color": "#4F4F4F",
-    "marginTop": "-25px",
+    "marginTop": "-15px",
     "marginLeft": "5%",
     // "textAlign": "center"
 }
 
 export const titleMobile = {
-    "fontSize": "28px",
+    "fontSize": "26px",
     "fontWeight": "bold",
     "color": "#4F4F4F",
-    "marginTop": "-25px",
+    "marginTop": "-15px",
     "marginLeft": "5%",
 }
 
@@ -43,7 +43,7 @@ export const subTitleMobile = {
     "fontSize": "24px",
     "fontWeight": "bold",
     "color": "#4F4F4F",
-    "marginTop": "-25px",
+    "marginTop": "-15px",
     "marginLeft": "5%",
 }
 

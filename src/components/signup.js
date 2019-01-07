@@ -80,20 +80,6 @@ class SignupPage extends React.Component {
                         <div className="container"> 
 
                             <div style={styles.landingPageInput}>
-
-                                <div style={styles.phoneSignupDesc}> 
-                                    <p style={styles.titleMobileLeft}> <img style={styles.logoIcon} src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/google/146/party-popper_1f389.png"/> Congratulations! </p>
-                                    
-                                    <p style={styles.pricingText}>
-                                        <br /> <br />  You're off the waitlist. 
-                                    </p>
-                                    <p style={styles.pricingText}>
-                                        To never worry about tracking receipts again, please create an account and grant access to your purchase history (takes  2-5 min).
-                                    </p>
-                                    <p style={styles.pricingText}>
-                                        Note: to be fair to others on the waitlist, we can only hold your spot for 24 hours.
-                                    </p>
-                                </div>
                                 
                                 <form style={styles.formStyle} onSubmit={this.handleSubmit}>
                                     <div className="form-group">
