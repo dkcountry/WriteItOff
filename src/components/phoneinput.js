@@ -42,9 +42,9 @@ class PhoneInput extends React.Component {
         Amplitude.logEvent('onboarding: input name and number');
         fbq('track', 'CompleteRegistration');
 
-        promise.then((result) => {
-            window.location.href = "https://keepertax.typeform.com/to/tZOK37?fname=" + name + "&phone=" + phone;
-        })
+        // promise.then((result) => {
+        //     window.location.href = "https://keepertax.typeform.com/to/tZOK37?fname=" + name + "&phone=" + phone;
+        // })
     }
 
     render() {
