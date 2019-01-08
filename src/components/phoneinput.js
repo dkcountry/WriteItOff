@@ -22,26 +22,29 @@ class PhoneInput extends React.Component {
     handleSubmit(event) {
         const cleaned = ('' + this.state.phone).replace(/\D/g, '');
 	    const match = cleaned.match(/^(1|)?(\d{3})(\d{3})(\d{4})$/);
-	    const phone = '1' + [match[2], match[3], match[4]].join('');
-        fetch('https://writeitoff.herokuapp.com/welcome-sms', {
+        const phone = '1' + [match[2], match[3], match[4]].join('');
+        const promise = new Promise((resolve, reject) => {
+            fetch('https://writeitoff.herokuapp.com/welcome-sms', {
             method: "POST",
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({
                 firstname: this.state.firstname,
                 phone: phone,
-              })
-        }).then(results => {
-            return results.json();
-        }).then(data => {
-            this.props.loginCallback(data)
+                })
+            });
+            resolve("worked!");
         })
+
         event.preventDefault();
         const name = this.state.firstname.split(" ")[0];
         Amplitude.init('212ed2feb2663c8004ae16498974992b', phone);
         Amplitude.setUserProperties({'phone number': phone, 'first name': this.state.firstname});
         Amplitude.logEvent('onboarding: input name and number');
         fbq('track', 'CompleteRegistration');
-        window.location.href = "https://keepertax.typeform.com/to/tZOK37?fname=" + name + "&phone=" + phone;
+
+        // promise.then((result) => {
+        //     window.location.href = "https://keepertax.typeform.com/to/tZOK37?fname=" + name + "&phone=" + phone;
+        // })
     }
 
     render() {

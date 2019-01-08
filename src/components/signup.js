@@ -1,8 +1,6 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import * as styles from "../styles";
 import Amplitude from 'react-amplitude';
-import MaskedInput from 'react-text-mask';
 import queryString from 'query-string';
 import KeeperNav from "./nav";
 
@@ -47,6 +45,10 @@ class SignupPage extends React.Component {
                 password: this.state.password
               })
         }).then(results => {
+            if (!results.ok) {
+                this.setState({isLoading: 'fail'});
+                throw Error(results.statusText);
+            }
             return results.json();
         }).then(data => {
             this.props.loginCallback(data)
@@ -61,6 +63,9 @@ class SignupPage extends React.Component {
         let loadingView = <div></div>
         if (this.state.isLoading) {
             loadingView = <div>Loading...</div>
+        }
+        if (this.state.isLoading == 'fail') {
+            loadingView = <div>Account already exists. Go to log in</div>
         }
 
         return (
