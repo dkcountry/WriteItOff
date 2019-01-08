@@ -57,7 +57,7 @@ class PhoneInput extends React.Component {
                     />
                 </div>
                 <div className="col-md-auto text-center"> 
-                    <button disabled={this.state.btnDisabled} style={styles.btnStyle} type="submit" className="btn btn-primary btn-lg">
+                    <button style={styles.btnStyle} type="submit" className="btn btn-primary btn-lg">
                         get started
                     </button>
                 </div> 
