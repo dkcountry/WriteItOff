@@ -7,44 +7,6 @@ import PhoneInput from "../../phoneinput";
 class NeverMiss extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {
-            firstname: '',
-            phone: '',
-            isLoading: false,
-            btnDisabled: false
-        };
-        this.handleChange = this.handleChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
-    }
-    
-    handleChange(event) {
-        const name = event.target.name;
-        this.setState({[name]: event.target.value});
-    }
-
-    handleSubmit(event) {
-        this.setState({btnDisabled: true});
-        this.setState({isLoading: true});
-        const cleaned = ('' + this.state.phone).replace(/\D/g, '');
-        const match = cleaned.match(/^(1|)?(\d{3})(\d{3})(\d{4})$/);
-        const phone = '1' + [match[2], match[3], match[4]].join('');
-        fetch('https://writeitoff.herokuapp.com/welcome-sms', {
-            method: "POST",
-            headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify({
-                firstname: this.state.firstname,
-                phone: phone,
-              })
-        }).then(results => {
-            return results.json();
-        }).then(data => {
-            this.props.loginCallback(data)
-        });
-        event.preventDefault();
-        Amplitude.init('212ed2feb2663c8004ae16498974992b', phone);
-        Amplitude.setUserProperties({'phone number': phone, 'first name': this.state.firstname});
-        Amplitude.logEvent('onboarding: input name and number');
-        fbq('track', 'CompleteRegistration');
     }
 
     render() {
