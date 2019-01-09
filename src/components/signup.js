@@ -71,7 +71,8 @@ class SignupPage extends React.Component {
             first_name: this.state.firstname,
             last_name: this.state.lastname,
             email: this.state.email,
-            createdAt: new Date()
+            createdAt: new Date(),
+            status: 'Signed up'
           }
         });
     }

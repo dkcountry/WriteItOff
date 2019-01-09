@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 import * as styles from "../styles";
 import Amplitude from 'react-amplitude';
 import {Collapse, Navbar, NavbarToggler, NavbarBrand, Nav} from 'reactstrap';
+var Analytics = require('analytics-node');
+var analytics = new Analytics('tW3P77ewudDePkXW1r8vbkleEp0ME3H5');
 
 
 const PLAID_PUBLIC_KEY = "36bd55c50f7421ae5ef190a4fa03fd";
@@ -98,7 +100,16 @@ class PlaidFace extends React.Component {
                 console.log('fail');
         });
 
-        Amplitude.logEvent('bank account linked');        
+        Amplitude.logEvent('bank account linked');      
+        const cleaned = ('' + props.phone).replace(/\D/g, '');
+        const match = cleaned.match(/^(1|)?(\d{3})(\d{3})(\d{4})$/);
+        const phone = '1' + [match[2], match[3], match[4]].join('');
+        analytics.identify({
+          userId: phone,
+          traits: {
+            status: 'Linked'
+          }
+        });  
     }
 
     sendBankLinkText() {
