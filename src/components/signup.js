@@ -72,7 +72,7 @@ class SignupPage extends React.Component {
             last_name: this.state.lastname,
             email: this.state.email,
             createdAt: new Date(),
-            status: 'Signed up'
+            Stage: 'Signed up'
           }
         });
     }
