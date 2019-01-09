@@ -3,7 +3,8 @@ import * as styles from "../styles";
 import Amplitude from 'react-amplitude';
 import queryString from 'query-string';
 import KeeperNav from "./nav";
-
+var Analytics = require('analytics-node');
+var analytics = new Analytics('tW3P77ewudDePkXW1r8vbkleEp0ME3H5');
 
 class SignupPage extends React.Component {
     constructor(props) {
@@ -53,10 +54,26 @@ class SignupPage extends React.Component {
         }).then(data => {
             this.props.loginCallback(data)
         });
+
         event.preventDefault();
         Amplitude.init('212ed2feb2663c8004ae16498974992b', phone);
         Amplitude.setUserProperties({'email': this.state.email, 'lastname': this.state.lastname});
         Amplitude.logEvent('set password');
+
+        analytics.track({
+          userId: phone,
+          event: 'Set password'
+        });
+
+        analytics.identify({
+          userId: phone,
+          traits: {
+            first_name: this.state.firstname,
+            last_name: this.state.lastname,
+            email: this.state.email,
+            createdAt: new Date()
+          }
+        });
     }
 
     render() {
