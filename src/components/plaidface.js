@@ -3,17 +3,11 @@ import React from "react";
 import { Link } from 'react-router-dom';
 import * as styles from "../styles";
 import Amplitude from 'react-amplitude';
-import MediaQuery from 'react-responsive';
-
-import {
-  Collapse,
-  Navbar,
-  NavbarToggler,
-  NavbarBrand,
-  Nav} from 'reactstrap';
+import {Collapse, Navbar, NavbarToggler, NavbarBrand, Nav} from 'reactstrap';
 
 
 const PLAID_PUBLIC_KEY = "36bd55c50f7421ae5ef190a4fa03fd";
+const SERVER_URL = process.env.SERVER_HOST || "https://writeitoff.herokuapp.com/"
 
 class PlaidFace extends React.Component {
     constructor(props) {
@@ -63,7 +57,6 @@ class PlaidFace extends React.Component {
     }
 
     getBankSummary(props) {
-        const SERVER_URL = process.env.SERVER_HOST || "https://writeitoff.herokuapp.com/"
         fetch(SERVER_URL + 'get_bank_summary', {
             method: "POST",
             headers: {'Content-Type': 'application/json'},
@@ -100,6 +93,7 @@ class PlaidFace extends React.Component {
         });
         promise.then((result) => {
             this.getAccessToken(publicToken);
+            this.sendBankLinkText()
             }, (err) => {
                 console.log('fail');
         });
@@ -107,9 +101,19 @@ class PlaidFace extends React.Component {
         Amplitude.logEvent('bank account linked');        
     }
 
+    sendBankLinkText() {
+        fetch(SERVER_URL + 'bank-link-sms', {
+            method: "POST",
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({
+                phone: this.props.phone,
+                firstname: this.props.firstname,
+                institutionName: this.state.institutionName,
+            })
+        })
+    }
+
     getAccessToken(publicToken) {
-        console.log(this.state.accountId);
-        const SERVER_URL = process.env.SERVER_HOST || "https://writeitoff.herokuapp.com/"
         fetch(SERVER_URL + 'get_access_token', {
             method: "POST",
             headers: {'Content-Type': 'application/json'},
@@ -140,12 +144,13 @@ class PlaidFace extends React.Component {
                             {this.state.allBanks[bank]}
                         </h5>
                         <h6 className="card-subtitle mb-2 text-muted">
-                            All debit and credit card purchases included.
+                            Account has been successfully linked
                         </h6>
                     </div>
                 </div>
             )
         }
+
         return (
             <div style={styles.outerContainer} className="container">
                 <div>
@@ -167,11 +172,8 @@ class PlaidFace extends React.Component {
 
 
                 <div style={styles.phoneSignup} className="col-8 my-auto" >
-
                     <div className="container"> 
-
                         <div style={styles.landingPageInput}>
-
                             <div style={styles.phoneSignupDesc}> 
                                 <p style={styles.titleMobileLeft}> 
                                 <img style={styles.logoIcon} src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/google/146/right-pointing-magnifying-glass_1f50e.png"/> 
@@ -222,7 +224,7 @@ class PlaidFace extends React.Component {
                                 className="btn btn-primary btn-lg"
                                 publicKey={PLAID_PUBLIC_KEY}
                                 product={["transactions"]}
-                                env="sandbox"
+                                env="development"
                                 apiVersion={'v2'}
                                 clientName="Keeper Tax"
                                 onSuccess={this.handleOnSuccess}
@@ -231,14 +233,11 @@ class PlaidFace extends React.Component {
                             Grant read-only access
                             </PlaidLink>
                         </div>
-
                     </div>
                 </div>
-
             </div>
         )
     }
 }
-
 
 export default PlaidFace;
