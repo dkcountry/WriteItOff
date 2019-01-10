@@ -1,11 +1,10 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import * as styles from "../styles";
 import Amplitude from 'react-amplitude';
-import MaskedInput from 'react-text-mask';
 import queryString from 'query-string';
 import KeeperNav from "./nav";
-
+var Analytics = require('analytics-node');
+var analytics = new Analytics('tW3P77ewudDePkXW1r8vbkleEp0ME3H5');
 
 class SignupPage extends React.Component {
     constructor(props) {
@@ -47,14 +46,44 @@ class SignupPage extends React.Component {
                 password: this.state.password
               })
         }).then(results => {
+            if (!results.ok) {
+                this.setState({isLoading: 'fail'});
+                throw Error(results.statusText);
+            }
             return results.json();
         }).then(data => {
             this.props.loginCallback(data)
+        }).then(() => {
+            fetch(SERVER_URL + 'welcome-sms', {
+                method: "POST",
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({
+                    firstname: this.state.firstname,
+                    phone: this.state.phone,
+                    })
+                });
         });
+
         event.preventDefault();
         Amplitude.init('212ed2feb2663c8004ae16498974992b', phone);
         Amplitude.setUserProperties({'email': this.state.email, 'lastname': this.state.lastname});
         Amplitude.logEvent('set password');
+
+        analytics.track({
+          userId: phone,
+          event: 'Set password'
+        });
+
+        analytics.identify({
+          userId: phone,
+          traits: {
+            first_name: this.state.firstname,
+            last_name: this.state.lastname,
+            email: this.state.email,
+            createdAt: new Date(),
+            Stage: 'Signed up'
+          }
+        });
     }
 
     render() {
@@ -62,39 +91,21 @@ class SignupPage extends React.Component {
         if (this.state.isLoading) {
             loadingView = <div>Loading...</div>
         }
+        if (this.state.isLoading == 'fail') {
+            loadingView = <div>Account already exists. Go to log in</div>
+        }
 
         return (
-        <div>
-            <div>
-                <KeeperNav />
-            </div>
-
-       
-
+        <div style={styles.outerContainer} className="container">
+            <KeeperNav />
             <div style={styles.containerStyle} className="container">
-                
                 <div className="row align-items-start">
-
                     <div style={styles.phoneSignup} className="col-8 my-auto" >
-
                         <div className="container"> 
-
                             <div style={styles.landingPageInput}>
-
                                 <div style={styles.phoneSignupDesc}> 
-                                    <p style={styles.titleMobileLeft}> <img style={styles.logoIcon} src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/google/146/party-popper_1f389.png"/> Congratulations! </p>
-                                    
-                                    <p style={styles.pricingText}>
-                                        <br /> <br />  You're off the waitlist. 
-                                    </p>
-                                    <p style={styles.pricingText}>
-                                        To never worry about tracking receipts again, please create an account and grant access to your purchase history (takes  2-5 min).
-                                    </p>
-                                    <p style={styles.pricingText}>
-                                        Note: to be fair to others on the waitlist, we can only hold your spot for 24 hours.
-                                    </p>
-                                </div>
-                                
+                                    <p style={styles.titleMobileLeft}> <img style={styles.logoIcon} src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/google/146/party-popper_1f389.png"/> Create an account </p>
+                                </div>   
                                 <form style={styles.formStyle} onSubmit={this.handleSubmit}>
                                     <div className="form-group">
                                         <label style={styles.labelStyle} htmlFor="fname"> First name: </label>
@@ -125,14 +136,10 @@ class SignupPage extends React.Component {
                                 </form>
                             </div>
                         </div>
-               
                     </div>
-
                 </div>
             </div>
         </div>
     )}
 }
-
-
 export default SignupPage;

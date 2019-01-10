@@ -1,6 +1,7 @@
 import React from "react";
 import * as styles from "../../../styles";
 import MediaQuery from 'react-responsive';
+import PhoneInput from "../../phoneinput";
 
 
 class NeverMiss extends React.Component {
@@ -13,34 +14,26 @@ class NeverMiss extends React.Component {
             <div style={styles.heroSection} className="col-md-6 my-auto text-left"> 
                 <MediaQuery query='(max-width: 768px)'>
                     <div style={styles.heroHeader}> 
-                        <p style={styles.titleMobile}> AI tax bookkeeper </p> 
-                        <p style={styles.subTitleMobile}> for 1099 contractors</p>
-
-                        <p style={styles.subtextMobile}>Keeper finds you tax write offs among your purchase history. It’s like having a personal bookkeeper. </p>
+                        <p style={styles.titleMobile}> Hate tracking expenses? </p> 
+                        <p style={styles.subTitleMobile}> We'll do it for you.</p>
 
                         <div className="col-md-auto text-center"> 
-                            <form action="#signup">
-                                <button style={styles.btnStyle} link="#signup" className="btn btn-primary btn-lg">
-                                    request access
-                                </button>
-                            </form>
+                            <div style={styles.landingPageInput}>
+                                <PhoneInput />
+                            </div>
                         </div>
                     </div>
                 </MediaQuery>
 
                 <MediaQuery query='(min-width: 769px)'>
                 <div style={styles.heroHeaderDesktop}> 
-                    <p style={styles.title}> AI tax bookkeeper </p> 
-                    <p style={styles.titleMobile}> for 1099 contractors</p>
-
-                    <p style={styles.subtextMobile}>Keeper finds write offs among your purchases. It’s like having a personal bookkeeper. </p>
+                    <p style={styles.title}> Hate tracking expenses? </p> 
+                    <p style={styles.titleMobile}> We'll do it for you.</p>
 
                     <div style={styles.leftPadding} className="col-md-auto text-left"> 
-                        <form action="#signup">
-                            <button style={styles.btnStyle} link="#signup" className="btn btn-primary btn-lg">
-                                request access
-                            </button>
-                        </form>
+                        <div style={styles.landingPageInput} className="text-left">
+                            <PhoneInput />
+                        </div>
                     </div> 
                 </div>
                 </MediaQuery>
