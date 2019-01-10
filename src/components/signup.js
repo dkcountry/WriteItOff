@@ -96,10 +96,8 @@ class SignupPage extends React.Component {
         }
 
         return (
-        <div>
-            <div>
-                <KeeperNav />
-            </div>
+        <div style={styles.outerContainer} className="container">
+            <KeeperNav />
             <div style={styles.containerStyle} className="container">
                 <div className="row align-items-start">
                     <div style={styles.phoneSignup} className="col-8 my-auto" >
