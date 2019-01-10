@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from 'react-router-dom';
 import * as styles from "../styles";
 import Amplitude from 'react-amplitude';
 import MaskedInput from 'react-text-mask';
@@ -66,16 +65,13 @@ class LoginPage extends React.Component {
         return (
         <div style={styles.outerContainer} className="container">
              <KeeperNav />
-
             <div style={styles.containerStyle} className="container">
                 <div className="row align-items-start">
                     <div style={styles.actionCard} className="col-6 my-auto" >
                         <div className="container"> 
-
                             <div>
                                 <p style={styles.title}> Welcome back!</p>
                             </div>
-
                             <div style={styles.landingPageInput}>
                                 <form onSubmit={this.handleSubmit}>
                                     <div className="form-group">
