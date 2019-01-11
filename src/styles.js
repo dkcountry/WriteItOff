@@ -233,7 +233,7 @@ export const outerContainer = {
     "minWidth": "340px", 
     "maxWidth": "1400px",
     "fontFamily": "Open Sans",
-    "backgroundColor": "#FFFFFF",
+    "backgroundColor": "#FDFDFE",
 }
 
 export const bankCard = {
@@ -260,6 +260,14 @@ export const imagePadding = {
     "marginTop": "30px",
     "paddingRight": "5%",
     "marginBottom": "50px",
+}
+
+export const sectionImage = {
+    "minWidth":"335px",
+    "maxWidth": "500px",
+    "textAlign": "center",
+    "margin": "0 auto",
+    "float": "none",
 }
 
 export const howItWorksImage = {
@@ -360,7 +368,7 @@ export const phoneSignup = {
     "margin": "0 auto",
     "minWidth": "335px",
     "width": "100%",
-    "backgroundColor": "#F2F1F1",
+    "backgroundImage": "linear-gradient(#FDFDFE, white)",
     "fontSize": "30px",
     "color":"#4F4F4F",
 }
@@ -461,4 +469,53 @@ export const heroPaddingMargin = {
     'paddingLeft': "0",
     "marginLeft": "0",
     "marginRight": "0"
+}
+
+export const sectionText = {
+    "width": "400px",
+    "margin": "0 auto",
+    "paddingTop": "100px",
+    "paddingBottom": "100px",
+}
+
+export const sectionTitle = {
+    "fontSize": "26px",
+    "fontWeight": "bold",
+    "color": "#4F4F4F",
+}
+
+export const sectionExplainerText = {
+    "marginTop":"10px",
+    "fontSize": "20px",
+    "color": "#4F4F4F",
+}
+
+export const sectionTextMobile = {
+    "width": "340px",
+    "margin": "0 auto",
+}
+
+export const sectionTitleMobile = {
+    "fontSize": "24px",
+    "fontWeight": "bold",
+    "color": "#4F4F4F",
+}
+
+export const sectionExplainerTextMobile = {
+    "marginTop":"10px",
+    "fontSize": "16px",
+    "color": "#4F4F4F",
+    "paddingBottom": "30px",
+}
+
+export const sectionBackground = {
+    "backgroundColor": "#FFFDFD",
+    "paddingTop": "40px",
+    "paddingBottom": "40px",
+}
+
+export const howItWorksTextBackground = {
+    "backgroundImage": "linear-gradient(#FDFDFE, #FFFDFD)",
+    "paddingTop": "50px",
+    "paddingBottom": "10px",
 }

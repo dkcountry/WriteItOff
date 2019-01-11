@@ -7,7 +7,7 @@ class HeaderImg extends React.Component {
     render() {
       return (
         <div style={styles.imagePadding} className="col-6">
-            <img src="https://storage.googleapis.com/titanium-diode-208122.appspot.com/Chat-Clean%20(1).gif" style={styles.MP4video} />
+            <img src="https://storage.googleapis.com/titanium-diode-208122.appspot.com/main-sms.gif" style={styles.MP4video} />
         </div>
       );
     }

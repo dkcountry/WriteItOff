@@ -8,6 +8,8 @@ import HeroImg from "./heroImg";
 import HowItWorks from "../../howitworks";
 import PhoneSignUp from "../../phonesignup";
 import MediaQuery from 'react-responsive';
+import SectionTemplate from "../../sectiontemplate";
+import SectionTemplateRight from "../../sectiontemplate-right";
 
 class LandingPage extends React.Component {
     constructor(props) {
@@ -17,7 +19,7 @@ class LandingPage extends React.Component {
     render() {
         return (
         <div style={styles.outerContainer} className="container">
-            < KeeperNav />
+            <KeeperNav />
 
             <MediaQuery query='(max-width: 768px)'>
 
@@ -39,12 +41,35 @@ class LandingPage extends React.Component {
 
             </MediaQuery>
 
-            <div>
-                <HowItWorks />
+            <div style={styles.howItWorksTextBackground}>
+                <p style={styles.titleMobile} className="text-center">
+                    HOW IT WORKS ...
+                </p>
             </div>
-            <div style={styles.imageBackgroundColor} >
-                <WriteOffs />
-            </div>
+
+            <SectionTemplateRight 
+                sectionTitle='We find tax write offs among your bank statements 🏦' 
+                sectionExplainerText='Signing up is simple - just tell us what you do for work, and link a bank account. From there, our bookkeeping team starts looking for tax write offs among your purchases.'
+                img='https://storage.googleapis.com/titanium-diode-208122.appspot.com/ezgif.com-resize.gif'
+            />
+
+            <SectionTemplate
+                sectionTitle="Stay up to date via SMS 💬" 
+                sectionExplainerText="When we find a tax write off, we send a quick text to let you know. It’s fun to find out that something you bought is deductible, and that there’s a team of bookkeepers behind you at all times!"
+                img='https://storage.googleapis.com/titanium-diode-208122.appspot.com/uptodate.png'
+            />
+
+            <SectionTemplateRight 
+                sectionTitle='Answer questions to unlock more write offs 💸' 
+                sectionExplainerText="Our bookkeepers will sometimes ask for more information that unlocks additional tax write offs. The most common examples are large restaurant bills, or whether you’re out of town for work."
+                img='https://storage.googleapis.com/titanium-diode-208122.appspot.com/answer-questions.png'
+            />
+
+            <SectionTemplate 
+                sectionTitle='Monthly summaries prepared by real bookkeepers 👨‍💼' 
+                sectionExplainerText="At the end of each month, a member of our bookkeeping team will prepare an expense summary for your review. You can also put us in touch directly with your accountant for quarterly and end-of-year tax filing."
+                img='https://storage.googleapis.com/titanium-diode-208122.appspot.com/summary.png'
+            />
             <div>
                 <PhoneSignUp />
             </div>
