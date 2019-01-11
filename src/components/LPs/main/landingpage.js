@@ -18,7 +18,7 @@ class LandingPage extends React.Component {
 
     render() {
         return (
-        <div style={styles.outerContainer} className="container">
+        <div style={styles.outerContainerLP} className="container">
             <KeeperNav />
 
             <MediaQuery query='(max-width: 768px)'>
