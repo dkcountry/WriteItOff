@@ -23,28 +23,15 @@ class PhoneInput extends React.Component {
         const cleaned = ('' + this.state.phone).replace(/\D/g, '');
 	    const match = cleaned.match(/^(1|)?(\d{3})(\d{3})(\d{4})$/);
         const phone = '1' + [match[2], match[3], match[4]].join('');
-        const promise = new Promise((resolve, reject) => {
-            fetch('https://writeitoff.herokuapp.com/welcome-sms', {
-            method: "POST",
-            headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify({
-                firstname: this.state.firstname,
-                phone: phone,
-                })
-            });
-            resolve("worked!");
-        })
 
-        event.preventDefault();
         const name = this.state.firstname.split(" ")[0];
         Amplitude.init('212ed2feb2663c8004ae16498974992b', phone);
         Amplitude.setUserProperties({'phone number': phone, 'first name': this.state.firstname});
         Amplitude.logEvent('onboarding: input name and number');
         fbq('track', 'CompleteRegistration');
 
-        promise.then((result) => {
-            window.location.href = "https://keepertax.typeform.com/to/tZOK37?fname=" + name + "&phone=" + phone;
-        })
+        event.preventDefault();
+        window.location.href = "https://keepertax.typeform.com/to/tZOK37?fname=" + name + "&phone=" + phone;
     }
 
     render() {
@@ -60,7 +47,7 @@ class PhoneInput extends React.Component {
                     />
                 </div>
                 <div className="col-md-auto text-center"> 
-                    <button style={styles.btnStyle} type="submit" className="btn btn-primary btn-lg">
+                    <button disabled={this.state.btnDisabled} style={styles.btnStyle} type="submit" className="btn btn-primary btn-lg">
                         get started
                     </button>
                 </div> 

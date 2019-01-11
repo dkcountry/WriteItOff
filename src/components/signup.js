@@ -53,6 +53,15 @@ class SignupPage extends React.Component {
             return results.json();
         }).then(data => {
             this.props.loginCallback(data)
+        }).then(() => {
+            fetch(SERVER_URL + 'welcome-sms', {
+                method: "POST",
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({
+                    firstname: this.state.firstname,
+                    phone: this.state.phone,
+                    })
+                });
         });
 
         event.preventDefault();
@@ -87,27 +96,16 @@ class SignupPage extends React.Component {
         }
 
         return (
-        <div>
-            <div>
-                <KeeperNav />
-            </div>
-
-       
-
+        <div style={styles.outerContainer} className="container">
+            <KeeperNav />
             <div style={styles.containerStyle} className="container">
-                
                 <div className="row align-items-start">
-
                     <div style={styles.phoneSignup} className="col-8 my-auto" >
-
                         <div className="container"> 
-
                             <div style={styles.landingPageInput}>
-
                                 <div style={styles.phoneSignupDesc}> 
                                     <p style={styles.titleMobileLeft}> <img style={styles.logoIcon} src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/google/146/party-popper_1f389.png"/> Create an account </p>
-                                </div>
-                                
+                                </div>   
                                 <form style={styles.formStyle} onSubmit={this.handleSubmit}>
                                     <div className="form-group">
                                         <label style={styles.labelStyle} htmlFor="fname"> First name: </label>
@@ -138,7 +136,6 @@ class SignupPage extends React.Component {
                                 </form>
                             </div>
                         </div>
-               
                     </div>
                 </div>
             </div>
