@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 import * as styles from "../styles";
 import Amplitude from 'react-amplitude';
 import {Collapse, Navbar, NavbarToggler, NavbarBrand, Nav} from 'reactstrap';
+var Analytics = require('analytics-node');
+var analytics = new Analytics('tW3P77ewudDePkXW1r8vbkleEp0ME3H5');
 
 
 const PLAID_PUBLIC_KEY = "36bd55c50f7421ae5ef190a4fa03fd";
@@ -42,7 +44,7 @@ class PlaidFace extends React.Component {
 
     handlePlaidEvent(eventName, metadata) {
         console.log(eventName);
-        console.log(metadata)
+        console.log(metadata);
         if (metadata.request_id != null) {
             Amplitude.logEvent('bank link attempt', {'request_id': metadata.request_id});
         }
@@ -98,8 +100,15 @@ class PlaidFace extends React.Component {
                 console.log('fail');
         });
 
-        Amplitude.logEvent('bank account linked');      
-
+        Amplitude.logEvent('bank account linked');  
+        // using segment to update mailchimp Stage field to send drip
+        analytics.identify({
+          userId: this.props.phone,
+          traits: {
+            Stage: 'Bank Linked',
+            email: this.props.email
+          }
+        });
     }
 
     sendBankLinkText() {

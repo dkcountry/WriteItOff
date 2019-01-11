@@ -20,6 +20,7 @@ class App extends React.Component {
         this.state = {
             isLoggedin: false,
             phone: null,
+            email: null,
             userToken: null,
             firstname: null,
             lastname: null,
@@ -34,7 +35,8 @@ class App extends React.Component {
         this.setState({ userToken: loginInfo.userToken });
         this.setState({ firstname: loginInfo.firstname });
         this.setState({ lastname: loginInfo.lastname });
-        Amplitude.setUserProperties({'phone number': loginInfo.phone, 'firstname': loginInfo.firstname, 'lastname': loginInfo.lastname});
+        this.setState({ email: loginInfo.email });
+        Amplitude.setUserProperties({'phone number': loginInfo.phone, 'firstname': loginInfo.firstname, 'lastname': loginInfo.lastname, 'email': loginInfo.email});
     }
 
     logoutCallback() {
@@ -50,7 +52,9 @@ class App extends React.Component {
                         <Route exact path='/' component={MainLP}/>
                         <Route exact path='/betalist' component={BetalistLP}/>
                         <Route exact path='/real-estate-agent' component={RealestateLP}/>
-                        <Route exact path='/pricing' component={PricingPage}/>
+                        <Route exact path='/pricing' component={PricingPage}>
+                            <Redirect from="index.html" to="/pricing" />
+                        </Route>
                         <Route exact path='/signup' render={(props) => <SignupPage {...props} loginCallback={this.loginCallback}/>}/>
                         <Route exact path='/index.html' render={(props) => <SignupPage {...props} loginCallback={this.loginCallback}/>}/>                        
                         <Route exact path='/login' render={(props) => <LoginPage {...props} loginCallback={this.loginCallback}/>}/>
@@ -61,7 +65,7 @@ class App extends React.Component {
         else {
             return (
                 <div>
-                    <PlaidFace firstname={this.state.firstname} lastname={this.state.lastname} phone={this.state.phone} userToken={this.state.userToken} logoutCallback={this.logoutCallback}/>
+                    <PlaidFace firstname={this.state.firstname} lastname={this.state.lastname} phone={this.state.phone} email={this.state.email} userToken={this.state.userToken} logoutCallback={this.logoutCallback}/>
                     <Footer />
                 </div>
         )}
