@@ -506,13 +506,14 @@ export const sectionTitleMobile = {
     "fontSize": "24px",
     "fontWeight": "bold",
     "color": "#4F4F4F",
+    "marginTop":"30px",
 }
 
 export const sectionExplainerTextMobile = {
     "marginTop":"10px",
     "fontSize": "16px",
     "color": "#4F4F4F",
-    "paddingBottom": "30px",
+    "paddingBottom": "10px",
 }
 
 export const sectionBackground = {
@@ -525,4 +526,35 @@ export const howItWorksTextBackground = {
     "backgroundImage": "linear-gradient(#FDFDFE, #FFFDFD)",
     "paddingTop": "50px",
     "paddingBottom": "10px",
+}
+
+export const testimonialImg = {
+    "borderRadius": "50%",
+    "height": "125px",
+    "width": "125px",
+    "marginBottom": "10px",
+}
+
+export const testimonialByLine = {
+    "fontSize": "20px",
+    "color": "#4F4F4F",
+    "textAlign": "center",
+    "fontStyle": "italic",
+    "marginTop": "10px",
+}
+
+export const testimonialQuote = {
+    "height": "30px",
+}
+
+export const testimonialBody = {
+    "fontSize": "20px",
+    "color": "#4F4F4F",
+}
+
+export const testimonialByLineDesk = {
+    "fontSize": "20px",
+    "color": "#4F4F4F",
+    "textAlign": "left",
+    "fontStyle": "italic",
 }

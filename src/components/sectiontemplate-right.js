@@ -13,12 +13,6 @@ class SectionTemplateRight extends React.Component {
                 <MediaQuery query='(max-width: 768px)'>
 
                     <div> 
-                        <div style={styles.sectionImage} className="col-6">
-                            <img src={this.props.img} style={styles.MP4video} />
-                        </div>
-                    </div> 
-
-                    <div> 
                         <div style={styles.heroSection} className="col-md-6 my-auto"> 
                             <div style={styles.sectionTextMobile}> 
                                 <div style={styles.sectionTitleMobile}> 
@@ -30,6 +24,12 @@ class SectionTemplateRight extends React.Component {
                             </div>
                         </div>
                     </div>
+
+                    <div> 
+                        <div style={styles.sectionImage} className="col-6">
+                            <img src={this.props.img} style={styles.MP4video} />
+                        </div>
+                    </div> 
 
                 </MediaQuery>
 
