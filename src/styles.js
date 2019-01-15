@@ -97,6 +97,11 @@ export const header = {
     "fontWeight": "bold",
     "color": "#4F4F4F",
 }
+export const strikethroughHeader = {
+    "fontSize": "36px",
+    "color": "#4F4F4F",
+    "textDecoration": "line-through",
+}
 
 export const headerImg = {
     "height": "150px",
@@ -152,6 +157,16 @@ export const btnStyle = {
     "marginTop": "25px",
     "fontWeight": "bold",
     "backgroundColor": "#0980FE",
+    "border": "none",
+    "fontSize": "20px", 
+}
+
+export const btnStyleGrey = { 
+    "marginTop": "25px",
+    "marginBottom": "25px",
+    "fontWeight": "bold",
+    "backgroundColor": "#E5E4E9",
+    "color": "#4F4F4F",
     "border": "none",
     "fontSize": "20px", 
 }
@@ -497,6 +512,12 @@ export const sectionExplainerText = {
     "color": "#4F4F4F",
 }
 
+export const PartnerQuote = {
+    "marginTop":"10px",
+    "fontSize": "26px",
+    "color": "#FFFFFF",
+}
+
 export const sectionTextMobile = {
     "width": "340px",
     "margin": "0 auto",
@@ -516,10 +537,23 @@ export const sectionExplainerTextMobile = {
     "paddingBottom": "10px",
 }
 
+export const sectionExplainerTextWhite = {
+    "marginTop":"10px",
+    "fontSize": "26px",
+    "color": "white",
+    "paddingBottom": "10px",
+}
+
 export const sectionBackground = {
     "backgroundColor": "#FFFDFD",
     "paddingTop": "40px",
     "paddingBottom": "40px",
+}
+
+export const parterTestimonialBackground = {
+    "backgroundColor": "#204B75",
+    "paddingTop": "20px",
+    "paddingBottom": "20px",
 }
 
 export const howItWorksTextBackground = {
@@ -557,4 +591,8 @@ export const testimonialByLineDesk = {
     "color": "#4F4F4F",
     "textAlign": "left",
     "fontStyle": "italic",
+}
+
+export const partnerLogo = {
+    "height": "64px",
 }

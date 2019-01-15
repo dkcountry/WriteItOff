@@ -4,6 +4,8 @@ import LoginPage from "./components/login";
 import SignupPage from "./components/signup";
 import MainLP from "./components/LPs/main/landingpage";
 import RealestateLP from "./components/LPs/real-estate/landingpage";
+import TyroneLP from "./components/LPs/tyrone/landingpage";
+import TyronePricing from "./components/tyronepricing";
 import BetalistLP from "./components/LPs/betalist/landingpage";
 import PricingPage from "./components/pricingpage";
 import { BrowserRouter } from 'react-router-dom';
@@ -52,6 +54,8 @@ class App extends React.Component {
                         <Route exact path='/' component={MainLP}/>
                         <Route exact path='/betalist' component={BetalistLP}/>
                         <Route exact path='/real-estate-agent' component={RealestateLP}/>
+                        <Route exact path='/se-tax-guy' component={TyroneLP}/>
+                        <Route exact path='/se-tax-guy/pricing' component={TyronePricing}/>
                         <Route exact path='/pricing' component={PricingPage}>
                             <Redirect from="index.html" to="/pricing" />
                         </Route>
