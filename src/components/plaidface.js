@@ -234,7 +234,7 @@ class PlaidFace extends React.Component {
                                 className="btn btn-primary btn-lg"
                                 publicKey={PLAID_PUBLIC_KEY}
                                 product={["transactions"]}
-                                env="development"
+                                env="production"
                                 apiVersion={'v2'}
                                 clientName="Keeper Tax"
                                 onSuccess={this.handleOnSuccess}
