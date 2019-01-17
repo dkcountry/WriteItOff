@@ -1,16 +1,14 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import * as styles from "../../../styles";
 import KeeperNav from "./nav";
 import Hero from "./hero";
-import WriteOffs from "./writeoffs";
 import HeroImg from "./heroImg";
-import HowItWorks from "../../howitworks";
 import PhoneSignUp from "../../phonesignup";
 import MediaQuery from 'react-responsive';
 import SectionTemplate from "../../sectiontemplate";
 import SectionTemplateRight from "../../sectiontemplate-right";
 import TestimonialTemplate from "../../testimonial";
+import PricingBanner from "../../pricingBanner";
 
 class LandingPage extends React.Component {
     constructor(props) {
@@ -19,32 +17,29 @@ class LandingPage extends React.Component {
 
     render() {
         return (
-        <div style={styles.outerContainerLP} className="container">
+        <div style={styles.outerContainerLP}>
             <KeeperNav />
-
             <MediaQuery query='(max-width: 768px)'>
-
                 <div> 
                     <HeroImg />
                 </div> 
-
                 <div> 
                     <Hero />
                 </div> 
             </MediaQuery>
 
             <MediaQuery query='(min-width: 769px)'>
-
                 <div style={styles.heroPaddingMargin} className="col-12 row align-items-start"> 
                     <Hero />
                     <HeroImg />
                 </div>
-
             </MediaQuery>
+
+            <PricingBanner />
 
             <div style={styles.howItWorksTextBackground}>
                 <p style={styles.sectionTitleMobile} className="text-center">
-                    Here's how it works ⚙️
+                    HOW IT WORKS 
                 </p>
             </div>
 
@@ -74,7 +69,7 @@ class LandingPage extends React.Component {
 
             <div style={styles.howItWorksTextBackground}>
                 <p style={styles.sectionTitleMobile} className="text-center">
-                    Here's what our users tell us 😊
+                    Here's what our users tell us
                 </p>
             </div>
 

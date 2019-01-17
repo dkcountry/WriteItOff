@@ -4,7 +4,6 @@ export const title = {
     "color": "#4F4F4F",
     "marginTop": "-15px",
     "marginLeft": "5%",
-    // "textAlign": "center"
 }
 
 export const titleMobile = {
@@ -156,7 +155,7 @@ export const navStyle = {
 export const btnStyle = { 
     "marginTop": "25px",
     "fontWeight": "bold",
-    "backgroundColor": "#0980FE",
+    "backgroundColor": "#75B887",
     "border": "none",
     "fontSize": "20px", 
 }
@@ -238,6 +237,16 @@ export const heroSection = {
     "minHeight": "80px",
 }
 
+export const pricingHeroSection = {
+    "minHeight": "80px",
+    "paddingTop": "5px"
+}
+
+export const pricingHeroSectionBottom = {
+    "minHeight": "80px",
+    "paddingBottom": "5px"
+}
+
 export const containerStyle = { 
     "minWidth": "335px",
     "marginTop":"20px",
@@ -255,6 +264,7 @@ export const outerContainerLP = {
     "minWidth": "340px", 
     "maxWidth": "1400px",
     "fontFamily": "Open Sans",
+    "margin": "auto",
     "backgroundColor": "#FDFDFE",
 }
 
@@ -500,6 +510,13 @@ export const sectionText = {
     "paddingBottom": "100px",
 }
 
+export const pricingSectionText = {
+    "width": "400px",
+    "margin": "0 auto",
+    "paddingTop": "0px",
+    "paddingBottom": "0px"
+}
+
 export const sectionTitle = {
     "fontSize": "26px",
     "fontWeight": "bold",
@@ -510,6 +527,23 @@ export const sectionExplainerText = {
     "marginTop":"10px",
     "fontSize": "20px",
     "color": "#4F4F4F",
+}
+
+export const pricingBannerTitle = {
+    "fontSize": "20px",
+    "color": "white",
+}
+
+export const pricingBannerExplainerText = {
+    "marginTop":"10px",
+    "fontSize": "20px",
+    "color": "white",
+}
+
+export const pricingBannerExplainerTextPrice = {
+    "marginTop":"10px",
+    "fontSize": "26px",
+    "color": "white",
 }
 
 export const PartnerQuote = {
@@ -530,11 +564,51 @@ export const sectionTitleMobile = {
     "marginTop":"30px",
 }
 
+export const pricingBannerTitleMobile = {
+    "fontSize": "16px",
+    "color": "white",
+    "marginTop":"30px",
+}
+
 export const sectionExplainerTextMobile = {
     "marginTop":"10px",
     "fontSize": "16px",
     "color": "#4F4F4F",
     "paddingBottom": "10px",
+}
+
+export const pricingBannerExplainerTextMobile = {
+    "marginTop":"0px",
+    "fontSize": "16px",
+    "color": "white",
+    "paddingBottom": "10px",
+    "marginRight": "10px",
+    "fontWeight": "100"
+}
+
+export const pricingBannerExplainerTextMobilePricing = {
+    "marginTop":"25px",
+    "marginBottom": "5px",
+    "fontSize": "22px",
+    "color": "white",
+    "paddingBottom": "0px",
+}
+
+export const pricingSeparationLine = {
+    "borderBottom": "2px solid white",
+    "marginLeft": "5%",
+    "marginRight": "5%"
+}
+
+export const pricingLeft = {
+    borderRight: "1px solid white", 
+    "marginTop": "30px", 
+    "marginBottom": "30px"
+}
+
+export const pricingRight = {
+    "marginTop": "30px", 
+    "marginBottom": "30px"
 }
 
 export const sectionExplainerTextWhite = {
@@ -550,6 +624,12 @@ export const sectionBackground = {
     "paddingBottom": "40px",
 }
 
+export const pricingBannerBackground = {
+    "backgroundColor": "#75B887",
+    "paddingTop": "0px",
+    "paddingBottom": "0px",
+}
+
 export const parterTestimonialBackground = {
     "backgroundColor": "#204B75",
     "paddingTop": "20px",
@@ -557,7 +637,7 @@ export const parterTestimonialBackground = {
 }
 
 export const howItWorksTextBackground = {
-    "backgroundImage": "linear-gradient(#FDFDFE, #FFFDFD)",
+    "backgroundColor": "#FFFDFD",
     "paddingTop": "50px",
     "paddingBottom": "10px",
 }
