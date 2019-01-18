@@ -277,7 +277,7 @@ export const outerContainer = {
     "minWidth": "340px", 
     "maxWidth": "1400px",
     "fontFamily": "Open Sans",
-    "backgroundColor": "#FFFFFF",
+    "backgroundColor": "#FDFDFE",
 }
 
 export const outerContainerLP = { 

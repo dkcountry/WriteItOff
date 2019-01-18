@@ -146,7 +146,7 @@ class PlaidFace extends React.Component {
         const viewBanks = [];
         for (let bank in this.state.allBanks) {
             viewBanks.push(
-                <div  key={bank} style={styles.bankCard} className="card text-left col-12">
+                <div  key={bank} style={styles.bankCard} className="card text-left">
                     <div className="card-body">
                         <h5 className="card-title">
                             {this.state.allBanks[bank]} 
@@ -206,13 +206,7 @@ class PlaidFace extends React.Component {
                         Link all financial accounts used to make work-related purchases.
                     </p>
 
-                        <div className="d-flex justify-content-center">
-                            <div className="row">
-                                <div className="text-center" >
-                                    {viewBanks}
-                                </div>
-                            </div>
-                        </div>
+                        {viewBanks}
                         
                         <div className="d-flex">
                             <PlaidLink
