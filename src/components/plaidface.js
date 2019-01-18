@@ -3,7 +3,7 @@ import React from "react";
 import { Link } from 'react-router-dom';
 import * as styles from "../styles";
 import Amplitude from 'react-amplitude';
-import {Collapse, Navbar, NavbarToggler, NavbarBrand, Nav} from 'reactstrap';
+import {Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavLink} from 'reactstrap';
 var Analytics = require('analytics-node');
 var analytics = new Analytics('tW3P77ewudDePkXW1r8vbkleEp0ME3H5');
 
@@ -99,9 +99,7 @@ class PlaidFace extends React.Component {
             }, (err) => {
                 console.log('fail');
         });
-
         Amplitude.logEvent('bank account linked');  
-        // using segment to update mailchimp Stage field to send drip
         analytics.identify({
           userId: this.props.phone,
           traits: {
@@ -148,17 +146,34 @@ class PlaidFace extends React.Component {
         const viewBanks = [];
         for (let bank in this.state.allBanks) {
             viewBanks.push(
-                <div  key={bank} style={styles.bankCard} className="card text-left col-12">
+                <div  key={bank} style={styles.bankCard} className="card text-left">
                     <div className="card-body">
                         <h5 className="card-title">
-                            {this.state.allBanks[bank]}
+                            {this.state.allBanks[bank]} 
+                            <span style={styles.bankLinked}> - Linked</span>
                         </h5>
                         <h6 className="card-subtitle mb-2 text-muted">
-                            Account has been successfully linked
+                            Purchases made with this account's credit and debit cards will be monitored for write offs
                         </h6>
                     </div>
                 </div>
             )
+        }
+        let buttonTitle = "Link an account"
+        let noMoreCards = <div style={{"paddingBottom": "450px"}}></div>
+        if (viewBanks.length != 0) {
+            buttonTitle = "Link another account"
+            noMoreCards = 
+            <div className="d-flex justify-content-center container text-left" style={styles.bankCard}>
+                <div className="card-body" style={{"paddingBottom": "200px"}}>
+                    <h5 style={styles.sectionTitleNoMoreAccounts}>
+                        No other accounts you'd like to monitor?
+                    </h5>
+                    <h6 style={styles.noMoreSubtitle}>
+                        You're all set! Keeper will start reviewing your purchases and text you when tax write offs are recorded.
+                    </h6>
+                </div>
+            </div>
         }
 
         return (
@@ -172,65 +187,30 @@ class PlaidFace extends React.Component {
                       <NavbarToggler onClick={this.toggle} />
                       <Collapse isOpen={this.state.isOpen} navbar>
                         <Nav className="ml-auto" navbar>
-                            <Link style={styles.navLink} to="/">
+                            <NavLink style={styles.navLink} href="https://blog.keepertax.com">
+                                <p >blog</p> 
+                            </NavLink>
+                            <NavLink style={styles.navLink} href="https://keepertax.com">
                                 <p >log out</p>
-                            </Link>
+                            </NavLink>
                         </Nav>
                       </Collapse>
                     </Navbar>
                 </div>
 
+                <div className="col-8 container" >
+                    <p style={styles.sectionTitlePlaidFace}> 
+                        Which accounts would you like to monitor? 
+                    </p>
+                    <p style={styles.plaidfaceSubtitle}>
+                        Link all financial accounts used to make work-related purchases.
+                    </p>
 
-                <div style={styles.phoneSignup} className="col-8 my-auto" >
-                    <div className="container"> 
-                        <div style={styles.landingPageInput}>
-                            <div style={styles.phoneSignupDesc}> 
-                                <p style={styles.titleMobileLeft}> 
-                                <img style={styles.logoIcon} src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/google/146/right-pointing-magnifying-glass_1f50e.png"/> 
-                                &nbsp; Which purchases should we scan? 
-                                </p>
-                                <p style={styles.pricingText}>
-                                    To find tax write offs among your purchases, we use Plaid to integrate with 1,700+ financial institutions.
-                                </p>
-                            </div>
-        
-                            <div style={styles.listContainerStyle} className="row align-items-start">
-                                <div className="col-2">
-                                    <img style={styles.logoIconThreeLines} src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/google/146/lock_1f512.png"/> 
-                                </div>
-                                <div style={styles.iconPaddingStyle} className="col-10">
-                                    <strong> Secure </strong> <br />
-                                    We don't store institution login credentials in our database.
-                                </div>
-
-                                <div className="col-2">
-                                    <img style={styles.logoIconThreeLines} src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/google/146/sleuth-or-spy_1f575.png"/> 
-                                </div>
-                                <div style={styles.iconPaddingStyle} className="col-10">
-                                    <strong> Private </strong> <br />
-                                    Only our algorithm & account manager will have access to your purchase history.
-                                </div>
-                                <div className="col-2">
-                                    <img style={styles.logoIconThreeLines} src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/google/146/pie_1f967.png"/> 
-                                </div>
-                                <div style={styles.iconPaddingStyle} className="col-10">
-                                    <strong> Easy </strong> <br />
-                                    It's as simple as logging into your bank's website. Easy as pie!
-                                </div>
-                            </div>
-                        </div>
-
-                        <div className="d-flex justify-content-center">
-                            <div className="row">
-                                <div className="text-center" >
-                                    {viewBanks}
-                                </div>
-                            </div>
-                        </div>
+                        {viewBanks}
                         
-                        <div className="d-flex justify-content-center">
+                        <div className="d-flex">
                             <PlaidLink
-                                style={styles.linkBankBtn}
+                                style={styles.btnStyleBankLink}
                                 className="btn btn-primary btn-lg"
                                 publicKey={PLAID_PUBLIC_KEY}
                                 product={["transactions"]}
@@ -240,11 +220,12 @@ class PlaidFace extends React.Component {
                                 onSuccess={this.handleOnSuccess}
                                 onEvent = {this.handlePlaidEvent}
                             >
-                            Grant read-only access
+                            ➕ {buttonTitle}
                             </PlaidLink>
                         </div>
+                        
+                        {noMoreCards}
                     </div>
-                </div>
             </div>
         )
     }
