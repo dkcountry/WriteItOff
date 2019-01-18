@@ -696,3 +696,7 @@ export const partnerLogo = {
 export const partnerLogoScooter = {
     "height": "45px",
 }
+
+export const iFrame = {
+    "width": "800px",
+}

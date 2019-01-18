@@ -11,10 +11,10 @@ class Footer extends React.Component {
         return (
             <div style={styles.footer} className="navbar text-center navbar-fixed-bottom">
                 <div className="text-muted text-center col-12">
-                    © Keeper, 2019 | 
-                    <a className="text-muted" href="#"> Terms </a>
+                    © Keeper Tax Inc, 2019 | 
+                     <a className="text-muted" href="/terms">Terms & Privacy</a> 
                      |  
-                    <a className="text-muted" href="#"> Contact Us </a>
+                     <a className="text-muted" href="mailto:support@keepertax.com">Contact Us</a>
                 </div>
             </div>
     )}

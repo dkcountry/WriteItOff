@@ -13,6 +13,7 @@ import { BrowserRouter } from 'react-router-dom';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import PlaidFace from "./components/plaidface";
 import Footer from "./components/footer";
+import TermsPage from "./components/terms";
 import Amplitude from 'react-amplitude';
 import 'bootstrap/dist/css/bootstrap.css';
 
@@ -59,6 +60,7 @@ class App extends React.Component {
                         <Route exact path='/scooter-map-promo' component={ScooterMapLP}/>
                         <Route exact path='/se-tax-guy/pricing' component={TyronePricing}/>
                         <Route exact path='/pricing' component={PricingPage} />
+                        <Route exact path='/terms' component={TermsPage} />
                         <Route exact path='/signup' render={(props) => <SignupPage {...props} loginCallback={this.loginCallback}/>}/>
                         <Route exact path='/index.html' render={(props) => <SignupPage {...props} loginCallback={this.loginCallback}/>}/>                        
                         <Route exact path='/login' render={(props) => <LoginPage {...props} loginCallback={this.loginCallback}/>}/>
