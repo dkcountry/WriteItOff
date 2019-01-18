@@ -38,38 +38,38 @@ class LandingPage extends React.Component {
             <PricingBanner />
 
             <div style={styles.howItWorksTextBackground}>
-                <p style={styles.sectionTitleMobile} className="text-center">
+                <p style={styles.howItWorksFont} className="text-center">
                     HOW IT WORKS 
                 </p>
             </div>
 
-            <SectionTemplateRight 
+            <SectionTemplate 
                 sectionTitle='We find tax write offs among your bank statements 🏦' 
-                sectionExplainerText='Signing up is simple - just tell us what you do for work, and link a bank account. From there, our bookkeeping team starts looking for tax write offs among your purchases.'
+                sectionExplainerText='Signing up is simple - just tell us what you do for work, and link a bank account.'
                 img='https://storage.googleapis.com/titanium-diode-208122.appspot.com/ezgif.com-resize.gif'
             />
 
             <SectionTemplate
                 sectionTitle="Stay up to date via SMS 💬" 
-                sectionExplainerText="When we find a tax write off, we send a quick text to let you know. It’s fun to find out that something you bought is deductible, and that there’s a team of bookkeepers behind you at all times!"
+                sectionExplainerText="When we find a tax write off, we send a quick text to let you know."
                 img='https://storage.googleapis.com/titanium-diode-208122.appspot.com/uptodate.png'
             />
 
-            <SectionTemplateRight 
+            <SectionTemplate 
                 sectionTitle='Answer questions to unlock more write offs 💸' 
-                sectionExplainerText="Our bookkeepers will sometimes ask for more information that unlocks additional tax write offs. The most common examples are large restaurant bills, or whether you’re out of town for work."
+                sectionExplainerText="Our bookkeepers will sometimes ask for more information that unlocks additional tax write offs."
                 img='https://storage.googleapis.com/titanium-diode-208122.appspot.com/answer-questions.png'
             />
 
             <SectionTemplate 
                 sectionTitle='Monthly summaries prepared by real bookkeepers 👨‍💼' 
-                sectionExplainerText="At the end of each month, a member of our bookkeeping team will prepare an expense summary for your review. You can also put us in touch directly with your accountant for quarterly and end-of-year tax filing."
+                sectionExplainerText="At the end of each month, a member of our bookkeeping team will prepare an expense summary for your review."
                 img='https://storage.googleapis.com/titanium-diode-208122.appspot.com/summary.png'
             />
 
             <div style={styles.howItWorksTextBackground}>
-                <p style={styles.sectionTitleMobile} className="text-center">
-                    Here's what our users tell us
+                <p style={styles.howItWorksFont} className="text-center">
+                    Here's what our subscribers tell us:
                 </p>
             </div>
 
@@ -87,7 +87,7 @@ class LandingPage extends React.Component {
 
             <TestimonialTemplate
                 byLine='- Sarah, online reseller' 
-                body="Had no idea how much [tax write offs] I could claim! This is great."
+                body="Had no idea how much [tax write offs] I could claim! Brilliant."
                 img='https://storage.googleapis.com/titanium-diode-208122.appspot.com/sarah.png'
             />
 

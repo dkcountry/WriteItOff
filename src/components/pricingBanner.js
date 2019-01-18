@@ -17,10 +17,10 @@ class PricingBanner extends React.Component {
                                 BENEFIT
                             </div>
                             <p style={styles.pricingBannerExplainerTextMobilePricing}> 
-                                <strong>$271 / month</strong>
+                                <strong>$173 saved / month</strong>
                             </p>
                             <p style={styles.pricingBannerExplainerTextMobile}> 
-                                Average monthly tax write offs subscribers report they would've missed otherwise.
+                                Based on the tax write offs subscribers report they would've missed otherwise.
                             </p>
                         </div>
                     </div>
@@ -50,10 +50,10 @@ class PricingBanner extends React.Component {
                                     BENEFIT
                                 </p>
                                 <p style={styles.pricingBannerExplainerTextPrice}> 
-                                    <strong>$271 / month</strong>
+                                    <strong>$173 saved / month</strong>
                                 </p>
                                 <p style={styles.pricingBannerExplainerText}> 
-                                    Average monthly tax write offs subscribers report they would've missed otherwise.
+                                    Based on the tax write offs subscribers report they would've missed otherwise.
                                 </p>
                             </div>
                         </div>
@@ -67,7 +67,7 @@ class PricingBanner extends React.Component {
                                     <strong>$10 / month</strong>
                                 </p>
                                 <p style={styles.pricingBannerExplainerText}> 
-                                    We only charge subscribers after we've found them $100 in tax write offs.
+                                    We only charge subscribers after we've found them over $100 in tax write offs.
                                 </p>
                             </div>
                         </div>

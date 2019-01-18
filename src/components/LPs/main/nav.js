@@ -46,9 +46,6 @@ class KeeperNav extends React.Component {
                         <NavLink style={styles.navLink} href="https://blog.keepertax.com">
                             <p >blog</p> 
                         </NavLink>
-                        <Link style={styles.navLink} to="/pricing">
-                            <p>pricing</p>
-                        </Link>
                         <Link style={styles.navLink} to="/login">
                             <p >log in</p>
                         </Link>

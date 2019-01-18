@@ -564,6 +564,12 @@ export const sectionTitleMobile = {
     "marginTop":"30px",
 }
 
+export const howItWorksFont = {
+    "fontSize": "24px",
+    "color": "#4F4F4F",
+    "marginTop":"30px",
+}
+
 export const pricingBannerTitleMobile = {
     "fontSize": "16px",
     "color": "white",
