@@ -546,6 +546,10 @@ export const pricingBannerExplainerTextPrice = {
     "color": "white",
 }
 
+export const strikethrough = {
+    "textDecoration": "line-through",
+}
+
 export const PartnerQuote = {
     "marginTop":"10px",
     "fontSize": "26px",
@@ -642,6 +646,12 @@ export const parterTestimonialBackground = {
     "paddingBottom": "20px",
 }
 
+export const parterTestimonialBackgroundScooter = {
+    "backgroundColor": "#00D54C",
+    "paddingTop": "20px",
+    "paddingBottom": "20px",
+}
+
 export const howItWorksTextBackground = {
     "backgroundColor": "#FFFDFD",
     "paddingTop": "50px",
@@ -681,4 +691,8 @@ export const testimonialByLineDesk = {
 
 export const partnerLogo = {
     "height": "64px",
+}
+
+export const partnerLogoScooter = {
+    "height": "45px",
 }
