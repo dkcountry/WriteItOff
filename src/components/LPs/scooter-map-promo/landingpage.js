@@ -1,16 +1,20 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import * as styles from "../../../styles";
 import KeeperNav from "./nav";
 import Hero from "./hero";
+import WriteOffs from "./writeoffs";
 import HeroImg from "./heroImg";
+import HowItWorks from "../../howitworks";
 import PhoneSignUp from "../../phonesignup";
 import MediaQuery from 'react-responsive';
 import SectionTemplate from "../../sectiontemplate";
 import SectionTemplateRight from "../../sectiontemplate-right";
 import TestimonialTemplate from "../../testimonial";
-import PricingBanner from "../../pricingBanner";
+import PartnerQuoteTemplate from "../../partnerQuoteTemplate";
+import PricingBanner from "../../pricingBannerPromo";
 
-class LandingPage extends React.Component {
+class ScooterMapLP extends React.Component {
     constructor(props) {
         super(props);
     }
@@ -35,7 +39,10 @@ class LandingPage extends React.Component {
                 </div>
             </MediaQuery>
 
-            <PricingBanner />
+            <PartnerQuoteTemplate 
+                link = 'https://blog.scootermap.com/'
+                body='Do things right and you should be paying close to $0 in taxes on your scooter charging 1099 income … Keeper Tax makes sure of that!' 
+            />
 
             <div style={styles.howItWorksTextBackground}>
                 <p style={styles.howItWorksFont} className="text-center">
@@ -66,6 +73,8 @@ class LandingPage extends React.Component {
                 sectionExplainerText="At the end of each month, a member of our bookkeeping team will prepare an expense summary for your review."
                 img='https://storage.googleapis.com/titanium-diode-208122.appspot.com/summary.png'
             />
+
+            <PricingBanner />
 
             <div style={styles.howItWorksTextBackground}>
                 <p style={styles.howItWorksFont} className="text-center">
@@ -99,4 +108,4 @@ class LandingPage extends React.Component {
 }
 
 
-export default LandingPage;
+export default ScooterMapLP;
