@@ -606,6 +606,13 @@ export const PartnerQuote = {
     "color": "#FFFFFF",
 }
 
+export const PartnerQuoteBold = {
+    "marginTop":"10px",
+    "fontSize": "26px",
+    "color": "#FFFFFF",
+    "fontWeight": "bold",
+}
+
 export const sectionTextMobile = {
     "width": "340px",
     "margin": "0 auto",
@@ -698,6 +705,12 @@ export const parterTestimonialBackground = {
 
 export const parterTestimonialBackgroundScooter = {
     "backgroundColor": "#00D54C",
+    "paddingTop": "20px",
+    "paddingBottom": "20px",
+}
+
+export const YCBackground = {
+    "backgroundColor": "#FB6535",
     "paddingTop": "20px",
     "paddingBottom": "20px",
 }

@@ -6,6 +6,7 @@ import MainLP from "./components/LPs/main/landingpage";
 import RealestateLP from "./components/LPs/real-estate/landingpage";
 import TyroneLP from "./components/LPs/tyrone/landingpage";
 import ScooterMapLP from "./components/LPs/scooter-map-promo/landingpage";
+import YCpromoLP from "./components/LPs/ycpromo/landingpage";
 import TyronePricing from "./components/tyronepricing";
 import BetalistLP from "./components/LPs/betalist/landingpage";
 import PricingPage from "./components/pricingpage";
@@ -59,6 +60,7 @@ class App extends React.Component {
                         <Route exact path='/se-tax-guy' component={TyroneLP}/>
                         <Route exact path='/scooter-map-promo' component={ScooterMapLP}/>
                         <Route exact path='/se-tax-guy/pricing' component={TyronePricing}/>
+                        <Route exact path='/yc-promo' component={YCpromoLP} />
                         <Route exact path='/pricing' component={PricingPage} />
                         <Route exact path='/terms' component={TermsPage} />
                         <Route exact path='/signup' render={(props) => <SignupPage {...props} loginCallback={this.loginCallback}/>}/>
