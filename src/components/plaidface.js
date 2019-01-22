@@ -170,7 +170,7 @@ class PlaidFace extends React.Component {
                         No other accounts you'd like to monitor?
                     </h5>
                     <h6 style={styles.noMoreSubtitle}>
-                        You're all set! Keeper will start reviewing your purchases and text you when tax write offs are recorded.
+                        You're all set! Keeper will start monitoring your purchases and text you when tax write offs are recorded. Your monthly subscription starts after we've found you at least $100 in tax write offs.
                     </h6>
                 </div>
             </div>
