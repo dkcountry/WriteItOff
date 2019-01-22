@@ -85,6 +85,18 @@ export const pricingText = {
     "textAlign":"left",
 }
 
+export const plaidfaceSubtitle = {
+    "fontSize": "16px",
+    "textAlign":"left",
+    "paddingBottom": "24px",
+    "borderBottom": "1px solid black"
+}
+export const noMoreSubtitle = {
+    "fontSize": "16px",
+    "textAlign":"left",
+    "paddingBottom": "24px",
+}
+
 export const logo = {
     "fontSize": "30px",
     "fontWeight": "bold",
@@ -158,6 +170,14 @@ export const btnStyle = {
     "backgroundColor": "#75B887",
     "border": "none",
     "fontSize": "20px", 
+}
+
+export const btnStyleBankLink = {
+    "padding": "0px",
+    "border": "none",
+    "background": "none",
+    "color": "#0080F9",
+    "fontSize": "16px"
 }
 
 export const btnStyleGrey = { 
@@ -257,7 +277,7 @@ export const outerContainer = {
     "minWidth": "340px", 
     "maxWidth": "1400px",
     "fontFamily": "Open Sans",
-    "backgroundColor": "#FFFFFF",
+    "backgroundColor": "#FDFDFE",
 }
 
 export const outerContainerLP = { 
@@ -269,7 +289,21 @@ export const outerContainerLP = {
 }
 
 export const bankCard = {
-    "marginTop": "10px",    
+    "marginTop": "10px", 
+    "marginBottom": "10px"
+}
+
+export const bankCardHidden = {
+    "marginTop": "10px", 
+    "marginBottom": "10px",
+    "visibility": "hidden"
+}
+
+export const bankLinked = {
+    "color": "#75B887",
+    "fontSize": "1rem",
+    "fontWeight": "bold",
+    "fontStyle": "italic",
 }
 
 export const footer = {
@@ -523,6 +557,22 @@ export const sectionTitle = {
     "color": "#4F4F4F",
 }
 
+export const sectionTitlePlaidFace = {
+    "fontSize": "26px",
+    "fontWeight": "bold",
+    "color": "#4F4F4F",
+    "marginBottom": "0px",
+    "marginTop": "40px"
+}
+
+export const sectionTitleNoMoreAccounts = {
+    "fontSize": "18px",
+    "fontWeight": "bold",
+    "color": "#4F4F4F",
+    "marginBottom": "10px",
+    "marginTop": "20px"
+}
+
 export const sectionExplainerText = {
     "marginTop":"10px",
     "fontSize": "20px",
@@ -546,10 +596,21 @@ export const pricingBannerExplainerTextPrice = {
     "color": "white",
 }
 
+export const strikethrough = {
+    "textDecoration": "line-through",
+}
+
 export const PartnerQuote = {
     "marginTop":"10px",
     "fontSize": "26px",
     "color": "#FFFFFF",
+}
+
+export const PartnerQuoteBold = {
+    "marginTop":"10px",
+    "fontSize": "26px",
+    "color": "#FFFFFF",
+    "fontWeight": "bold",
 }
 
 export const sectionTextMobile = {
@@ -560,6 +621,12 @@ export const sectionTextMobile = {
 export const sectionTitleMobile = {
     "fontSize": "24px",
     "fontWeight": "bold",
+    "color": "#4F4F4F",
+    "marginTop":"30px",
+}
+
+export const howItWorksFont = {
+    "fontSize": "24px",
     "color": "#4F4F4F",
     "marginTop":"30px",
 }
@@ -636,6 +703,18 @@ export const parterTestimonialBackground = {
     "paddingBottom": "20px",
 }
 
+export const parterTestimonialBackgroundScooter = {
+    "backgroundColor": "#00D54C",
+    "paddingTop": "20px",
+    "paddingBottom": "20px",
+}
+
+export const YCBackground = {
+    "backgroundColor": "#FB6535",
+    "paddingTop": "20px",
+    "paddingBottom": "20px",
+}
+
 export const howItWorksTextBackground = {
     "backgroundColor": "#FFFDFD",
     "paddingTop": "50px",
@@ -675,4 +754,12 @@ export const testimonialByLineDesk = {
 
 export const partnerLogo = {
     "height": "64px",
+}
+
+export const partnerLogoScooter = {
+    "height": "45px",
+}
+
+export const iFrame = {
+    "width": "800px",
 }

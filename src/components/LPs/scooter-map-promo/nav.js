@@ -36,9 +36,15 @@ class KeeperNav extends React.Component {
         return (
             <div>
                 <Navbar color="#F7F7F7" light expand="lg">
-                  <NavbarBrand style={styles.logo} href="/">
+                  <NavbarBrand style={styles.logo} href="/scooter-map-promo">
                         <img style={styles.logoIcon} src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/320/google/146/money-with-wings_1f4b8.png"/>
                         keeper
+
+                        | &#8239;
+
+                        <a href="https://scootermap.com/">
+                            <img style={styles.partnerLogoScooter} src="https://storage.googleapis.com/titanium-diode-208122.appspot.com/scootermaplogo.png"/>
+                        </a>
                   </NavbarBrand>
                   <NavbarToggler onClick={this.toggle} />
                   <Collapse isOpen={this.state.isOpen} navbar>

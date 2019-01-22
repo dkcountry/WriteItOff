@@ -35,7 +35,7 @@ class PricingBanner extends React.Component {
                                 <strong>$10 / month</strong>
                             </p>
                             <p style={styles.pricingBannerExplainerTextMobile}> 
-                            We only charge subscribers after we've found them $100 in tax write offs.
+                            Special discount for Scooter Map users. Starts after $100 of tax write offs found.
                             </p>
                         </div>
                     </div>
@@ -64,10 +64,10 @@ class PricingBanner extends React.Component {
                                     COST
                                 </p>
                                 <p style={styles.pricingBannerExplainerTextPrice}> 
-                                    <strong>$10 / month</strong>
+                                    <span style={styles.strikethrough}>$10</span> <strong>$8 / month</strong> 
                                 </p>
                                 <p style={styles.pricingBannerExplainerText}> 
-                                    We only charge subscribers after we've found them over $100 in tax write offs.
+                                    Special discount for Scooter Map users. Starts after $100 of tax write offs found.
                                 </p>
                             </div>
                         </div>

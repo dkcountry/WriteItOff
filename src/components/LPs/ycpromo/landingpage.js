@@ -1,16 +1,20 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import * as styles from "../../../styles";
 import KeeperNav from "./nav";
 import Hero from "./hero";
+import WriteOffs from "./writeoffs";
 import HeroImg from "./heroImg";
+import HowItWorks from "../../howitworks";
 import PhoneSignUp from "../../phonesignup";
 import MediaQuery from 'react-responsive';
 import SectionTemplate from "../../sectiontemplate";
 import SectionTemplateRight from "../../sectiontemplate-right";
 import TestimonialTemplate from "../../testimonial";
+import PartnerQuoteTemplate from "../../partnerQuoteTemplate";
 import PricingBanner from "../../pricingBanner";
 
-class LandingPage extends React.Component {
+class YCpromoLP extends React.Component {
     constructor(props) {
         super(props);
     }
@@ -35,7 +39,43 @@ class LandingPage extends React.Component {
                 </div>
             </MediaQuery>
 
-            <PricingBanner />
+
+            <div style={styles.YCBackground}>         
+                <MediaQuery query='(max-width: 768px)'>
+
+                    <div> 
+                        <div style={styles.heroSection} className="col-md-6 my-auto"> 
+                            <div style={styles.sectionTextMobile}> 
+                                <div style={styles.sectionExplainerTextWhite}>
+                                    <p style={styles.PartnerQuote}>
+                                        YC & friends: signup in Jan to get free 2018 tax prep.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </MediaQuery>
+
+                <MediaQuery query='(min-width: 769px)'>
+
+                    <div className="row">
+
+                        <div className="col-3 my-auto"> </div> 
+
+                        <div className="col-6 my-auto text-left"> 
+                            <div>
+                                <p style={styles.PartnerQuote}>
+                                    YC & friends: signup in Jan to get free 2018 tax prep.
+                                </p>
+                            </div>
+                        </div>
+                        <div className="col-3 my-auto"> </div>
+                    </div>
+
+                </MediaQuery>
+            </div>
+
 
             <div style={styles.howItWorksTextBackground}>
                 <p style={styles.howItWorksFont} className="text-center">
@@ -66,6 +106,8 @@ class LandingPage extends React.Component {
                 sectionExplainerText="At the end of each month, a member of our bookkeeping team will prepare an expense summary for your review."
                 img='https://storage.googleapis.com/titanium-diode-208122.appspot.com/summary.png'
             />
+
+            <PricingBanner />
 
             <div style={styles.howItWorksTextBackground}>
                 <p style={styles.howItWorksFont} className="text-center">
@@ -99,4 +141,4 @@ class LandingPage extends React.Component {
 }
 
 
-export default LandingPage;
+export default YCpromoLP;
