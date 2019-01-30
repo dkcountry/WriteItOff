@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import * as styles from "../styles";
 import Amplitude from 'react-amplitude';
 import KeeperNav from "./nav";
+import PhoneInput from "./phoneinput";
+
 
 
 class PricingPage extends React.Component {
@@ -40,12 +42,14 @@ class PricingPage extends React.Component {
                                 </p>
 
                                 <p style={styles.pricingText}> 
-                                This includes daily bookkeeping, and 15 minute calls monthly to review your write offs. Export anytime.
+                                This includes daily bookkeeping, monthly reviews, and everything you need to plug your numbers into TurboTax / H&R Block at tax time.
                                 </p>
+
+                                <br/>
                                 
-                                <p style={styles.pricingText}> 
-                                Note: if you try it and then tell us that you don't love it, we'll refund you and then send you a $30 amazon gift card. Seriously.
-                                </p>
+                                <div style={styles.landingPageInput} className="text-left">
+                                <PhoneInput />
+                                </div>
 
                             </div>
 
