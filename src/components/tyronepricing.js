@@ -44,7 +44,7 @@ class TyronePricing extends React.Component {
                                 </p>
 
                                 <p style={styles.pricingText}> 
-                                The monthly subscription includes daily bookkeeping, and 15 minute calls monthly to review your write offs. Monthly expense reports are forwarded to you and your accountant.
+                                The monthly subscription includes daily bookkeeping, and monthly reviews of your write offs. Monthly expense reports are forwarded to you and your accountant.
                                 </p>
                                 
                                 <p style={styles.pricingText}> 

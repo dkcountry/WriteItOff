@@ -32,10 +32,10 @@ class PricingBanner extends React.Component {
                                 COST
                             </div>
                             <p style={styles.pricingBannerExplainerTextMobilePricing}> 
-                                <strong>$10 / month after free trial</strong>
+                                <strong>$10 / month</strong>
                             </p>
                             <p style={styles.pricingBannerExplainerTextMobile}> 
-                            We only charge you after you've received your first monthly summary.
+                                Includes monitoring for up to five bank accounts and tax filing support.
                             </p>
                         </div>
                     </div>
@@ -64,10 +64,10 @@ class PricingBanner extends React.Component {
                                     COST
                                 </p>
                                 <p style={styles.pricingBannerExplainerTextPrice}> 
-                                    <strong>$10 / month after free trial</strong>
+                                    <strong>$10 / month</strong>
                                 </p>
                                 <p style={styles.pricingBannerExplainerText}> 
-                                    We only charge you after you've received your first monthly summary.
+                                    Includes monitoring for up to five bank accounts and tax filing support.
                                 </p>
                             </div>
                         </div>
