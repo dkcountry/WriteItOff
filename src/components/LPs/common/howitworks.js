@@ -1,6 +1,5 @@
 import React from "react";
-import * as styles from "../styles";
-import MaskedInput from 'react-text-mask';
+import * as styles from "./styles";
 import HowItWorksSteps from "./howitworkssteps";
 import MediaQuery from 'react-responsive';
 

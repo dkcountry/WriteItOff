@@ -1,14 +1,13 @@
 import React from "react";
-import * as styles from "../../../styles";
+import MediaQuery from 'react-responsive';
+import * as styles from "../common/styles";
 import KeeperNav from "./nav";
 import Hero from "./hero";
 import HeroImg from "./heroImg";
-import PhoneSignUp from "../../phonesignup";
-import MediaQuery from 'react-responsive';
-import SectionTemplate from "../../sectiontemplate";
-import SectionTemplateRight from "../../sectiontemplate-right";
-import TestimonialTemplate from "../../testimonial";
-import PricingBanner from "../../pricingBanner";
+import PhoneSignUp from "../common/phonesignup";
+import SectionTemplate from "../common/sectiontemplate";
+import TestimonialTemplate from "../common/testimonial";
+import PricingBanner from "../common/pricingBanner";
 
 class LandingPage extends React.Component {
     constructor(props) {

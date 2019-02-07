@@ -1,5 +1,5 @@
 import React from "react";
-import * as styles from "../styles";
+import * as styles from "./styles";
 import MediaQuery from 'react-responsive';
 
 class PricingBanner extends React.Component {

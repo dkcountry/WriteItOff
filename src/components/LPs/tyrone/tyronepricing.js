@@ -1,8 +1,7 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import * as styles from "../styles";
+import * as styles from "../common/styles";
 import Amplitude from 'react-amplitude';
-import KeeperNav from "./LPs/tyrone/nav";
+import KeeperNav from "./nav";
 
 
 class TyronePricing extends React.Component {

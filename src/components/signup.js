@@ -2,7 +2,7 @@ import React from "react";
 import * as styles from "../styles";
 import Amplitude from 'react-amplitude';
 import queryString from 'query-string';
-import KeeperNav from "./nav";
+import KeeperNav from "./partials/nav";
 var Analytics = require('analytics-node');
 var analytics = new Analytics('tW3P77ewudDePkXW1r8vbkleEp0ME3H5');
 

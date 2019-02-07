@@ -1,5 +1,5 @@
 import React from "react";
-import * as styles from "../styles";
+import * as styles from "../../styles";
 import { Link } from "react-router-dom";
 
 import {

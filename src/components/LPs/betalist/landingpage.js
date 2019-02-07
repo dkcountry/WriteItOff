@@ -1,13 +1,12 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import * as styles from "../../../styles";
+import MediaQuery from 'react-responsive';
+import * as styles from "../common/styles";
 import KeeperNav from "./nav";
 import Hero from "./hero";
 import WriteOffs from "./writeoffs";
 import HeroImg from "./heroImg";
-import HowItWorks from "../../howitworks";
-import PhoneSignUp from "../../phonesignup";
-import MediaQuery from 'react-responsive';
+import HowItWorks from "../common/howitworks";
+import PhoneSignUp from "../common/phonesignup";
 
 class LandingPage extends React.Component {
     constructor(props) {

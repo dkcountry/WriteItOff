@@ -1,15 +1,15 @@
 import React from "react";
-import * as styles from "../styles";
+import * as styles from "./styles";
 import MediaQuery from 'react-responsive';
 
-class TestimonialTemplate extends React.Component {
+class PartnerTestimonialTemplate extends React.Component {
     constructor(props) {
         super(props);
     }
 
     render() {
         return (   
-            <div style={styles.sectionBackground}>         
+            <div style={styles.parterTestimonialBackground}>         
                 <MediaQuery query='(max-width: 768px)'>
 
                     <div> 
@@ -21,11 +21,7 @@ class TestimonialTemplate extends React.Component {
                     <div> 
                         <div style={styles.heroSection} className="col-md-6 my-auto"> 
                             <div style={styles.sectionTextMobile}> 
-                                <div style={styles.sectionExplainerText}>
-                                    <img 
-                                        src={'http://www.clker.com/cliparts/r/L/A/C/5/b/gray-quotation-marks-hi.png'}
-                                        style={styles.testimonialQuote}
-                                    />
+                                <div style={styles.sectionExplainerTextWhite}>
                                     <br />
                                         {this.props.body}
                                 </div>
@@ -36,20 +32,32 @@ class TestimonialTemplate extends React.Component {
                         </div>
                     </div>
 
+                    <div className="row">
+                        <div className="container"> 
+                        <div className="col-md-auto text-center"> 
+                            <a href= {this.props.link} >
+                                <button style={styles.btnStyleGrey} className="btn btn-primary btn-lg">
+                                    watch the video
+                                </button>
+                            </a>
+                        </div> 
+                        </div>
+                    </div>
+
                 </MediaQuery>
 
                 <MediaQuery query='(min-width: 769px)'>
 
                     <div className="row">
 
-                        <div className="col-3 my-auto"> </div> 
+                        <div className="col-2 my-auto"> </div> 
                         <div className="col-2 my-auto">
                             <img style={styles.testimonialImg} src={this.props.img} />
                         </div>
 
-                        <div className="col-4 my-auto text-left"> 
+                        <div className="col-6 my-auto text-left"> 
                             <div>
-                                <p style={styles.testimonialBody}>
+                                <p style={styles.PartnerQuote}>
                                     " {this.props.body}"
                                 </p>
                                 <p style={styles.testimonialByLineDesk} className="text-left"> 
@@ -57,7 +65,18 @@ class TestimonialTemplate extends React.Component {
                                 </p>
                             </div>
                         </div>
-                        <div className="col-3 my-auto"> </div>
+                        <div className="col-2 my-auto"> </div>
+                    </div>
+                    <div className="row">
+                        <div className="container"> 
+                        <div className="col-md-auto text-center"> 
+                            <a href= {this.props.link} >
+                                <button style={styles.btnStyleGrey} className="btn btn-primary btn-lg">
+                                    watch the video
+                                </button>
+                            </a>
+                        </div> 
+                        </div>
                     </div>
 
                 </MediaQuery>
@@ -66,4 +85,4 @@ class TestimonialTemplate extends React.Component {
     }
 }
 
-export default TestimonialTemplate;
+export default PartnerTestimonialTemplate;

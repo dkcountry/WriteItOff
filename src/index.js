@@ -7,13 +7,13 @@ import RealestateLP from "./components/LPs/real-estate/landingpage";
 import TyroneLP from "./components/LPs/tyrone/landingpage";
 import ScooterMapLP from "./components/LPs/scooter-map-promo/landingpage";
 import YCpromoLP from "./components/LPs/ycpromo/landingpage";
-import TyronePricing from "./components/tyronepricing";
+import TyronePricing from "./components/LPs/tyrone/tyronepricing";
 import BetalistLP from "./components/LPs/betalist/landingpage";
 import PricingPage from "./components/pricingpage";
 import { BrowserRouter } from 'react-router-dom';
 import { Switch, Route, Redirect } from 'react-router-dom';
-import PlaidFace from "./components/plaidface";
-import Footer from "./components/footer";
+import BankLink from "./components/bankLink";
+import Footer from "./components/partials/footer";
 import TermsPage from "./components/terms";
 import Amplitude from 'react-amplitude';
 import 'bootstrap/dist/css/bootstrap.css';
@@ -73,7 +73,7 @@ class App extends React.Component {
         else {
             return (
                 <div>
-                    <PlaidFace firstname={this.state.firstname} lastname={this.state.lastname} phone={this.state.phone} email={this.state.email} userToken={this.state.userToken} logoutCallback={this.logoutCallback}/>
+                    <BankLink firstname={this.state.firstname} lastname={this.state.lastname} phone={this.state.phone} email={this.state.email} userToken={this.state.userToken} logoutCallback={this.logoutCallback}/>
                     <Footer />
                 </div>
         )}

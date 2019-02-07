@@ -1,6 +1,5 @@
 import PlaidLink from 'react-plaid-link';
 import React from "react";
-import { Link } from 'react-router-dom';
 import * as styles from "../styles";
 import Amplitude from 'react-amplitude';
 import {Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavLink} from 'reactstrap';

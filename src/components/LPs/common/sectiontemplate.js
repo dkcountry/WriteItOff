@@ -1,8 +1,8 @@
 import React from "react";
-import * as styles from "../styles";
+import * as styles from "./styles";
 import MediaQuery from 'react-responsive';
 
-class SectionTemplateRight extends React.Component {
+class SectionTemplate extends React.Component {
     constructor(props) {
         super(props);
     }
@@ -37,10 +37,6 @@ class SectionTemplateRight extends React.Component {
 
                     <div style={styles.heroPaddingMargin} className="col-12 row"> 
 
-                        <div style={styles.sectionImage} className="col-6 col-md-6 my-auto">
-                            <img src={this.props.img} style={styles.MP4video} />
-                        </div>
-
                         <div className="col-md-6 my-auto text-left"> 
                             <div style={styles.sectionText}>
                                 <p style={styles.sectionTitle}> 
@@ -52,6 +48,9 @@ class SectionTemplateRight extends React.Component {
                             </div>
                         </div>
 
+                        <div style={styles.sectionImage} className="col-md-6 my-auto">
+                            <img src={this.props.img} style={styles.MP4video} />
+                        </div>
                     </div>
 
                 </MediaQuery>
@@ -60,4 +59,4 @@ class SectionTemplateRight extends React.Component {
     }
 }
 
-export default SectionTemplateRight;
+export default SectionTemplate;

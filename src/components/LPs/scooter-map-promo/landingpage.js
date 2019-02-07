@@ -1,18 +1,14 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import * as styles from "../../../styles";
+import MediaQuery from 'react-responsive';
+import * as styles from "../common/styles";
 import KeeperNav from "./nav";
 import Hero from "./hero";
-import WriteOffs from "./writeoffs";
 import HeroImg from "./heroImg";
-import HowItWorks from "../../howitworks";
-import PhoneSignUp from "../../phonesignup";
-import MediaQuery from 'react-responsive';
-import SectionTemplate from "../../sectiontemplate";
-import SectionTemplateRight from "../../sectiontemplate-right";
-import TestimonialTemplate from "../../testimonial";
-import PartnerQuoteTemplate from "../../partnerQuoteTemplate";
-import PricingBanner from "../../pricingBannerPromo";
+import PhoneSignUp from "../common/phonesignup";
+import SectionTemplate from "../common/sectiontemplate";
+import TestimonialTemplate from "../common/testimonial";
+import PartnerQuoteTemplate from "../common/partnerQuoteTemplate";
+import PricingBanner from "../common/pricingBannerPromo";
 
 class ScooterMapLP extends React.Component {
     constructor(props) {

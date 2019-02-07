@@ -1,21 +1,31 @@
 import React from "react";
-import * as styles from "../styles";
+import * as styles from "./styles";
 import MediaQuery from 'react-responsive';
 
-class PartnerQuoteTemplate extends React.Component {
+class TestimonialTemplate extends React.Component {
     constructor(props) {
         super(props);
     }
 
     render() {
         return (   
-            <div style={styles.parterTestimonialBackgroundScooter}>         
+            <div style={styles.sectionBackground}>         
                 <MediaQuery query='(max-width: 768px)'>
+
+                    <div> 
+                        <div style={styles.sectionImage} className="col-6">
+                            <img src={this.props.img} style={styles.testimonialImg} />
+                        </div>
+                    </div> 
 
                     <div> 
                         <div style={styles.heroSection} className="col-md-6 my-auto"> 
                             <div style={styles.sectionTextMobile}> 
-                                <div style={styles.sectionExplainerTextWhite}>
+                                <div style={styles.sectionExplainerText}>
+                                    <img 
+                                        src={'http://www.clker.com/cliparts/r/L/A/C/5/b/gray-quotation-marks-hi.png'}
+                                        style={styles.testimonialQuote}
+                                    />
                                     <br />
                                         {this.props.body}
                                 </div>
@@ -26,18 +36,6 @@ class PartnerQuoteTemplate extends React.Component {
                         </div>
                     </div>
 
-                    <div className="row">
-                        <div className="container"> 
-                        <div className="col-md-auto text-center"> 
-                            <a href= {this.props.link} >
-                                <button style={styles.btnStyleGrey} className="btn btn-primary btn-lg">
-                                    watch the video
-                                </button>
-                            </a>
-                        </div> 
-                        </div>
-                    </div>
-
                 </MediaQuery>
 
                 <MediaQuery query='(min-width: 769px)'>
@@ -45,10 +43,13 @@ class PartnerQuoteTemplate extends React.Component {
                     <div className="row">
 
                         <div className="col-3 my-auto"> </div> 
+                        <div className="col-2 my-auto">
+                            <img style={styles.testimonialImg} src={this.props.img} />
+                        </div>
 
-                        <div className="col-6 my-auto text-left"> 
+                        <div className="col-4 my-auto text-left"> 
                             <div>
-                                <p style={styles.PartnerQuote}>
+                                <p style={styles.testimonialBody}>
                                     " {this.props.body}"
                                 </p>
                                 <p style={styles.testimonialByLineDesk} className="text-left"> 
@@ -58,17 +59,6 @@ class PartnerQuoteTemplate extends React.Component {
                         </div>
                         <div className="col-3 my-auto"> </div>
                     </div>
-                    <div className="row">
-                        <div className="container"> 
-                        <div className="col-md-auto text-center"> 
-                            <a href= {this.props.link} >
-                                <button style={styles.btnStyleGrey} className="btn btn-primary btn-lg">
-                                    read the full post
-                                </button>
-                            </a>
-                        </div> 
-                        </div>
-                    </div>
 
                 </MediaQuery>
             </div>
@@ -76,4 +66,4 @@ class PartnerQuoteTemplate extends React.Component {
     }
 }
 
-export default PartnerQuoteTemplate;
+export default TestimonialTemplate;

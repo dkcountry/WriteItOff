@@ -1,6 +1,5 @@
 import React from "react";
-import * as styles from "../styles";
-import Amplitude from 'react-amplitude';
+import * as styles from "./styles";
 
 class HowItWorksSteps extends React.Component {
     constructor(props) {

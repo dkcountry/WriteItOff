@@ -1,6 +1,5 @@
 import React from "react";
-import * as styles from "../../../styles";
-import MediaQuery from 'react-responsive';
+import * as styles from "../common/styles";
 
 
 class HeaderImg extends React.Component {

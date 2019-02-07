@@ -1,10 +1,8 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import * as styles from "../styles";
 import Amplitude from 'react-amplitude';
-import KeeperNav from "./nav";
-import PhoneInput from "./phoneinput";
-
+import KeeperNav from "./partials/nav";
+import PhoneInput from "./LPs/common/phoneinput";
 
 
 class PricingPage extends React.Component {

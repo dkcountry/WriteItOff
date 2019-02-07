@@ -1,17 +1,13 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import * as styles from "../../../styles";
+import MediaQuery from 'react-responsive';
+import * as styles from "../common/styles";
 import KeeperNav from "./nav";
 import Hero from "./hero";
-import WriteOffs from "./writeoffs";
 import HeroImg from "./heroImg";
-import HowItWorks from "../../howitworks";
-import PhoneSignUp from "../../phonesignup";
-import MediaQuery from 'react-responsive';
-import SectionTemplate from "../../sectiontemplate";
-import SectionTemplateRight from "../../sectiontemplate-right";
-import TestimonialTemplate from "../../testimonial";
-import PartnerTestimonialTemplate from "../../partnertestimonial";
+import PhoneSignUp from "../common/phonesignup";
+import SectionTemplate from "../common/sectiontemplate";
+import TestimonialTemplate from "../common/testimonial";
+import PartnerTestimonialTemplate from "../common/partnertestimonial";
 
 class TyroneLP extends React.Component {
     constructor(props) {
@@ -56,7 +52,7 @@ class TyroneLP extends React.Component {
                 </p>
             </div>
 
-            <SectionTemplateRight 
+            <SectionTemplate
                 sectionTitle='We find tax write offs among your bank statements 🏦' 
                 sectionExplainerText='Signing up is simple - just tell us what you do for work, and link a bank account. From there, our bookkeeping team starts looking for tax write offs among your purchases.'
                 img='https://storage.googleapis.com/titanium-diode-208122.appspot.com/ezgif.com-resize.gif'
@@ -68,7 +64,7 @@ class TyroneLP extends React.Component {
                 img='https://storage.googleapis.com/titanium-diode-208122.appspot.com/uptodate.png'
             />
 
-            <SectionTemplateRight 
+            <SectionTemplate 
                 sectionTitle='Answer questions to unlock more write offs 💸' 
                 sectionExplainerText="Our bookkeepers will sometimes ask for more information that unlocks additional tax write offs. The most common examples are large restaurant bills, or whether you’re out of town for work."
                 img='https://storage.googleapis.com/titanium-diode-208122.appspot.com/answer-questions.png'

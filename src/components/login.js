@@ -2,7 +2,7 @@ import React from "react";
 import * as styles from "../styles";
 import Amplitude from 'react-amplitude';
 import MaskedInput from 'react-text-mask';
-import KeeperNav from "./nav";
+import KeeperNav from "./partials/nav";
 
 
 class LoginPage extends React.Component {

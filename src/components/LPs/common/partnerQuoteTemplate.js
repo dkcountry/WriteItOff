@@ -1,22 +1,16 @@
 import React from "react";
-import * as styles from "../styles";
+import * as styles from "./styles";
 import MediaQuery from 'react-responsive';
 
-class PartnerTestimonialTemplate extends React.Component {
+class PartnerQuoteTemplate extends React.Component {
     constructor(props) {
         super(props);
     }
 
     render() {
         return (   
-            <div style={styles.parterTestimonialBackground}>         
+            <div style={styles.parterTestimonialBackgroundScooter}>         
                 <MediaQuery query='(max-width: 768px)'>
-
-                    <div> 
-                        <div style={styles.sectionImage} className="col-6">
-                            <img src={this.props.img} style={styles.testimonialImg} />
-                        </div>
-                    </div> 
 
                     <div> 
                         <div style={styles.heroSection} className="col-md-6 my-auto"> 
@@ -50,10 +44,7 @@ class PartnerTestimonialTemplate extends React.Component {
 
                     <div className="row">
 
-                        <div className="col-2 my-auto"> </div> 
-                        <div className="col-2 my-auto">
-                            <img style={styles.testimonialImg} src={this.props.img} />
-                        </div>
+                        <div className="col-3 my-auto"> </div> 
 
                         <div className="col-6 my-auto text-left"> 
                             <div>
@@ -65,14 +56,14 @@ class PartnerTestimonialTemplate extends React.Component {
                                 </p>
                             </div>
                         </div>
-                        <div className="col-2 my-auto"> </div>
+                        <div className="col-3 my-auto"> </div>
                     </div>
                     <div className="row">
                         <div className="container"> 
                         <div className="col-md-auto text-center"> 
                             <a href= {this.props.link} >
                                 <button style={styles.btnStyleGrey} className="btn btn-primary btn-lg">
-                                    watch the video
+                                    read the full post
                                 </button>
                             </a>
                         </div> 
@@ -85,4 +76,4 @@ class PartnerTestimonialTemplate extends React.Component {
     }
 }
 
-export default PartnerTestimonialTemplate;
+export default PartnerQuoteTemplate;

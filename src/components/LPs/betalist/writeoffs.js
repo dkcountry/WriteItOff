@@ -1,5 +1,5 @@
 import React from "react";
-import * as styles from "../../../styles";
+import * as styles from "../common/styles";
 import MediaQuery from 'react-responsive';
 
 class WriteOffs extends React.Component {
