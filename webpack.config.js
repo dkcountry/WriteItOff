@@ -25,10 +25,7 @@ module.exports = {
         plaid: 'Plaid'
     },
     module: {
-        loaders: [
-            { test: /\.css$/, loader: "style-loader!css-loader" },
-            // ...
-          ],
+        
         rules: [
         {
             test: /\.js$/,
