@@ -25,7 +25,6 @@ module.exports = {
         plaid: 'Plaid'
     },
     module: {
-        
         rules: [
         {
             test: /\.js$/,
