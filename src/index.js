@@ -20,6 +20,9 @@ import 'bootstrap/dist/css/bootstrap.css';
 
 import Dashboard from './components/Dashboard/Dashboard';
 
+// Private Route Component
+import PrivateRoute from './components/common/PrivateRoute';
+
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -40,25 +43,24 @@ class App extends React.Component {
    * @desc Pass loginInfo into state
    * @param {*} loginInfo
    */
-  loginCallback(loginInfo) {
-    this.setState(
-      {
-        isLoggedin: loginInfo.isLoggedin,
-        phone: loginInfo.phone,
-        userToken: loginInfo.userToken,
-        firstname: loginInfo.firstname,
-        lastname: loginInfo.lastname,
-        email: loginInfo.email
-      },
-      () => {
-        this.props.history.push('/dashboard');
-      }
-    );
+  loginCallback(loginInfo, callback) {
+    const { isLoggedIn, firstname, lastname, email, phone, userToken } = loginInfo;
     Amplitude.setUserProperties({
       'phone number': loginInfo.phone,
       firstname: loginInfo.firstname,
       lastname: loginInfo.lastname,
       email: loginInfo.email
+    });
+    const stateObj = {
+      isLoggedin: isLoggedIn,
+      firstname,
+      lastname,
+      email,
+      phone,
+      userToken
+    };
+    this.setState(stateObj, () => {
+      callback(1);
     });
   }
 
@@ -70,42 +72,45 @@ class App extends React.Component {
   }
 
   render() {
-    if (this.state.isLoggedin === false) {
+    const { isLoggedin } = this.state;
+    // Bank Link Page
+    const BankLinkPage = props => {
       return (
-        <div>
-          <Switch>
-            <Route exact path='/' component={MainLP} />
-            <Route exact path='/betalist' component={BetalistLP} />
-            <Route exact path='/real-estate-agent' component={RealestateLP} />
-            <Route exact path='/se-tax-guy' component={TyroneLP} />
-            <Route exact path='/scooter-map-promo' component={ScooterMapLP} />
-            <Route exact path='/se-tax-guy/pricing' component={TyronePricing} />
-            <Route exact path='/yc-promo' component={YCpromoLP} />
-            <Route exact path='/pricing' component={PricingPage} />
-            <Route exact path='/terms' component={TermsPage} />
-            <Route exact path='/signup' render={props => <SignupPage {...props} loginCallback={this.loginCallback} />} />
-            <Route exact path='/index.html' render={props => <SignupPage {...props} loginCallback={this.loginCallback} />} />
-            <Route exact path='/login' render={props => <LoginPage {...props} loginCallback={this.loginCallback} />} />
-            <Route path='/dashboard' component={Dashboard} />
-          </Switch>
-          <Footer />
-        </div>
+        <BankLink
+          firstname={this.state.firstname}
+          lastname={this.state.lastname}
+          phone={this.state.phone}
+          email={this.state.email}
+          userToken={this.state.userToken}
+          logoutCallback={this.logoutCallback}
+          {...props}
+        />
       );
-    } else {
-      return (
-        <div>
-          <BankLink
-            firstname={this.state.firstname}
-            lastname={this.state.lastname}
-            phone={this.state.phone}
-            email={this.state.email}
-            userToken={this.state.userToken}
-            logoutCallback={this.logoutCallback}
-          />
-          <Footer />
-        </div>
-      );
-    }
+    };
+    console.log(isLoggedin);
+
+    return (
+      <div>
+        <Switch>
+          <Route exact path='/' component={MainLP} />
+          <Route path='/betalist' component={BetalistLP} />
+          <Route path='/real-estate-agent' component={RealestateLP} />
+          <Route path='/se-tax-guy' component={TyroneLP} />
+          <Route path='/scooter-map-promo' component={ScooterMapLP} />
+          <Route path='/se-tax-guy/pricing' component={TyronePricing} />
+          <Route path='/yc-promo' component={YCpromoLP} />
+          <Route path='/pricing' component={PricingPage} />
+          <Route path='/terms' component={TermsPage} />
+          <Route path='/signup' render={props => <SignupPage {...props} loginCallback={this.loginCallback} />} />
+          <Route path='/index.html' render={props => <SignupPage {...props} loginCallback={this.loginCallback} />} />
+          <Route path='/login' render={props => <LoginPage {...props} loginCallback={this.loginCallback} />} />
+
+          <PrivateRoute path='/dashboard' component={Dashboard} isLoggedin={isLoggedin} />
+          <PrivateRoute path='/bank-link' render={BankLinkPage} isLoggedin={isLoggedin} />
+        </Switch>
+        <Footer />
+      </div>
+    );
   }
 }
 
