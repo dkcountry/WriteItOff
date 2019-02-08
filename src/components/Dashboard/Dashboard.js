@@ -4,7 +4,7 @@ import KeeperNav from '../partials/nav';
 
 import StatusSelector from '../common/status-selector/StatusSelector';
 import CategorySelector from '../common/category-selector/CategorySelector';
-import { getExpenseList, getExpenseCategoryList } from '../../actions/expenseActions';
+import { getExpenseList, getExpenseCategoryList, finishUser } from '../../actions/expenseActions';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import moment from 'moment';
 import Loader from '../common/Loader';
@@ -121,28 +121,30 @@ class Dashboard extends Component {
    * @desc Create Custom Message
    */
   createMessage() {
-    let { expenseList, expenseCategories } = this.state;
-    const { memberInfo } = this.props.user;
-    let probArr = [];
-    let maybeArr = [];
-    for (const index in expenseList) {
-      for (const expense in expenseList[index].expenses) {
-        if (expenseList[index].expenses[expense].status === 'prob') {
-          probArr.push(expenseList[index].expenses[expense]);
-        } else if (expenseList[index].expenses[expense].status === 'maybe') {
-          maybeArr.push(expenseList[index].expenses[expense]);
-        }
+    let { expenseList } = this.state;
+    /**
+     * Only Take Changed Expenses
+     */
+    let changedExpenseList = []; // Changed Expense List
+    expenseList.forEach(data => {
+      if (data.expenses.length > 0) {
+        data.expenses.forEach(exp => {
+          if (exp.changed) {
+            changedExpenseList.push(exp);
+          }
+        });
       }
-    }
+    });
 
-    const sentenceObj = {
-      userName: memberInfo.userName,
-      categories: expenseCategories,
-      maybeArr,
-      probArr
+    /**
+     * Do Finish user Here
+     */
+    const expenseObj = {
+      edited_expenses: changedExpenseList
     };
-
-    // await this.props.updateMessageSentence(sentenceObj);
+    finishUser(expenseObj, res => {
+      console.log(res);
+    });
   }
 
   /**

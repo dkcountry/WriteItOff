@@ -119,3 +119,23 @@ const _filterExpense = expenseList => {
   });
   return expenses;
 };
+
+/**
+ * Finish User API call
+ * @param {*} obj
+ * @param {*} callback
+ */
+export const finishUser = (obj, callback) => {
+  axios
+    .post(`${baseUrl}finishUser`, obj)
+    .then(response => response.data)
+    .then(res => {
+      /**
+       * Dispatch request to Clear Message Setences
+       */
+      callback(1, res);
+    })
+    .catch(error => {
+      callback(0, error);
+    });
+};
