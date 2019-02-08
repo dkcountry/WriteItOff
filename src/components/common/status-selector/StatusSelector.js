@@ -52,6 +52,7 @@ class StatusSelector extends Component {
   }
 
   handleClick(e) {
+    return;
     // if (this.node.contains(e.target)) {
     //   return;
     // } else {

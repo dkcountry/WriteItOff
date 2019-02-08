@@ -88,7 +88,6 @@ class Dashboard extends Component {
     let { expenseList } = this.state;
     expenseList[listInd].expenses[expInd].status = val;
     expenseList[listInd].expenses[expInd].changed = true;
-    this.setState({ expenseList });
 
     this.setState({ expenseList }, () => {
       // await this.props.updateLocalExpenses(expenseList);
@@ -111,6 +110,7 @@ class Dashboard extends Component {
         expenseList[listInd].expenses[expInd].keeper_category_id = expenseCategories[index].id;
       }
     }
+
     this.setState({ expenseList }, () => {
       // await this.props.updateLocalExpenses(expenseList);
       // await this.createMessage();

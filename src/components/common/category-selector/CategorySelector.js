@@ -37,6 +37,7 @@ class CategorySelector extends Component {
   }
 
   handleClick(e) {
+    return;
     // if (this.node.contains(e.target)) {
     //   return;
     // } else {
@@ -66,7 +67,7 @@ class CategorySelector extends Component {
   }
 
   _onSearchBlur(e) {
-    this.setState({ searchActive: false, ddActive: false });
+    this.setState({ searchActive: false });
   }
 
   /**
@@ -82,7 +83,7 @@ class CategorySelector extends Component {
     const { ddActive, searchText, searchActive, filteredItem, value } = this.state;
 
     return (
-      <div className='category-selector' ref={node => (this.node = node)}>
+      <div className='category-selector'>
         {searchActive && (
           <div className='input-s'>
             <input
