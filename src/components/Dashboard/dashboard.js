@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import * as styles from '../../styles';
-import KeeperNav from '../partials/nav';
-
+import * as styles from './styles';
+import KeeperNav from './nav';
 import StatusSelector from '../common/status-selector/StatusSelector';
 import CategorySelector from '../common/category-selector/CategorySelector';
 import { getExpenseList, getExpenseCategoryList } from '../../actions/expenseActions';
@@ -11,6 +10,7 @@ import Loader from '../common/Loader';
 import './Dashboard.css';
 
 const statusArr = ['prob', 'maybe', 'yes', 'no', 'maybe*', '-'];
+
 
 class Dashboard extends Component {
   constructor(props) {
@@ -25,9 +25,12 @@ class Dashboard extends Component {
   }
 
   componentDidMount() {
+    const { phone, userToken } = this.props;
+
     const userObj = {
-      user_id: '19528078024',
-      userName: 'David'
+      user_id: phone,
+      password: userToken,
+      phone: phone
     };
     getExpenseCategoryList(categories => {
       this.setState({ expenseCategories: categories }, () => {
@@ -73,8 +76,7 @@ class Dashboard extends Component {
     const val = e.target.value;
     let { expenseList } = this.state;
     this.setState({ expenseList }, () => {
-      // await this.props.updateLocalExpenses(expenseList);
-      // await this.createMessage();
+      this.createMessage();
     });
   }
 
@@ -90,8 +92,7 @@ class Dashboard extends Component {
     expenseList[listInd].expenses[expInd].changed = true;
 
     this.setState({ expenseList }, () => {
-      // await this.props.updateLocalExpenses(expenseList);
-      // await this.createMessage();
+      this.createMessage();
     });
   }
 
@@ -112,8 +113,7 @@ class Dashboard extends Component {
     }
 
     this.setState({ expenseList }, () => {
-      // await this.props.updateLocalExpenses(expenseList);
-      // await this.createMessage();
+      this.createMessage();
     });
   }
 
@@ -153,8 +153,6 @@ class Dashboard extends Component {
     const today = new Date();
     const yesterday = new Date();
     yesterday.setDate(yesterday.getDate() - 1);
-    // const newDate = new Date(date);
-    // newDate.setDate(newDate.getDate() + 1);
 
     const newDateStr = moment(today).format('YYYY-MM-DD');
     const newYestStr = moment(yesterday).format('YYYY-MM-DD');
@@ -205,35 +203,34 @@ class Dashboard extends Component {
     const val = parseFloat(e.target.value);
     expenseList[listInd].expenses[expInd].amount = val % 1 !== 0 ? val.toFixed(2) : val;
     this.setState({ expenseList, listIndex: -1, amountIndex: -1 }, () => {
-      // await this.props.updateLocalExpenses(expenseList);
       // await this.createMessage();
     });
   }
 
   render() {
     const { expenseCategories, expenseList, listIndex, amountIndex, loader } = this.state;
-
+    const { firstname } = this.props;
     return (
       <div style={styles.outerContainer} className='container'>
-        <KeeperNav />
+        <KeeperNav {...this.props} />
         <div style={styles.containerStyle} className='container'>
           <div className='row align-items-start'>
             <div className='col-12 my-auto'>
-              <h1 className='page-heading'>Hi, Paul</h1>
-              <p className='important-text'>Here is Januaray 2019 Tax Write off summary! Any modifications you make will be saved.</p>
-              <div className='expense'>
+              <h1 style={styles.pageHeading}>Hi, {firstname}</h1>
+              <p style={styles.importantText}>Here is your January 2019 Tax Write off summary! Any modifications you make will be saved.</p>
+              <div style={styles.expense}>
                 {loader && <Loader />}
                 {!loader &&
                   expenseList.length > 0 &&
                   expenseList.map((list, listInd) => (
-                    <div className='e-section' key={`exp_${listInd}`}>
-                      <div className='s-header'>
+                    <div style={styles.eSection} key={`exp_${listInd}`}>
+                      <div style={styles.sHeader}>
                         <span>{this.__displayDate(list.date)}</span>
                       </div>
-                      <div className='s-list'>
+                      <div style={styles.sList}>
                         {list.expenses.length > 0 &&
                           list.expenses.map((expense, expInd) => (
-                            <div className='l-item' key={`exp_i_${expInd}`}>
+                            <div style={styles.lItem} key={`exp_i_${expInd}`}>
                               <div className='status'>
                                 <StatusSelector
                                   items={statusArr}

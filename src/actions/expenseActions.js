@@ -9,8 +9,9 @@ const baseUrl = serverUrl();
  * @desc Get Users Expense List
  */
 export const getExpenseList = (obj, callback) => {
+  const SERVER_URL = process.env.SERVER_HOST || "https://writeitoff.herokuapp.com/"
   axios
-    .post(`${baseUrl}getExpenses`, obj)
+    .post(`${SERVER_URL}getJanExpenses`, obj)
     .then(response => response.data)
     .then(res => {
       const expenses = _filterExpense(res);
