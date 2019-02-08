@@ -10,7 +10,7 @@ const baseUrl = serverUrl();
  */
 export const getExpenseList = (obj, callback) => {
   axios
-    .post(`${baseUrl}getExpenses`, obj)
+    .post(`${baseUrl}getJanExpenses`, obj)
     .then(response => response.data)
     .then(res => {
       const expenses = _filterExpense(res);

@@ -25,9 +25,12 @@ class Dashboard extends Component {
   }
 
   componentDidMount() {
+    const { phone, userToken } = this.props;
+
     const userObj = {
-      user_id: '19528078024',
-      userName: 'David'
+      user_id: phone,
+      password: userToken,
+      phone: phone
     };
     getExpenseCategoryList(categories => {
       this.setState({ expenseCategories: categories }, () => {
@@ -73,8 +76,7 @@ class Dashboard extends Component {
     const val = e.target.value;
     let { expenseList } = this.state;
     this.setState({ expenseList }, () => {
-      // await this.props.updateLocalExpenses(expenseList);
-      // await this.createMessage();
+      this.createMessage();
     });
   }
 
@@ -90,8 +92,7 @@ class Dashboard extends Component {
     expenseList[listInd].expenses[expInd].changed = true;
 
     this.setState({ expenseList }, () => {
-      // await this.props.updateLocalExpenses(expenseList);
-      // await this.createMessage();
+      this.createMessage();
     });
   }
 
@@ -112,8 +113,7 @@ class Dashboard extends Component {
     }
 
     this.setState({ expenseList }, () => {
-      // await this.props.updateLocalExpenses(expenseList);
-      // await this.createMessage();
+      this.createMessage();
     });
   }
 
@@ -153,8 +153,6 @@ class Dashboard extends Component {
     const today = new Date();
     const yesterday = new Date();
     yesterday.setDate(yesterday.getDate() - 1);
-    // const newDate = new Date(date);
-    // newDate.setDate(newDate.getDate() + 1);
 
     const newDateStr = moment(today).format('YYYY-MM-DD');
     const newYestStr = moment(yesterday).format('YYYY-MM-DD');
@@ -205,21 +203,20 @@ class Dashboard extends Component {
     const val = parseFloat(e.target.value);
     expenseList[listInd].expenses[expInd].amount = val % 1 !== 0 ? val.toFixed(2) : val;
     this.setState({ expenseList, listIndex: -1, amountIndex: -1 }, () => {
-      // await this.props.updateLocalExpenses(expenseList);
       // await this.createMessage();
     });
   }
 
   render() {
     const { expenseCategories, expenseList, listIndex, amountIndex, loader } = this.state;
-
+    const { firstname } = this.props;
     return (
       <div style={styles.outerContainer} className='container'>
-        <KeeperNav />
+        <KeeperNav {...this.props} />
         <div style={styles.containerStyle} className='container'>
           <div className='row align-items-start'>
             <div className='col-12 my-auto'>
-              <h1 className='page-heading'>Hi, Paul</h1>
+              <h1 className='page-heading'>Hi, {firstname}</h1>
               <p className='important-text'>Here is Januaray 2019 Tax Write off summary! Any modifications you make will be saved.</p>
               <div className='expense'>
                 {loader && <Loader />}

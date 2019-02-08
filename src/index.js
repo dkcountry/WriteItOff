@@ -73,6 +73,21 @@ class App extends React.Component {
 
   render() {
     const { isLoggedin } = this.state;
+    // Dashboar Page
+    const DashboardPage = props => {
+      return (
+        <Dashboard
+          {...props}
+          isLoggedin={isLoggedin}
+          firstname={this.state.firstname}
+          lastname={this.state.lastname}
+          phone={this.state.phone}
+          email={this.state.email}
+          userToken={this.state.userToken}
+          logoutCallback={this.logoutCallback}
+        />
+      );
+    };
     // Bank Link Page
     const BankLinkPage = props => {
       return (
@@ -87,7 +102,6 @@ class App extends React.Component {
         />
       );
     };
-    console.log(isLoggedin);
 
     return (
       <div>
@@ -105,8 +119,8 @@ class App extends React.Component {
           <Route path='/index.html' render={props => <SignupPage {...props} loginCallback={this.loginCallback} />} />
           <Route path='/login' render={props => <LoginPage {...props} loginCallback={this.loginCallback} />} />
 
-          <PrivateRoute path='/dashboard' component={Dashboard} isLoggedin={isLoggedin} />
-          <PrivateRoute path='/bank-link' render={BankLinkPage} isLoggedin={isLoggedin} />
+          <PrivateRoute path='/dashboard' component={DashboardPage} isLoggedin={isLoggedin} />
+          <PrivateRoute path='/linked-accounts' component={BankLinkPage} isLoggedin={isLoggedin} />
         </Switch>
         <Footer />
       </div>
