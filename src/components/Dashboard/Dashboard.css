@@ -1,0 +1,201 @@
+.page-heading {
+    text-align: left;
+    color: #333;
+  }
+  .important-text {
+    color: #5a5a5a;
+    text-align: left;
+    padding: 5px;
+    border-bottom: 1px solid #5a5a5a;
+    font-weight: 600;
+  }
+  
+  .expense {
+    height: auto;
+    padding: 0;
+    display: block;
+    height: calc(100vh - 160px);
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+  .expense .e-section {
+    float: left;
+    width: 100%;
+    margin: 0;
+    background: #fff;
+    height: auto;
+  }
+  .expense .e-section .s-header {
+    background: #ccc;
+    text-align: center;
+    padding: 5px 10px;
+    color: #fff;
+    font-weight: 900;
+    float: left;
+    width: 100%;
+  }
+  .expense .e-section .s-list {
+    float: left;
+    width: 100%;
+    height: auto;
+  }
+  
+  .expense .e-section .s-list .l-item {
+    background: #e5e4eb;
+    float: left;
+    width: 100%;
+    text-align: left;
+    padding: 10px;
+    font-size: 14px;
+  }
+  .expense .e-section .s-list .l-item:nth-child(even) {
+    background: #ededed;
+  }
+  .expense .e-section .s-list .l-item .status {
+    float: left;
+    width: 12%;
+  }
+  /* .expense .e-section .s-list .l-item .status span {
+    padding: 5px 10px;
+    border: 1px solid #333;
+  } */
+  .expense .e-section .s-list .l-item .description {
+    float: left;
+    width: 33%;
+  }
+  .expense .e-section .s-list .l-item .txtbx {
+    float: left;
+    padding: 0 10px;
+    width: 80%;
+    margin: 0 10% 0 10%;
+    height: 35px;
+    font-size: 14px;
+    background: #e5e4eb;
+    border: none;
+    border-bottom: 1px solid #333;
+  }
+  .expense .e-section .s-list .l-item:nth-child(even) .txtbx {
+    background: #ededed;
+  }
+  .expense .e-section .s-list .l-item .category {
+    float: left;
+    width: 30%;
+    padding: 0 10px;
+  }
+  .expense .e-section .s-list .l-item select {
+    background: #e5e4eb;
+    border-color: #333;
+    height: 35px;
+    box-shadow: none;
+  }
+  .expense .e-section .s-list .l-item .amount {
+    float: left;
+    width: 15%;
+    padding: 0 10px;
+  }
+  .expense .e-section .s-list .l-item .amount span {
+    float: left;
+    padding: 5px;
+  }
+  .expense .e-section .s-list .l-item .amount .txtbx {
+    width: 50%;
+  }
+  .expense .e-section .s-list .l-item .pending {
+    float: left;
+    width: 5%;
+  }
+  .expense .e-section .s-list .l-item .pending span {
+    float: left;
+    padding: 5px;
+  }
+  .expense .e-section .s-list .l-item .control {
+    float: left;
+    width: 5%;
+    text-align: right;
+  }
+  .expense .e-section .s-list .l-item .control span {
+    font-size: 30px;
+    height: 30px;
+    float: right;
+    margin-top: -10px;
+  }
+  .expense .e-section .s-list .l-item .i-description {
+    float: left;
+    width: 100%;
+    background: #e5e4eb;
+    color: #000;
+    padding: 5px;
+    margin: 5px 0;
+  }
+  .expense .e-section .s-list .l-item:nth-child(even) .i-description {
+    background: #ededed;
+  }
+  .expense .e-section .s-list .l-item .i-description p {
+    float: left;
+    width: 100%;
+    margin: 5px 0;
+    text-align: left;
+  }
+  .expense .e-section .s-list .l-item .i-description p .copy-btn {
+    float: right;
+    border: 1px solid #999;
+    background: #fff;
+    padding: 5px 8px;
+    border-radius: 3px;
+  }
+  .expense .e-section .s-list .l-item .i-description p b {
+    float: left;
+    padding: 0 5px;
+  }
+  .expense .e-section .s-list .l-item .i-description p span {
+    padding: 0;
+  }
+  .expense .e-section .s-list .l-item .i-description p span:hover {
+    cursor: pointer;
+  }
+  
+  ::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    border-radius: 5px;
+    background-color: #f5f5f5;
+  }
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+    background-color: #f5f5f5;
+  }
+  ::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    background-color: #ccc;
+  }
+  
+  @media (max-width: 767px) {
+    .expense .e-section .s-list .l-item .pending {
+      display: none;
+    }
+    .expense .e-section .s-list .l-item .status {
+      width: 20%;
+    }
+    .expense .e-section .s-list .l-item .amount {
+      width: 20%;
+      padding: 0;
+    }
+    .expense .e-section .s-list .l-item .category {
+      width: 15%;
+      padding: 0;
+    }
+    .expense .e-section .s-list .l-item .description {
+      width: 40%;
+    }
+    .expense .e-section .s-list .l-item .txtbx {
+      font-size: 16px;
+      padding: 0 5px;
+    }
+    .expense .e-section .s-list .l-item .i-description p {
+      font-size: 12px;
+    }
+    .expense .e-section .s-list .l-item .i-description p b {
+      padding: 0 5px 0 0;
+    }
+  }

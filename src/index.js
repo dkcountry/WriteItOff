@@ -88,14 +88,24 @@ class App extends React.Component {
         } else {
           return (
             <div>
-              <BankLink
+              {/* <BankLink
                 firstname={this.state.firstname}
                 lastname={this.state.lastname}
                 phone={this.state.phone}
                 email={this.state.email}
                 userToken={this.state.userToken}
                 logoutCallback={this.logoutCallback}
-              />
+              /> */}
+
+            <Dashboard
+                isLoggedin={this.state.isLoggedin}
+                firstname={this.state.firstname}
+                lastname={this.state.lastname}
+                phone={this.state.phone}
+                email={this.state.email}
+                userToken={this.state.userToken}
+                logoutCallback={this.logoutCallback}
+            />
               <Footer />
             </div>
           );
@@ -109,3 +119,5 @@ ReactDOM.render(
     </BrowserRouter>,
     document.getElementById('index')
 );
+
+

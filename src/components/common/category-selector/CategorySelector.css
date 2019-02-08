@@ -1,0 +1,88 @@
+.category-selector {
+  width: 100%;
+  float: left;
+  position: relative;
+}
+.category-selector .disp-s {
+  float: left;
+  width: 100%;
+  border: 1px solid #333;
+  margin: 0;
+  height: 35px;
+}
+.category-selector .disp-s:hover {
+  cursor: pointer;
+}
+.category-selector .disp-s .disp-text {
+  border: none !important;
+  padding: 5px 10px;
+  display: inline-block;
+  width: 100%;
+  text-align: left;
+  white-space: nowrap;
+}
+.category-selector .input-s {
+  float: left;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  border: 1px solid #333;
+}
+.category-selector .input-s .search-input {
+  float: left;
+  height: 34px;
+  font-size: 14px;
+  width: 100%;
+  margin: 0 0 0 0;
+}
+.category-selector .input-s .search-input:focus {
+  border: none !important;
+}
+
+.category-selector .dropdown-s {
+  float: left;
+  width: 220px;
+  margin: 0;
+  padding: 10px;
+  position: absolute;
+  top: 40px;
+  left: 0;
+  border: none;
+  z-index: 1;
+  background: #e5e4eb;
+  overflow-y: auto;
+  overflow-x: auto;
+  height: 250px;
+  box-shadow: 0 0 10px #797979;
+  border-radius: 5px;
+}
+.category-selector .dropdown-s .s-item {
+  float: left;
+  width: 100%;
+  border-bottom: none;
+  background: #e5e4eb;
+  padding: 5px 0;
+}
+.category-selector .dropdown-s .s-item:hover {
+  cursor: pointer;
+  background: #ccc;
+}
+.category-selector .dropdown-s .s-item span {
+  float: left;
+  width: 100%;
+  border: none;
+  text-align: left;
+  white-space: nowrap;
+}
+@media (max-width: 767px) {
+  .category-selector .disp-s {
+    width: 40px;
+    overflow: hidden;
+    text-align: center;
+    padding: 0 5px;
+    margin: 0 5px;
+  }
+  .category-selector .dropdown-s {
+    width: 150px;
+  }
+}
