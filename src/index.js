@@ -12,7 +12,7 @@ import BetalistLP from "./components/LPs/betalist/landingpage";
 import PricingPage from "./components/pricingpage";
 import { BrowserRouter } from 'react-router-dom';
 import { Switch, Route, Redirect } from 'react-router-dom';
-import BankLink from "./components/bankLink";
+import BankLink from "./components/BankLink/bankLink";
 import Footer from "./components/partials/footer";
 import TermsPage from "./components/terms";
 import Amplitude from 'react-amplitude';
@@ -22,6 +22,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 class App extends React.Component {
     constructor(props) {
         super(props);
+        // Store user info
         this.state = {
             isLoggedin: false,
             phone: null,
@@ -34,6 +35,10 @@ class App extends React.Component {
         this.logoutCallback = this.logoutCallback.bind(this);
     }
 
+    /**
+   * @desc Pass loginInfo into state
+   * @param {*} loginInfo
+   */
     loginCallback(loginInfo) {
         this.setState({ isLoggedin: loginInfo.isLoggedin });
         this.setState({ phone: loginInfo.phone });
@@ -44,9 +49,11 @@ class App extends React.Component {
         Amplitude.setUserProperties({'phone number': loginInfo.phone, 'firstname': loginInfo.firstname, 'lastname': loginInfo.lastname, 'email': loginInfo.email});
     }
 
+    /**
+   * @desc Logout - set isLoggedin to false
+   */
     logoutCallback() {
         this.setState({isLoggedin: false});
-        console.log(this.state.isLoggedin);
     }
 
     render() {

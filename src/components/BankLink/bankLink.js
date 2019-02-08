@@ -1,18 +1,21 @@
+import axios from 'axios';
 import PlaidLink from 'react-plaid-link';
 import React from "react";
-import * as styles from "../styles";
+import * as styles from "./styles";
 import Amplitude from 'react-amplitude';
-import {Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavLink} from 'reactstrap';
+import KeeperNav from "./nav";
+
+// Segment library for analytics
 var Analytics = require('analytics-node');
 var analytics = new Analytics('tW3P77ewudDePkXW1r8vbkleEp0ME3H5');
-
 
 const PLAID_PUBLIC_KEY = "36bd55c50f7421ae5ef190a4fa03fd";
 const SERVER_URL = process.env.SERVER_HOST || "https://writeitoff.herokuapp.com/"
 
-class PlaidFace extends React.Component {
+class BankLink extends React.Component {
     constructor(props) {
         super(props);
+        // Store bank info
         this.state = {
             institutionName: null,
             institutionId: null,
@@ -25,22 +28,14 @@ class PlaidFace extends React.Component {
         this.metadataCallback = this.metadataCallback.bind(this);
         this.handleOnSuccess = this.handleOnSuccess.bind(this);
         this.getBankSummary = this.getBankSummary.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
-        this.toggle = this.toggle.bind(this);
         this.handlePlaidEvent = this.handlePlaidEvent.bind(this);
     }
 
-    toggle() {
-        this.setState({
-          isOpen: !this.state.isOpen});
-    }
-
-    handleSubmit(event) {
-        Amplitude.logEvent('log out');        
-        Amplitude.resetUserId();
-        this.props.logoutCallback();
-    }
-
+    /**
+   * @desc Send event to amplitude on Plaid Event
+   * @param {*} eventName
+   * @param {*} metadata
+   */
     handlePlaidEvent(eventName, metadata) {
         console.log(eventName);
         console.log(metadata);
@@ -49,6 +44,10 @@ class PlaidFace extends React.Component {
         }
     }
 
+    /**
+   * @desc set bank info into state
+   * @param {*} metadata
+   */
     metadataCallback(metadata) {
         this.setState({ institutionName: metadata.institution.name });
         this.setState({ institutionId: metadata.institution.institution_id });
@@ -57,23 +56,23 @@ class PlaidFace extends React.Component {
         this.setState({ accountSubType: metadata.accounts.subtype });
     }
 
+    /**
+   * @desc Retrieve array of bank accounts linked
+   * @param {*} props
+   */
     getBankSummary(props) {
-        fetch(SERVER_URL + 'get_bank_summary', {
-            method: "POST",
-            headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify({
+        axios
+            .post(SERVER_URL + 'get_bank_summary', {
                 phone: props.phone,
                 password: props.userToken
-              })
-        }).then(results => {
-            return results.json();
-        }).then(data => {
-            const accts = [];
-            for (let acct in data) {
-                accts.push(data[acct]["institution_name"])
-            }
-            this.setState({allBanks: [...accts]})
-        });
+            }).then(res => {
+                const accts = [];
+                const data = res.data
+                for (let acct in data) {
+                    accts.push(data[acct]["institution_name"])
+                }
+                this.setState({allBanks: [...accts]})
+            })
         const cleaned = ('' + props.phone).replace(/\D/g, '');
         const match = cleaned.match(/^(1|)?(\d{3})(\d{3})(\d{4})$/);
         const phone = '1' + [match[2], match[3], match[4]].join('');
@@ -82,10 +81,19 @@ class PlaidFace extends React.Component {
         Amplitude.logEvent('navigation: view dashboard');
     }
 
+    /**
+   * @desc On Recieving Props
+   * @param {*} nextProps
+   */
     componentWillReceiveProps(nextProps) {
         this.getBankSummary(nextProps)
     }
 
+    /**
+   * @desc Handle on Plaid bank link success
+   * @param {*} publicToken
+   * @param {*} metadata
+   */
     handleOnSuccess(publicToken, metadata) {
         const promise = new Promise((resolve, reject) => {
             console.log(metadata)
@@ -108,23 +116,26 @@ class PlaidFace extends React.Component {
         });
     }
 
+    /**
+   * @desc Post request to send text alert on user link
+   */
     sendBankLinkText() {
-        fetch(SERVER_URL + 'bank-link-sms', {
-            method: "POST",
-            headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify({
+        axios
+            .post(SERVER_URL + 'bank-link-sms', {
                 phone: this.props.phone,
                 firstname: this.props.firstname,
-                institutionName: this.state.institutionName,
+                institutionName: this.state.institutionName
             })
-        })
     }
 
+    /**
+   * @desc get plaid access token from backend
+   * @param {*} publicToken
+   */
     getAccessToken(publicToken) {
-        fetch(SERVER_URL + 'get_access_token', {
-            method: "POST",
-            headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify({
+        event.preventDefault();
+        axios
+            .post(SERVER_URL + 'get_access_token', {
                 public_token: publicToken,
                 phone: this.props.phone,
                 institution_name: this.state.institutionName,
@@ -132,13 +143,9 @@ class PlaidFace extends React.Component {
                 account_id: this.state.accountId,
                 account_type: this.state.accountType,
                 account_subtype: this.state.accountSubType
-              })
-        }).then(results => {
-            return results.json();
-        }).then(data => {
-            this.getBankSummary(this.props)
-        });
-        event.preventDefault();
+            }).then(res => {
+                this.getBankSummary(this.props)
+            })
     }
 
     render() {
@@ -177,25 +184,7 @@ class PlaidFace extends React.Component {
 
         return (
             <div style={styles.outerContainer} className="container">
-                <div>
-                    <Navbar color="#F7F7F7" light expand="lg">
-                      <NavbarBrand style={styles.logo} href="/">
-                            <img style={styles.logoIcon} src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/320/google/146/money-with-wings_1f4b8.png"/>
-                            keeper
-                      </NavbarBrand>
-                      <NavbarToggler onClick={this.toggle} />
-                      <Collapse isOpen={this.state.isOpen} navbar>
-                        <Nav className="ml-auto" navbar>
-                            <NavLink style={styles.navLink} href="https://blog.keepertax.com">
-                                <p >blog</p> 
-                            </NavLink>
-                            <NavLink style={styles.navLink} href="https://keepertax.com">
-                                <p >log out</p>
-                            </NavLink>
-                        </Nav>
-                      </Collapse>
-                    </Navbar>
-                </div>
+                <KeeperNav/>
 
                 <div className="col-8 container" >
                     <p style={styles.sectionTitlePlaidFace}> 
@@ -204,9 +193,10 @@ class PlaidFace extends React.Component {
                     <p style={styles.plaidfaceSubtitle}>
                         Link all financial accounts used to make work-related purchases.
                     </p>
-
+                        {/* List of bank accounts already linked */}
                         {viewBanks}
                         
+                        {/* PlaidLink Component for bank links */}
                         <div className="d-flex">
                             <PlaidLink
                                 style={styles.btnStyleBankLink}
@@ -223,6 +213,7 @@ class PlaidFace extends React.Component {
                             </PlaidLink>
                         </div>
                         
+                        {/* show this once user has linked at least 1 account */}
                         {noMoreCards}
                     </div>
             </div>
@@ -230,4 +221,4 @@ class PlaidFace extends React.Component {
     }
 }
 
-export default PlaidFace;
+export default BankLink;

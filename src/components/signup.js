@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React from "react";
 import * as styles from "../styles";
 import Amplitude from 'react-amplitude';
@@ -35,55 +36,47 @@ class SignupPage extends React.Component {
         const phone = '1' + [match[2], match[3], match[4]].join('');
         const SERVER_URL = process.env.SERVER_HOST || "https://writeitoff.herokuapp.com/"
 
-        fetch(SERVER_URL + 'signup', {
-            method: "POST",
-            headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify({
+        axios
+            .post(SERVER_URL + 'signup', {
                 firstname: this.state.firstname,
                 lastname: this.state.lastname,
                 email: this.state.email,
                 phone: this.state.phone,
                 password: this.state.password
-              })
-        }).then(results => {
-            if (!results.ok) {
+            }).then(res => {
+                this.props.loginCallback(res.data)
+            }).catch(error => {
+                console.log(error);
                 this.setState({isLoading: 'fail'});
-                throw Error(results.statusText);
-            }
-            return results.json();
-        }).then(data => {
-            this.props.loginCallback(data)
-        }).then(() => {
-            fetch(SERVER_URL + 'welcome-sms', {
-                method: "POST",
-                headers: {'Content-Type': 'application/json'},
-                body: JSON.stringify({
-                    firstname: this.state.firstname,
-                    phone: this.state.phone,
+            }).then(() => {
+                axios
+                    .post(SERVER_URL + 'welcome-sms', {
+                        firstname: this.state.firstname,
+                        phone: this.state.phone,
                     })
-                });
-        });
-
+            })
+        
         event.preventDefault();
         Amplitude.init('212ed2feb2663c8004ae16498974992b', phone);
         Amplitude.setUserProperties({'email': this.state.email, 'lastname': this.state.lastname});
         Amplitude.logEvent('set password');
 
         analytics.track({
-          userId: phone,
-          event: 'Set password'
+            userId: phone,
+            event: 'Set password'
         });
 
         analytics.identify({
-          userId: phone,
-          traits: {
+            userId: phone,
+            traits: {
             first_name: this.state.firstname,
             last_name: this.state.lastname,
             email: this.state.email,
             createdAt: new Date(),
             Stage: 'Signed up'
-          }
+            }
         });
+        
     }
 
     render() {

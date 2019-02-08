@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React from "react";
 import * as styles from "../styles";
 import Amplitude from 'react-amplitude';
@@ -26,31 +27,25 @@ class LoginPage extends React.Component {
     handleSubmit(event) {
         this.setState({isLoading: true});
         const SERVER_URL = process.env.SERVER_HOST || "https://writeitoff.herokuapp.com/"
-        console.log(SERVER_URL)
 
         const cleaned = ('' + this.state.phone).replace(/\D/g, '');
 	    const match = cleaned.match(/^(1|)?(\d{3})(\d{3})(\d{4})$/);
         const phone = '1' + [match[2], match[3], match[4]].join('');
-        
-        fetch(SERVER_URL + 'signin', {
-            method: "POST",
-            headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify({
+
+        axios
+            .post(SERVER_URL + 'signin', {
                 phone: phone,
                 password: this.state.password
-              })
-        }).then(results => {
-            if (!results.ok) {
+            }).then(res => {
+                this.props.loginCallback(res.data)
+            }).catch(error => {
+                console.log(error);
                 this.setState({isLoading: 'fail'});
-                throw Error(results.statusText);
-            }
-            return results.json();
-        }).then(data => {
-            this.props.loginCallback(data)
-        });
+              });
+        
         event.preventDefault();
         Amplitude.init('212ed2feb2663c8004ae16498974992b', phone);
-        Amplitude.logEvent('log in');        
+        Amplitude.logEvent('log in'); 
     }
 
     render() {
