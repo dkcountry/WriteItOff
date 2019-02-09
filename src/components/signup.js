@@ -44,7 +44,9 @@ class SignupPage extends React.Component {
                 phone: this.state.phone,
                 password: this.state.password
             }).then(res => {
-                this.props.loginCallback(res.data)
+                this.props.loginCallback(res.data, cb => {
+                    this.props.history.push('/linked-accounts');
+                  });
             }).catch(error => {
                 console.log(error);
                 this.setState({isLoading: 'fail'});

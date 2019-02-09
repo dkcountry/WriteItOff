@@ -37,7 +37,9 @@ class LoginPage extends React.Component {
                 phone: phone,
                 password: this.state.password
             }).then(res => {
-                this.props.loginCallback(res.data)
+                this.props.loginCallback(res.data, cb => {
+                    this.props.history.push('/dashboard');
+                  });
             }).catch(error => {
                 console.log(error);
                 this.setState({isLoading: 'fail'});
@@ -49,7 +51,7 @@ class LoginPage extends React.Component {
     }
 
     render() {
-        let loadingView = <div></div>
+        let loadingView = <div />;
         if (this.state.isLoading) {
             loadingView = <div>Loading...</div>
         }

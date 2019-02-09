@@ -1,6 +1,7 @@
 import React from "react";
 import * as styles from "../../styles";
 import {Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavLink} from 'reactstrap';
+import { Link } from "react-router-dom";
 
 
 class KeeperNav extends React.Component {
@@ -29,9 +30,9 @@ class KeeperNav extends React.Component {
               <NavbarToggler onClick={this.toggle} />
               <Collapse isOpen={this.state.isOpen} navbar>
                 <Nav className="ml-auto" navbar>
-                    <NavLink style={styles.navLink} href="https://blog.keepertax.com">
-                        <p >blog</p> 
-                    </NavLink>
+                    <Link style={styles.navLink} to="/linked-accounts">
+                            <p>linked accounts</p>
+                    </Link>
                     <NavLink style={styles.navLink} href="https://keepertax.com">
                         <p >log out</p>
                     </NavLink>

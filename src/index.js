@@ -17,6 +17,7 @@ import Footer from "./components/partials/footer";
 import TermsPage from "./components/terms";
 import Amplitude from 'react-amplitude';
 import 'bootstrap/dist/css/bootstrap.css';
+import Dashboard from './components/Dashboard/dashboard';
 
 
 class App extends React.Component {
@@ -36,18 +37,30 @@ class App extends React.Component {
     }
 
     /**
-   * @desc Pass loginInfo into state
+   * @desc Pass LoginInfo into state
    * @param {*} loginInfo
    */
-    loginCallback(loginInfo) {
-        this.setState({ isLoggedin: loginInfo.isLoggedin });
-        this.setState({ phone: loginInfo.phone });
-        this.setState({ userToken: loginInfo.userToken });
-        this.setState({ firstname: loginInfo.firstname });
-        this.setState({ lastname: loginInfo.lastname });
-        this.setState({ email: loginInfo.email });
-        Amplitude.setUserProperties({'phone number': loginInfo.phone, 'firstname': loginInfo.firstname, 'lastname': loginInfo.lastname, 'email': loginInfo.email});
-    }
+    loginCallback(loginInfo, callback) {
+        const { isLoggedIn, firstname, lastname, email, phone, userToken } = loginInfo;
+        Amplitude.setUserProperties({
+          'phone number': loginInfo.phone,
+          firstname: loginInfo.firstname,
+          lastname: loginInfo.lastname,
+          email: loginInfo.email
+        });
+        const stateObj = {
+          isLoggedin: isLoggedIn,
+          firstname,
+          lastname,
+          email,
+          phone,
+          userToken
+        };
+        this.setState(stateObj, () => {
+          callback(1);
+        });
+      }
+    
 
     /**
    * @desc Logout - set isLoggedin to false
@@ -57,34 +70,63 @@ class App extends React.Component {
     }
 
     render() {
-        if (this.state.isLoggedin === false) {
+        const { isLoggedin } = this.state;
+        const DashboardPage = props => {
             return (
-                <div>
-                    <Switch>
-                        <Route exact path='/' component={MainLP}/>
-                        <Route exact path='/betalist' component={BetalistLP}/>
-                        <Route exact path='/real-estate-agent' component={RealestateLP}/>
-                        <Route exact path='/se-tax-guy' component={TyroneLP}/>
-                        <Route exact path='/scooter-map-promo' component={ScooterMapLP}/>
-                        <Route exact path='/se-tax-guy/pricing' component={TyronePricing}/>
-                        <Route exact path='/yc-promo' component={YCpromoLP} />
-                        <Route exact path='/pricing' component={PricingPage} />
-                        <Route exact path='/terms' component={TermsPage} />
-                        <Route exact path='/signup' render={(props) => <SignupPage {...props} loginCallback={this.loginCallback}/>}/>
-                        <Route exact path='/index.html' render={(props) => <SignupPage {...props} loginCallback={this.loginCallback}/>}/>                        
-                        <Route exact path='/login' render={(props) => <LoginPage {...props} loginCallback={this.loginCallback}/>}/>
-                    </Switch>
-                    <Footer />
-                </div>
-            )}
-        else {
+              <Dashboard
+                {...props}
+                isLoggedin={isLoggedin}
+                firstname={this.state.firstname}
+                lastname={this.state.lastname}
+                phone={this.state.phone}
+                email={this.state.email}
+                userToken={this.state.userToken}
+                logoutCallback={this.logoutCallback}
+              />
+            );
+        };
+        const BankLinkPage = props => {
             return (
-                <div>
-                    <BankLink firstname={this.state.firstname} lastname={this.state.lastname} phone={this.state.phone} email={this.state.email} userToken={this.state.userToken} logoutCallback={this.logoutCallback}/>
-                    <Footer />
-                </div>
-        )}
-    }
-}
+              <BankLink
+                firstname={this.state.firstname}
+                lastname={this.state.lastname}
+                phone={this.state.phone}
+                email={this.state.email}
+                userToken={this.state.userToken}
+                logoutCallback={this.logoutCallback}
+                {...props}
+              />
+            );
+          };
 
-ReactDOM.render(<BrowserRouter><App /></BrowserRouter>, document.getElementById("index"));
+          return (
+            <div>
+              <Switch>
+                <Route exact path='/' component={MainLP} />
+                <Route path='/betalist' component={BetalistLP} />
+                <Route path='/real-estate-agent' component={RealestateLP} />
+                <Route path='/se-tax-guy' component={TyroneLP} />
+                <Route path='/scooter-map-promo' component={ScooterMapLP} />
+                <Route path='/se-tax-guy/pricing' component={TyronePricing} />
+                <Route path='/yc-promo' component={YCpromoLP} />
+                <Route path='/pricing' component={PricingPage} />
+                <Route path='/terms' component={TermsPage} />
+                <Route path='/signup' render={props => <SignupPage {...props} loginCallback={this.loginCallback} />} />
+                <Route path='/index.html' render={props => <SignupPage {...props} loginCallback={this.loginCallback} />} />
+                <Route path='/login' render={props => <LoginPage {...props} loginCallback={this.loginCallback} />} />
+                <Route 
+                    path='/dashboard'
+                    render={props => (isLoggedin === true) ? (<DashboardPage />) : (<Redirect to="/" />)}
+                />
+                <Route
+                    path='/linked-accounts'
+                    render={props => (isLoggedin === true) ? (<BankLinkPage/>) : (<Redirect to="/" />)}
+                />
+              </Switch>
+              <Footer />
+            </div>
+          );
+        }
+      }
+      
+ReactDOM.render(<BrowserRouter><App /></BrowserRouter>, document.getElementById('index'));

@@ -80,12 +80,17 @@ class BankLink extends React.Component {
         Amplitude.setUserProperties({'phone number': props.phone, 'firstname': this.props.firstname, 'lastname': this.props.lastname});
         Amplitude.logEvent('navigation: view dashboard');
     }
+    
+    componentDidMount() {
+        this.getBankSummary(this.props)
+    }
 
     /**
    * @desc On Recieving Props
    * @param {*} nextProps
    */
     componentWillReceiveProps(nextProps) {
+        console.log(nextProps)
         this.getBankSummary(nextProps)
     }
 
