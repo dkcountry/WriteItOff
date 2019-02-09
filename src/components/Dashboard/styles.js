@@ -23,9 +23,10 @@ export const pageHeading = {
 export const importantText = {
     "color": "#5a5a5a",
     "textAlign": "left",
-    "padding": "5px",
+    "paddingBottom": "5px",
     "borderBottom": "1px solid #5a5a5a",
-    "fontWeight": "600"
+    "fontWeight": "600",
+    "marginBottom": "50px"
 }
 
 export const expense = {
@@ -89,12 +90,11 @@ export const category = {
 }
 
 export const description = {
-    "width": "100%",
+    "float": "left",
+    "width": "25%",
     "background": "#e5e4eb",
     "color": "#000",
-    "padding": "5px",
-    "margin": "5px 0"
-
+    "padding": "0 10px",
 }
 
 export const pending = {

@@ -8,6 +8,8 @@ import { CopyToClipboard } from 'react-copy-to-clipboard';
 import moment from 'moment';
 import Loader from '../common/Loader';
 import './Dashboard.css';
+import MediaQuery from 'react-responsive';
+
 
 const statusArr = ['prob', 'maybe', 'yes', 'no', 'maybe*', '-'];
 
@@ -213,6 +215,8 @@ class Dashboard extends Component {
     return (
       <div style={styles.outerContainer} className='container'>
         <KeeperNav {...this.props} />
+
+        <MediaQuery query='(min-width: 769px)'>
         <div style={styles.containerStyle} className='container'>
           <div className='row align-items-start'>
             <div className='col-12 my-auto'>
@@ -231,14 +235,15 @@ class Dashboard extends Component {
                         {list.expenses.length > 0 &&
                           list.expenses.map((expense, expInd) => (
                             <div style={styles.lItem} key={`exp_i_${expInd}`}>
-                              <div className='status'>
+
+                              <div style={styles.status} className='col-1'>
                                 <StatusSelector
                                   items={statusArr}
                                   value={expense.status}
                                   onSelect={item => this._onStatusChange(item, listInd, expInd)}
                                 />
                               </div>
-                              <div className='amount'>
+                              <div style={styles.amount} className='col-2'>
                                 {(listInd !== listIndex || expInd !== amountIndex) && (
                                   <span onClick={e => this._onAmountClick(e, listInd, expInd)}>${expense.amount}</span>
                                 )}
@@ -256,27 +261,13 @@ class Dashboard extends Component {
                                   />
                                 )}
                               </div>
-                              <div className='category'>
-                                <CategorySelector
-                                  items={expenseCategories}
-                                  value={expense.keeper_category}
-                                  onSelect={item => this._onCategoryChange(item, listInd, expInd)}
-                                />
+                              <div style={styles.description} className='col-6'>
+                                {expense.clean_name}
                               </div>
-                              <div className='description'>
-                                <input
-                                  type='text'
-                                  className='txtbx'
-                                  name={`desc${expInd}`}
-                                  onChange={e => this._onTxtChange(e, listInd, expInd)}
-                                  onBlur={e => this._onTxtBlur(e, listInd, expInd)}
-                                  value={expense.clean_name}
-                                />
+                              <div style={styles.category} className='col-2'>
+                                {expense.keeper_category}
                               </div>
-                              <div className='pending'>
-                                <span>{expense.pending ? 'P' : '-'}</span>
-                              </div>
-                              <div className='control'>
+                              <div style={styles.control} className='col-1'>
                                 {expense.collapsed && (
                                   <span onClick={() => this._collapseAction(listInd, expInd)}>
                                     <i className='fa fa-angle-down' />
@@ -289,15 +280,10 @@ class Dashboard extends Component {
                                 )}
                               </div>
                               {expense.collapsed && (
-                                <div className='i-description'>
+                                <div style={styles.iDescription}>
                                   <p>
                                     <b>Raw Description:</b>
                                     <span> {expense.name}</span>
-                                    <CopyToClipboard text={expense.name} onCopy={() => alert('Copied to clipboard!')}>
-                                      <button className='copy-btn'>
-                                        <i className='fa fa-copy' />
-                                      </button>
-                                    </CopyToClipboard>
                                   </p>
                                   <p>
                                     <b>Pliad Category:</b>
@@ -322,6 +308,101 @@ class Dashboard extends Component {
             </div>
           </div>
         </div>
+        </MediaQuery>
+
+
+
+
+        <MediaQuery query='(max-width: 768px)'>
+        <div style={styles.containerStyle} className='container'>
+          <div className='row align-items-start'>
+            <div className='col-12 my-auto'>
+              <h1 style={styles.pageHeading}>Hi, {firstname}</h1>
+              <p style={styles.importantText}>Here is your January 2019 Tax Write off summary! Any modifications you make will be saved.</p>
+              <div style={styles.expense}>
+                {loader && <Loader />}
+                {!loader &&
+                  expenseList.length > 0 &&
+                  expenseList.map((list, listInd) => (
+                    <div style={styles.eSection} key={`exp_${listInd}`}>
+                      <div style={styles.sHeader}>
+                        <span>{this.__displayDate(list.date)}</span>
+                      </div>
+                      <div style={styles.sList}>
+                        {list.expenses.length > 0 &&
+                          list.expenses.map((expense, expInd) => (
+                            <div style={styles.lItem} key={`exp_i_${expInd}`}>
+
+                              <div style={styles.status} className='col-1'>
+                                <StatusSelector
+                                  items={statusArr}
+                                  value={expense.status}
+                                  onSelect={item => this._onStatusChange(item, listInd, expInd)}
+                                />
+                              </div>
+                              <div style={styles.amount} className='col-2'>
+                                {(listInd !== listIndex || expInd !== amountIndex) && (
+                                  <span onClick={e => this._onAmountClick(e, listInd, expInd)}>${expense.amount}</span>
+                                )}
+                                {listIndex === listInd && amountIndex === expInd && (
+                                  <input
+                                    type='text'
+                                    className='txtbx'
+                                    name='amount'
+                                    onChange={e => this._onAmountChange(e, listInd, expInd)}
+                                    onBlur={e => this._onAmountBlur(e, listInd, expInd)}
+                                    value={expense.amount}
+                                    ref={input => {
+                                      this.expenseAmountInput = input;
+                                    }}
+                                  />
+                                )}
+                              </div>
+                              <div style={styles.description} className='col-6'>
+                                {expense.clean_name}
+                              </div>
+                              <div style={styles.control} className='col-1'>
+                                {expense.collapsed && (
+                                  <span onClick={() => this._collapseAction(listInd, expInd)}>
+                                    <i className='fa fa-angle-down' />
+                                  </span>
+                                )}
+                                {!expense.collapsed && (
+                                  <span onClick={() => this._collapseAction(listInd, expInd)}>
+                                    <i className='fa fa-angle-left' />
+                                  </span>
+                                )}
+                              </div>
+                              {expense.collapsed && (
+                                <div style={styles.iDescription}>
+                                  <p>
+                                    <b>Raw Description:</b>
+                                    <span> {expense.name}</span>
+                                  </p>
+                                  <p>
+                                    <b>Pliad Category:</b>
+                                    <span> {expense.category}</span>
+                                  </p>
+                                  <p>
+                                    <b>Location:</b>
+                                    <span> {expense.location}</span>
+                                  </p>
+                                  <p>
+                                    <b>Account / Bank Name:</b>
+                                    <span> {expense.bank_acct_name}</span>
+                                  </p>
+                                </div>
+                              )}
+                            </div>
+                          ))}
+                      </div>
+                    </div>
+                  ))}
+              </div>
+            </div>
+          </div>
+        </div>
+        </MediaQuery>
       </div>
     );
   }
