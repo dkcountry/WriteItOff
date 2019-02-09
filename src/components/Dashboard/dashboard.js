@@ -221,7 +221,7 @@ class Dashboard extends Component {
           <div className='row align-items-start'>
             <div className='col-12 my-auto'>
               <h1 style={styles.pageHeading}>Hi, {firstname}</h1>
-              <p style={styles.importantText}>Here is your January 2019 Tax Write off summary! Any modifications you make will be saved.</p>
+              <p style={styles.importantText}>Here are the write offs we've found for you in January 2019. This dashboard is functional but still under construction 👷 </p>
               <div style={styles.expense}>
                 {loader && <Loader />}
                 {!loader &&
@@ -234,14 +234,10 @@ class Dashboard extends Component {
                       <div style={styles.sList}>
                         {list.expenses.length > 0 &&
                           list.expenses.map((expense, expInd) => (
-                            <div style={styles.lItem} key={`exp_i_${expInd}`}>
+                            <div style={styles.lItem} className='row' key={`exp_i_${expInd}`}>
 
-                              <div style={styles.status} className='col-1'>
-                                <StatusSelector
-                                  items={statusArr}
-                                  value={expense.status}
-                                  onSelect={item => this._onStatusChange(item, listInd, expInd)}
-                                />
+                              <div style={styles.status} className='col-2'>
+                                {expense.status}
                               </div>
                               <div style={styles.amount} className='col-2'>
                                 {(listInd !== listIndex || expInd !== amountIndex) && (
@@ -261,7 +257,7 @@ class Dashboard extends Component {
                                   />
                                 )}
                               </div>
-                              <div style={styles.description} className='col-6'>
+                              <div style={styles.description} className='col-5'>
                                 {expense.clean_name}
                               </div>
                               <div style={styles.category} className='col-2'>
@@ -311,14 +307,12 @@ class Dashboard extends Component {
         </MediaQuery>
 
 
-
-
         <MediaQuery query='(max-width: 768px)'>
         <div style={styles.containerStyle} className='container'>
           <div className='row align-items-start'>
             <div className='col-12 my-auto'>
               <h1 style={styles.pageHeading}>Hi, {firstname}</h1>
-              <p style={styles.importantText}>Here is your January 2019 Tax Write off summary! Any modifications you make will be saved.</p>
+              <p style={styles.importantText}>Here are the write offs we've found for you in January 2019. This dashboard is functional but still under construction 👷 </p>
               <div style={styles.expense}>
                 {loader && <Loader />}
                 {!loader &&
@@ -331,16 +325,12 @@ class Dashboard extends Component {
                       <div style={styles.sList}>
                         {list.expenses.length > 0 &&
                           list.expenses.map((expense, expInd) => (
-                            <div style={styles.lItem} key={`exp_i_${expInd}`}>
+                            <div style={styles.lItem} className='row' key={`exp_i_${expInd}`}>
 
-                              <div style={styles.status} className='col-1'>
-                                <StatusSelector
-                                  items={statusArr}
-                                  value={expense.status}
-                                  onSelect={item => this._onStatusChange(item, listInd, expInd)}
-                                />
+                              <div style={styles.status} className='col-3'>
+                                {expense.status}
                               </div>
-                              <div style={styles.amount} className='col-2'>
+                              <div style={styles.amount} className='col-3'>
                                 {(listInd !== listIndex || expInd !== amountIndex) && (
                                   <span onClick={e => this._onAmountClick(e, listInd, expInd)}>${expense.amount}</span>
                                 )}
@@ -358,7 +348,7 @@ class Dashboard extends Component {
                                   />
                                 )}
                               </div>
-                              <div style={styles.description} className='col-6'>
+                              <div style={styles.description} className='col-4'>
                                 {expense.clean_name}
                               </div>
                               <div style={styles.control} className='col-1'>

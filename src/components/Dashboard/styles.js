@@ -59,7 +59,7 @@ export const sHeader = {
 export const sList = {
     "float": "left",
     "width": "100%",
-    "height": "auto"
+    "height": "auto",
 }
 
 export const lItem = {
@@ -68,7 +68,8 @@ export const lItem = {
     "padding": "10px",
     "textAlign": "left",
     "background": "#e5e4eb",
-    "fontSize": "14px"
+    "fontSize": "14px",
+    "marginLeft": "0px"
 
 }
 
