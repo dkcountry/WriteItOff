@@ -22,6 +22,7 @@ class BankLink extends React.Component {
             accountId: null,
             accountType: null,
             accountSubType: null,
+            subacct_ids: null,
             allBanks: [],
             isOpen: false
         }
@@ -37,8 +38,6 @@ class BankLink extends React.Component {
    * @param {*} metadata
    */
     handlePlaidEvent(eventName, metadata) {
-        console.log(eventName);
-        console.log(metadata);
         if (metadata.request_id != null) {
             Amplitude.logEvent('bank link attempt', {'request_id': metadata.request_id});
         }
@@ -49,11 +48,16 @@ class BankLink extends React.Component {
    * @param {*} metadata
    */
     metadataCallback(metadata) {
+        const subacct_ids = []
+        metadata.accounts.forEach(function(item, i) {
+            subacct_ids.push(item.id)
+        })
         this.setState({ institutionName: metadata.institution.name });
         this.setState({ institutionId: metadata.institution.institution_id });
         this.setState({ accountId: metadata.account_id });
         this.setState({ accountType: metadata.accounts.type });
         this.setState({ accountSubType: metadata.accounts.subtype });
+        this.setState({ subacct_ids: JSON.stringify(subacct_ids)})
     }
 
     /**
@@ -90,7 +94,6 @@ class BankLink extends React.Component {
    * @param {*} nextProps
    */
     componentWillReceiveProps(nextProps) {
-        console.log(nextProps)
         this.getBankSummary(nextProps)
     }
 
@@ -101,7 +104,6 @@ class BankLink extends React.Component {
    */
     handleOnSuccess(publicToken, metadata) {
         const promise = new Promise((resolve, reject) => {
-            console.log(metadata)
             this.metadataCallback(metadata);
             resolve("nice");
         });
@@ -147,7 +149,8 @@ class BankLink extends React.Component {
                 institution_id: this.state.institutionId,
                 account_id: this.state.accountId,
                 account_type: this.state.accountType,
-                account_subtype: this.state.accountSubType
+                account_subtype: this.state.accountSubType, 
+                subacct_ids: this.state.subacct_ids
             }).then(res => {
                 this.getBankSummary(this.props)
             })
