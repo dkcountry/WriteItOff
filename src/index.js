@@ -18,6 +18,7 @@ import TermsPage from "./components/terms";
 import Amplitude from 'react-amplitude';
 import 'bootstrap/dist/css/bootstrap.css';
 import Dashboard from './components/Dashboard/dashboard';
+import HttpsRedirect from 'react-https-redirect';
 
 
 class App extends React.Component {
@@ -129,4 +130,4 @@ class App extends React.Component {
         }
       }
       
-ReactDOM.render(<BrowserRouter><App /></BrowserRouter>, document.getElementById('index'));
+ReactDOM.render(<HttpsRedirect><BrowserRouter><App /></BrowserRouter></HttpsRedirect>, document.getElementById('index'));
